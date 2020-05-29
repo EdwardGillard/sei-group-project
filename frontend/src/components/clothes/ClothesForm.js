@@ -168,7 +168,7 @@ const ClothesForm = ({ handleChange, handleSubmit, handleMultiChange, formData, 
                     onChange={args => onChange(args, index)}
                     preset={uploadClothesImage}
                     name="image"
-                    labelText="Please add an image (*2 minimum)"
+                    labelText="Please add an image"
                   />
                 )
               })
