@@ -21,7 +21,7 @@ const properties = {
 
 
 const SingleClothCard = ({ deleteComment, rentalPrice, handleContactSubmit, handleContactChange, contactModalOpen, toggleContact, commentsArray, title, clothId, profilePic, username, images, image, onFirstClick, onSecondClick, onClick, handleCommentSubmit, handleCommentChange, rating, commentText, brand, color, category, genderCategory, size, createdArticles }) => {
-  const slideImages = [image[0], image[1], image[2]]
+  const slideImages = [image[0], image[1]]
   const userName = username.charAt(0).toUpperCase() + username.slice(1)
   return (
     <>
@@ -35,11 +35,6 @@ const SingleClothCard = ({ deleteComment, rentalPrice, handleContactSubmit, hand
             </div>
             <div className="each-slide">
               <div style={{ 'backgroundImage': `url(${slideImages[1]})` }}>
-                <span></span>
-              </div>
-            </div>
-            <div className="each-slide">
-              <div style={{ 'backgroundImage': `url(${slideImages[2]})` }}>
                 <span></span>
               </div>
             </div>

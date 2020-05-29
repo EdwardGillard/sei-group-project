@@ -639,8 +639,9 @@ h3 {
 
 .Photo-user-rating {
   img {
-    max-width: 12vw;
-    max-height: 12vw;
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
     border-radius: 50%;
     margin: 2vw 2vw 0 0;
   }
@@ -698,6 +699,7 @@ h3 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     p {
       font-size: 1.5vw;
       text-align: center;
@@ -1411,6 +1413,11 @@ h3 {
   border-radius: 10px;
   margin: 0;
   color: white;
+}
+
+.User-location{
+  padding: 20px;
+  text-align: center;
 }
 
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {

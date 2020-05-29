@@ -3,6 +3,7 @@ const User = require('../models/user')
 const { notFound, unauthorized, duplicate, cantAddYourself } = require('../lib/errorMessages')
 const Article = require('../models/article')
 const Posts = require('../models/post')
+const Messages = require('../models/message')
 
 //! USERS
 //? Show User Dashboard
@@ -55,11 +56,19 @@ async function deleteUser(req, res, next) {
     const userId = req.currentUser
     const postsToDelete = await Posts.find({ user: req.currentUser._id })
     const articlesToDelete = await Article.find({ user: req.currentUser._id })
+    const messagesToDelete = await Messages.find({ user: req.currentUser._id })
+    const messagesToDeleteTwo = await Messages.find({ owner: req.currentUser._id })
     postsToDelete.forEach(post => {
       return post.remove()
     })
     articlesToDelete.forEach(article => {
       return article.remove()
+    })
+    messagesToDelete.forEach(message => {
+      return message.remove()
+    })
+    messagesToDeleteTwo.forEach(message => {
+      return message.remove()
     })
     const profileToDelete = await User.findByIdAndDelete(userId)
     if (!profileToDelete) throw new Error(notFound)
