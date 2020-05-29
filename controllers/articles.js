@@ -53,14 +53,12 @@ async function articlesShow(req, res, next) {
 async function articlesUpdate(req, res, next) {
   try {
     const article = await Article.findById(req.params.id)
-    console.log(req.params)
     if (!article) throw new Error(notFound)
     if (!article.user.equals(req.currentUser._id)) throw new Error(unauthorized)
     Object.assign(article, req.body)
     await article.save()
     res.status(202).json(article)
   } catch (err) {
-    console.log(err.message)
     next(err)
   }
 }

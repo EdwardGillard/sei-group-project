@@ -37,10 +37,8 @@ async function mapPinShow(req, res, next) {
   req.body.user = req.currentUser
   try {
     const pinId = req.params.pinId
-    console.log(pinId)
     const user = await User.findById(req.currentUser)
     const mapped = user.pins.id(pinId)
-    console.log(mapped)
     if (!mapped) throw new Error(notFound)
     res.status(200).json(mapped)
   } catch (err) {
@@ -55,11 +53,9 @@ async function mapPinUpdate(req, res, next) {
   req.body.user = req.currentUser
   try {
     const pinId = req.params.pinId
-    console.log(pinId)
     const user = await User.findById(req.currentUser)
     const pinToUpdate = user.pins.id(pinId)
     if (!pinToUpdate) throw new Error(notFound)
-    console.log(pinToUpdate)
     Object.assign(pinToUpdate, req.body)
     await user.save()
     res.status(202).json(pinToUpdate)

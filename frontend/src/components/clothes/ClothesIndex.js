@@ -103,7 +103,6 @@ class ClothesIndex extends React.Component {
         )
       })
       this.setState({ filteredClothes: filteredCats })
-      console.log(event.value)
     } else {
       return 'unavailable'
     }

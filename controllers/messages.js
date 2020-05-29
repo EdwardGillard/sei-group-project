@@ -12,10 +12,8 @@ async function createMessage(req, res, next) {
     req.body.user = await User.findById(req.currentUser)
     req.body.owner = await User.findById(req.params.userid)
     if (!req.body.owner) throw new Error(notFound)
-    console.log(req.body.user)
     if (req.body.user._id.equals(req.body.owner._id)) throw new Error(cantMessageYourself)
     const message = await Message.create(req.body)
-    console.log(message)
     await message.save()
     res.status(201).json(message)
   } catch (err) {

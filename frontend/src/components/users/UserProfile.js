@@ -79,7 +79,6 @@ class UserProfile extends React.Component {
   async getInbox() {
     try {
       const res = await inboxMessage()
-      console.log(res.data)
       this.setState({ messages: res.data })
     } catch (err) {
       console.log(err)

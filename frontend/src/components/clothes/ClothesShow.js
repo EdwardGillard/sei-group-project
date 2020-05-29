@@ -73,7 +73,6 @@ class ClothesShow extends React.Component {
       await postFavorite(addToList)
       toast(`You added '${this.state.cloth.title}' to your favourites`)
     } catch (err) {
-      console.log(err.response)
       toast(`${err.response.data.message}`)
     }
   }

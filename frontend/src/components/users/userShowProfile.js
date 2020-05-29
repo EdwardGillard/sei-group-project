@@ -38,7 +38,6 @@ class userShowProfile extends React.Component {
   getUser = async () => {
     try {
       const userId = this.props.match.params.username
-      console.log(userId)
       const res = await getUserProfile(userId)
       const userItems = res.data.createdArticles
       this.setState({ user: res.data, userItems, commentsArray: res.data.comments, })

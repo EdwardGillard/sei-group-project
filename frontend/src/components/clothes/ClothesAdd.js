@@ -60,7 +60,6 @@ class ClothesAdd extends React.Component {
       this.props.history.push(`/clothes/${res.data._id}`)
     } catch (err) {
       this.setState({ errors: err.response.data })
-      console.log(err.response);
     }
 
   }

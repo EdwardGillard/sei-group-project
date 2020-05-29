@@ -37,10 +37,8 @@ async function getProfile(req, res, next) {
 //* ERROR tested
 async function userUpdate(req, res, next) {
   try {
-    console.log('here')
     req.body.user = req.currentUser
     const userId = req.currentUser
-    console.log(req.body.username)
     const updatedProfile = await User.findByIdAndUpdate(userId, req.body, { new: true, runValidators: true, context: 'query' })
     if (!updatedProfile) throw new Error(unauthorized)
     res.status(202).json(updatedProfile)
@@ -77,7 +75,6 @@ async function deleteUser(req, res, next) {
 //* ERROR tested
 async function userCommentCreate(req, res, next) {
   try {
-    console.log('entered')
     req.body.user = req.currentUser
     const id = await req.params.id
     const user = await User.findById(id).populate('comments.user')
@@ -193,7 +190,6 @@ async function addUserToFavourites(req, res, next) {
     if (!user) throw new Error(unauthorized)
     const friend = await User.findById(req.body.friend)
     if (!friend) throw new Error(notFound)
-    console.log(user, friend)
     if (user._id.equals(friend._id)) throw new Error(cantAddYourself)
     if (user.favourites.favUsers.includes(friend._id)) throw new Error(duplicate)
     user.favourites.favUsers.push(friend)
@@ -230,7 +226,6 @@ async function addPostToFavourites(req, res, next) {
 async function removeArticleFromFavs(req, res, next) {
   try {
     const id = req.currentUser.id
-    console.log(req.currentUser)
     const user = await User.findById(id)
     if (!user) throw new Error(unauthorized)
     if (!user.favourites.favArticles.includes(req.params.id)) throw new Error(notFound)

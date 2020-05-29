@@ -14,7 +14,6 @@ class ImageUpload extends React.Component {
     data.append('upload_preset', preset)
     //* Axios request to send image to Cloudinary
     const res = await postImage(data)
-    console.log(res.data)
     //* Set state with link to image sent in response data
     this.setState({
       image: res.data.url

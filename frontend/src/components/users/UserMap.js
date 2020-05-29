@@ -71,7 +71,6 @@ class UserMap extends React.Component {
       this.toggleModal()
       this.setState({ formData: { ...this.state.formData, title: '', place: '', note: '' } })
     } catch (err) {
-      console.log('response errors', err.response)
       this.setState({ errors: err.response.data })
     }
   }
