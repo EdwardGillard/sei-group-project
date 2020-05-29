@@ -29,7 +29,7 @@ async function createMessage(req, res, next) {
 async function sendResponse(req, res, next) {
   try {
     req.body.user = req.currentUser
-    const message = await Message.findById(req.params.id).populate('response.user')
+    const message = await Message.findById(req.params.id)
     if (!message) throw new Error(notFound)
     if (!message.user.equals(req.currentUser._id) && !message.owner.equals(req.currentUser._id)) throw new Error(unauthorized)
     const response = req.body
@@ -60,7 +60,7 @@ async function getMessage(req, res, next) {
 //* ERROR tested
 async function getMessageThread(req, res, next) {
   try {
-    const messages = await Message.find().populate('user').populate('owner')
+    const messages = await Message.find().populate('user').populate('owner').populate('response.user')
     const filtered = await messages.filter(message => message.owner.equals(req.currentUser._id))
     const filteredtwo = await messages.filter(message => message.user.equals(req.currentUser._id))
     const full = filtered.concat(filteredtwo)

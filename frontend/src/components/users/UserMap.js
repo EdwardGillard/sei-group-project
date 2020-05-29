@@ -105,9 +105,7 @@ class UserMap extends React.Component {
               <h2>Add & save locations to remember later</h2>
             </div>
           </div>
-
           <div className="pin-details">
-
             {/* Map for user to view locations & drop pins */}
             <div className="map-page">
               <div className="Map">
@@ -119,8 +117,6 @@ class UserMap extends React.Component {
                   onClickDelete={this.deletePin}
                   name="location" />
               </div>
-
-
               {/* PinForm will pop up if a user decides to drop a pin on thr map */}
               <PinForm
                 handleChange={this.handleChange}
@@ -131,12 +127,8 @@ class UserMap extends React.Component {
                 modalStatus={this.state.modalOpen}
                 form={this.state.formData}
               />
-
-            </div>
-            <div className="map pad2">
             </div>
           </div>
-
         </div>
       </>
     )

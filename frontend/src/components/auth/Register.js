@@ -68,27 +68,15 @@ class Register extends React.Component {
 
     return (
       <>
-          {/* <section className="section">
-          <div className="container has-text-centered">
+        <div className="Page-head">
           <div className="Page-title">
-            <h1 className="title">KEBB Clothes</h1>
-            </div>
-            <div className="Page-subtitle">
-            <h2>
-              Join Us Now
-              </h2>
-              </div>
+            <h1>REGISTER</h1>
           </div>
-        </section> */}
-          <div className="Page-head">
-            <div className="Page-title">
-              <h1>REGISTER</h1>
-            </div>
-            <div className="Page-subtitle">
-              <h2>Join now and start enjoying to world of KEBB</h2>
-            </div>
+          <div className="Page-subtitle">
+            <h2>Join now and start enjoying to world of KEBB</h2>
           </div>
-          <div className="columns">
+        </div>
+        <div className="columns">
           <RegisterForm
             handlePostcodeChange={this.handlePostcodeChange}
             handleChange={this.handleChange}
@@ -96,8 +84,7 @@ class Register extends React.Component {
             errors={this.state.errors}
             {...this.state.formData}
           />
-</div>
-     
+        </div>
       </>
     )
   }

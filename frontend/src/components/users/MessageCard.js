@@ -1,10 +1,11 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
-const MessageCard = ({ user, text, createdAt, reply, _id, sendReply, replyModal, replyChange, response }) => {
+const MessageCard = ({ user, owner, text, createdAt, reply, _id, sendReply, replyModal, replyChange, response }) => {
   const edited = createdAt.split('T')
   const date = edited[0]
   const time = edited[1].split('.')[0]
+  const personOne = user.username.charAt(0).toUpperCase() + user.username.slice(1)
+  const personTwo = owner.username.charAt(0).toUpperCase() + owner.username.slice(1)
 
   return (
     <>
@@ -13,23 +14,23 @@ const MessageCard = ({ user, text, createdAt, reply, _id, sendReply, replyModal,
           <div className="Message-top">
             <img src={user.profilePic} alt={user.username} />
             <div className="Message-top-right">
-              <Link to={`/page/${user.username}`}><h4>From {user.username}</h4></Link>
-              <h5>{`${date} at ${time}`}:</h5>
+              <h4><a href={`/page/${user.username}`}>{personOne}</a> - <a href={`/page/${owner.username}`}>{personTwo}</a></h4>
             </div>
+            <img src={owner.profilePic} alt={owner.username} />
           </div>
           <div className="Message-text">
+            <h5><strong>{personOne}</strong>: {date} {time}</h5>
             <p>{text}</p>
-            <hr />
           </div>
           <div className="Message-reply">
             {response.map((res, i) =>
               <div key={i}>
-                <h5>reply: {date} {time}</h5>
+                <h5><strong>{res.user.username.charAt(0).toUpperCase() + res.user.username.slice(1)}</strong>: {date} {time}</h5>
                 <p>{res.text}</p>
                 <div className="Message-content">
                 </div>
               </div>)}
-            <button value={_id} onClick={reply} className="Reply-btn">Reply</button>
+            <button value={_id} onClick={reply} className="Tiny-Buttons">Reply</button>
           </div>
         </div>
         <div className="Message-reply-delete">

@@ -1,7 +1,7 @@
 //! Consts
-const port = 8000
+const port = 8001
 const dbURI = 'mongodb://localhost/clothes'
-const secret = 'bengasmells'
+const secret = 'KEBBforlife'
 
 //! Exports
 module.exports = {

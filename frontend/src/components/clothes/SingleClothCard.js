@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Slide } from 'react-slideshow-image'
 import { Link } from 'react-router-dom'
-import { isAuthenticated, isOwner } from '../../lib/auth'
+import { isAuthenticated } from '../../lib/auth'
 
 import Comments from '../common/Comments'
 import StarRating from '../common/StarRating'
@@ -20,11 +20,9 @@ const properties = {
 }
 
 
-const SingleClothCard = ({ deleteComment, rentalPrice, handleContactSubmit, handleContactChange, contactModalOpen, toggleContact, commentsArray, title, clothId, profilePic, username, images, image, onFirstClick, onSecondClick, onClick, handleCommentSubmit, handleCommentChange, rating, commentText, brand, color, category, genderCategory, size }) => {
-  const slideImages = [image[0], image[0], image[0]]
-
-  console.log(!isOwner());
-
+const SingleClothCard = ({ deleteComment, rentalPrice, handleContactSubmit, handleContactChange, contactModalOpen, toggleContact, commentsArray, title, clothId, profilePic, username, images, image, onFirstClick, onSecondClick, onClick, handleCommentSubmit, handleCommentChange, rating, commentText, brand, color, category, genderCategory, size, createdArticles }) => {
+  const slideImages = [image[0], image[1], image[2]]
+  const userName = username.charAt(0).toUpperCase() + username.slice(1)
   return (
     <>
       <section className="section">
@@ -48,7 +46,7 @@ const SingleClothCard = ({ deleteComment, rentalPrice, handleContactSubmit, hand
           </Slide>
         </div>
 
-        {isAuthenticated() && <button name="item" value={clothId} onClick={onClick} className="button is-small is-danger">Add to Favourites</button>}
+        {isAuthenticated() && <button name="item" value={clothId} onClick={onClick} className="fav-item-Button">Add to Favourites</button>}
         <br />
         {isAuthenticated() && <form onSubmit={handleCommentSubmit}>
           <div>
@@ -67,7 +65,7 @@ const SingleClothCard = ({ deleteComment, rentalPrice, handleContactSubmit, hand
           </div>
           <br />
           <div>
-            <button className="button is-small is-info">Submit Comment</button>
+            <button className="fav-item-Button">Submit Comment</button>
           </div>
         </form>}
         <div>
@@ -88,18 +86,18 @@ const SingleClothCard = ({ deleteComment, rentalPrice, handleContactSubmit, hand
                 <img src={profilePic} alt={username} />
               </p>
             </figure>
-            <p><strong>{username}</strong></p>
+            <p><strong>{userName}</strong></p>
           </div>
         </Link>
         <StarRating
-            rating={rating}
-            editing={false}
-          />
+          rating={rating}
+          editing={false}
+        />
         <div>
           <hr />
           <p><strong>Brand: </strong> {brand}</p>
           <p><strong>{category}: </strong> {genderCategory}</p>
-          <p><strong>Color: </strong> {color}</p>
+          <p><strong>Color:</strong> {color.map(col => <span>{col}, </span>)}</p>
           <p><strong>Size: </strong> {size}</p>
           <p><strong>Rental price: </strong> £{rentalPrice}</p>
         </div>
@@ -109,7 +107,7 @@ const SingleClothCard = ({ deleteComment, rentalPrice, handleContactSubmit, hand
             <Link to="/login">SIGN IN</Link>
             <p className="or"> OR </p>
             <Link to="/register">JOIN KEBB</Link>
-          </div>: <button onClick={toggleContact} className="button is-primary is-small">CONTACT USER</button> }
+          </div> : <button onClick={toggleContact} className="fav-item-Button">CONTACT USER</button>}
         </div>
         <div className={contactModalOpen ? "modal is-active" : "modal"}>
           <div className="field">
@@ -117,28 +115,22 @@ const SingleClothCard = ({ deleteComment, rentalPrice, handleContactSubmit, hand
               <div className="control">
                 <textarea name="text" onChange={handleContactChange} className="textarea is-medium is-primary" placeholder="Message..."></textarea>
               </div>
-              <button className="button is-small is-info">SEND</button>
+              <button className="fav-item-Button">SEND</button>
             </form>
           </div>
         </div>
         <hr />
-          <p>Other Items posted by {username}</p> <br/>
-        <div className="columns similar">
-          <div className="column is-one-quarter">
-            <a onClick={onFirstClick}>
-              <figure className="image">
-                <img src={images[0].image} alt={title} />
-              </figure>
+        <p>Other items posted by {userName}</p> <br />
+        <div className="Other-items-index">
+          {createdArticles.map(art => (
+            <a href={`/clothes/${art._id}`}>
+              <div className="My-items-card">
+                <div className="img">
+                  <img src={art.image[0]} alt={art.title} loading="lazy" width="255" height="255" />
+                </div>
+              </div>
             </a>
-          </div>
-
-          <div className="column is-one-quarter">
-            <a onClick={onSecondClick}>
-              <figure className="image">
-                <img src={images[1].image} alt={title} />
-              </figure>
-            </a>
-          </div>
+          ))}
         </div>
       </section>
     </>

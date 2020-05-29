@@ -6,9 +6,7 @@ import ImageUpload from '../common/ImageUpload'
 const EditProfilePicture = ({ onChange, onSubmit, toggleModal, modalOpen, profilePic }) => {
 
   return (
-    <div
-      className={modalOpen ? "Modal Modal-inactive" : "Modal"}
-    >
+    <div className={modalOpen ? "Modal Modal-inactive" : "Modal"}>
       <div className="Edit-profile-pic-form">
         <form
           className=""
@@ -20,7 +18,8 @@ const EditProfilePicture = ({ onChange, onSubmit, toggleModal, modalOpen, profil
                 <ImageUpload
                   onChange={onChange}
                   preset={uploadClothesImage}
-                  name="profilePic"
+                  name={profilePic}
+                  value={profilePic}
                 />
               </div>
             </div>

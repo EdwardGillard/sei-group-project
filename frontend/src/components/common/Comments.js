@@ -1,7 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
-import { isOwner} from '../../lib/auth'
+import { Link } from 'react-router-dom'
+import { isOwner } from '../../lib/auth'
 
 const Comments = ({ comment, deleteComment }) => {
 

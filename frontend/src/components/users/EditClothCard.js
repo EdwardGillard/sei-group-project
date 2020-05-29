@@ -11,11 +11,11 @@ const EditClothCard = ({ _id, title, image, deleteArticle }) => {
       <div className="Card-text">
         <Link to={`/clothes/${_id}/edit`}
           id={_id}>
-          <button className="My-profile-update-btn">Update</button>
+          <button className="Tiny-Buttons">Update</button>
         </Link>
         <button
           onClick={() => { if (window.confirm("Are you sure?")) deleteArticle(_id) }}
-          className="My-profile-delete-btn">Delete</button>
+          className="Tiny-Buttons">Delete</button>
       </div>
     </div>
   )

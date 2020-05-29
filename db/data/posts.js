@@ -24,15 +24,15 @@ module.exports = [
     text: 'It’s been a while since I’ve shared my Amazon finds with you, so I decided to publish this now before our move gets underway today & things get a little too hectic (can’t believe that we’re leaving New York tomorrow!).  You can see my last post with more of my favorites here.  These are a mix of fashion, home & beauty that I’ve either ordered & am still waiting on or that I’m already using & loving.  Check out the collage below & then read on for all the details + my personal reviews.',
     photo: 'https://www.pennypincherfashion.com/wp-content/uploads/2020/05/Best-Amazon-Buys.jpg'
   }, {
-    title: 'HUTCH JUST DROPPED THE CUTEST NEW COLLECTION WITH MODCLOTH',
+    title: 'Hutch Dropped a new collection! OMG!!!',
     text: 'I couldn’t be happier for them so I most definitely had to share some of my favorite styles from their recent Modcloth Collaboration. A few things I wanted to mention; everything runs pretty true to size for me (feel free to email or dm me if you have sizing questions). The fit, feel of the fabric and quality are 100 percent worth the price – you will have these unique pieces for years to come.',
-    photo: 'https://rstyle.me/+i-JxS10DcSqbp7MFf-CWkQ'
+    photo: 'https://i.pinimg.com/originals/cb/05/1e/cb051effafbbe1f8f2b2e0e21ded69c8.png'
   }, {
-    title: 'HUTCH JUST DROPPED THE CUTEST NEW COLLECTION WITH MODCLOTH',
+    title: 'Hutch Dropped a new collection!',
     text: 'Adding fake greenery gives a room an organic and calming feel; I eyed these faux palms for a year before buying! *faux palms, blanket and canisters on sale as of 5/2/20; pictured above: the ceramic jug and the bottle*',
-    photo: 'hhttps://www.thedarlingdetail.com/wp-content/uploads/2020/05/D8A33118-4BF2-41FE-90EF-C7C1D449C517.jpg'
+    photo: 'https://i.pinimg.com/236x/e1/14/04/e11404060a1af8a930d94c801847d835.jpg'
   }, {
-    title: 'HUTCH JUST DROPPED THE CUTEST NEW COLLECTION WITH MODCLOTH',
+    title: 'Hutch Dropped a new collection!',
     text: 'I love to travel, but that doesn’t take away my love to just simply stay home. I love running after goals, but that doesn’t speed-bump my need to take time to stop and rest. I’m darling to posting on social media, but that can’t influence me into not living my life in the now. I love owning a business, but that can’t take away from prioritizing my family and relationship with the Lord. I may sometimes fear what others think, but that shouldn’t withhold me from fearing God first. I understand my need to feel loved by others but that doesn’t quench my thirst to spend time alone with Jesus. I love writing about buying new clothes, but that will never ever fulfill the void of writing about what doesn’t cost a thing and never sells out: Jesus. Let’s not get caught up in the secular cycle of what the world wants versus what God wants for us. You will never influence the world by being just…like…it. Which one of the above do you relate to most?',
     photo: 'https://www.thedarlingdetail.com/wp-content/uploads/2018/12/IMG_3019-1.jpg'
   }

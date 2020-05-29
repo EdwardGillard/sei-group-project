@@ -50,22 +50,19 @@ class FavouriteItem extends React.Component {
               <div key={item._id} className='m'>
                 <div className="Card">
                   <Link to={`/clothes/${item._id}`}>
-                        <div className="fav-img">
-                        <img src={item.image[0]} alt={item.title} loading="lazy" width="255" height="255" />
-                        </div>
+                    <div className="fav-img">
+                      <img src={item.image[0]} alt={item.title} loading="lazy" width="255" height="255" />
+                    </div>
                     <div className="Card-content">
                       <h4><strong>{item.title}</strong></h4>
                       <h5><strong>Rental Price:</strong> {`£${item.rentalPrice}`}</h5>
                     </div>
                   </Link>
                 </div>
-                <button className="Button" onClick={this.removeFromFavs} value={item._id}>Delete from favourites</button>
+                <button className="fav-item-Button" onClick={this.removeFromFavs} value={item._id}>Delete from favourites</button>
               </div>
             )}
           </div>
-
-
-
         </div>
       </>
     )

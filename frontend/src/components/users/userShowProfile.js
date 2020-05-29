@@ -165,13 +165,14 @@ class userShowProfile extends React.Component {
     const rating = parseInt(this.getUserRating())
     const { user, userItems, comments, commentsArray, contactModalOpen } = this.state
     const { location } = this.state
+    const userName = user.username.charAt(0).toUpperCase() + user.username.slice(1)
     return (
       <>
         <div className="Show-profile">
           <div className="Show-profile-top">
             <div className="Photo-user-rating">
               <img src={user.profilePic} alt={user.username} />
-              <h4 className="Username">{user.username}</h4>
+              <h4 className="Username">{userName}</h4>
               <h6 className="User-location">{location}</h6>
               <StarRating
                 rating={rating}
@@ -180,7 +181,6 @@ class userShowProfile extends React.Component {
               <div className="Follow-message">
                 {isAuthenticated() && <button name="friend" value={user._id} onClick={this.handleFriendSubmit} className="Button">Follow</button>}
                 {isAuthenticated() && <button onClick={this.toggleContactModal} className="Button">Message</button>}
-
                 <div className="Modal-Message">
                   <div className={contactModalOpen ? "modal is-active" : "modal"}>
                     <div className="field">
@@ -198,21 +198,16 @@ class userShowProfile extends React.Component {
                     </div>
                   </div>
                 </div>
-
-
+              </div>
             </div>
-            </div>
-            
-
-
             <div className="Comments-container">
-              <h3>{user.username}'s Reviews</h3>
+              <h3>{userName}'s Reviews</h3>
               {
                 isAuthenticated() && <section className="Comments">
                   <form
                     className="Comment-left"
                     onSubmit={this.handleCommentSubmit}>
-                    <p> Your review for {user.username}:</p>
+                    <p> Your review for {userName}:</p>
                     <textarea
                       className="Comment-text"
                       rows="5"
@@ -221,9 +216,8 @@ class userShowProfile extends React.Component {
                       name="text"
                       onChange={this.handleCommentChange}
                       value={comments.text} />
-                    <button className="Submit">Submit Comment</button>
+                    <button className="fav-item-Button">Submit Comment</button>
                   </form>
-
                   <div className="Comments-on-user">
                     {commentsArray.map(comment => (
                       <Comments
@@ -232,15 +226,11 @@ class userShowProfile extends React.Component {
                         deleteComment={this.deleteComment}
                       />
                     ))}
-
                   </div>
                 </section>
               }
-
             </div>
-
           </div>
-
           <div className="Show-profile-bottom">
             <div className="User-items-index">
               {userItems.map(item =>
@@ -248,11 +238,10 @@ class userShowProfile extends React.Component {
                   <Link to={`/clothes/${item._id}`}>
                     <div className="Card">
                       <div className="img">
-                        <img src={item.image} alt={item.title} loading="lazy" width="255" height="255" />
+                        <img src={item.image} alt={item.title} loading="lazy" width="300" height="300" />
                       </div>
                       <div className="Card-text">
                         <h4 className="Title">{item.title}</h4>
-                        <h5 className="Subtitle"><strong>Rental price: </strong><p>{`£${item.rentalPrice}`}</p></h5>
                       </div>
                     </div>
                   </Link>
@@ -261,13 +250,9 @@ class userShowProfile extends React.Component {
             </div>
           </div>
         </div>
-
-
       </>
     )
   }
-
-
 }
 
 export default userShowProfile

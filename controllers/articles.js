@@ -1,5 +1,6 @@
 //! Require
 const Article = require('../models/article')
+const User = require('../models/user')
 const { notFound, unauthorized } = require('../lib/errorMessages')
 
 //! CLOTHING
@@ -36,6 +37,9 @@ async function articlesShow(req, res, next) {
   const articleId = req.params.id
   try {
     const article = await Article.findById(articleId).populate('user').populate('comments.user')
+    const user = await User.findById(article.user._id).populate('createdArticles')
+    await Object.assign(article.user, user)
+    await article.save()
     if (!article) throw new Error(notFound)
     res.status(200).json(article)
   } catch (err) {

@@ -19,7 +19,6 @@ class UserProfile extends React.Component {
     latitude: '',
     longitude: '',
     modalOpen: false,
-    modalOpenEdit: false,
     commentsArray: [],
     rating: 0,
     errors: {},
@@ -80,6 +79,7 @@ class UserProfile extends React.Component {
   async getInbox() {
     try {
       const res = await inboxMessage()
+      console.log(res.data)
       this.setState({ messages: res.data })
     } catch (err) {
       console.log(err)
@@ -132,7 +132,7 @@ class UserProfile extends React.Component {
     try {
       await deleteProfile()
       await logout()
-      this.props.history.push(`/`)
+      this.props.history.push('/')
     } catch (err) {
       toast('Couldnt delete this profile')
     }
@@ -179,15 +179,16 @@ class UserProfile extends React.Component {
             <div className="Photo-delete-rating">
               <div className="Profile-img image ">
                 <img src={profilePic} alt="profile pic" />
-                <button onClick={this.toggleModal}
-                  className="button is-profile-btn"
-                >Change Profile Picture</button>
                 <EditProfilePicture
+                  profilePic={this.state.user.profilePic}
                   toggleModal={this.toggleModal}
                   modalOpen={this.state.modalOpen}
                   onChange={this.handleChange}
                   onSubmit={this.handleSubmit}
                 />
+                <button onClick={this.toggleModal}
+                  className="button is-profile-btn"
+                >Change Profile Picture</button>
               </div>
               <div className="My-profile-rating">
                 <StarRating
@@ -217,9 +218,9 @@ class UserProfile extends React.Component {
           <div className="My-profile-columns">
             <div className="Left-col">
               <div>
+                <h3 className="Messages-Title"> {`${messages.length}`} Message(s)</h3>
                 {/* Notifications / chat section */}
                 <div className="My-profile-message-board">
-                  <h3 className="Title"> {`${messages.length}`} Message(s)</h3>
                   <div>
                     {sortedMessages.map((message, i) =>
                       <MessageCard
@@ -236,18 +237,16 @@ class UserProfile extends React.Component {
               </div>
             </div>
             <div className="Center-col">
-              {/* Map over the clothes the user has uploaded - need to work on the positioning of this - need to add to allow user to edit / delete items */}
               <div className="My-items">
                 <div className="My-items-top">
                   <div className="My-items-title">
                     <h3>My Items</h3>
                   </div>
-                  <button className="Add-clothes-btn"
+                  <button className="fav-item-Button"
                     onClick={this.handleAddClothes}
                   >Add Clothes Now</button>
                 </div>
                 <div>
-                  {/* Ternary with text showing if no articles been created yet  */}
                   {(reversedCreatedArticles.length === 0) ?
                     <div className="">
                       <h1>Looks like you haven't uploaded anthing yet.</h1>

@@ -31,12 +31,12 @@ class ClothesShow extends React.Component {
 
   // * Function to GET single clothing Item
   getSingleCloth = async () => {
-    try{
+    try {
       const clothId = this.props.match.params.id
       const res = await singleCloth(clothId)
-        const userId = res.data.user.username
-        const user = await getUserProfile(userId)
-        this.setState({cloth: res.data, user: user.data, commentsArray: res.data.comments })
+      const userId = res.data.user.username
+      const user = await getUserProfile(userId)
+      this.setState({ cloth: res.data, user: user.data, commentsArray: res.data.comments })
     } catch (err) {
       this.props.history.push('/notfound')
     }

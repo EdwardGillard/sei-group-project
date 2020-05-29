@@ -36,7 +36,6 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: true },//* password
   postcode: { type: String, required: true },//* postcode location
   profilePic: { type: String }, //* profile picture to allow different options.
-  articlesPosted: [{ type: mongoose.Schema.ObjectId, ref: 'Article', required: true }],//* array of Id's which we can populate on get request.
   favourites: {
     favArticles: [{ type: mongoose.Schema.ObjectId, ref: 'Article' }],
     favUsers: [{ type: mongoose.Schema.ObjectId, ref: 'User' }],
@@ -56,7 +55,8 @@ userSchema.virtual('createdArticles', {
   ref: 'Article',
   localField: '_id',
   foreignField: 'user'
-})
+}, { toObject: { virtuals: true } }
+)
 
 //* virtual for createdPosts
 userSchema.virtual('createdPosts', {

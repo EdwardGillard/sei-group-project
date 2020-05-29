@@ -94,6 +94,7 @@ class PostsShow extends React.Component {
     const edited = post.createdAt.split('T')
     const date = edited[0]
     const time = edited[1].split('.')[0]
+    const userName = post.user.username.charAt(0).toUpperCase() + post.user.username.slice(1)
     return (
       <>
         <div className="Post">
@@ -106,16 +107,19 @@ class PostsShow extends React.Component {
             <div className="Post-and-comments">
               <div className="Post-main">
                 <img src={post.photo} alt={post.title} height="200" width="100" />
-                <p className="Content">{post.text}</p>
+                <div className="Post-Right">
+                  <div className="Content">
+                    <p className="Content">{post.text}</p>
+                  </div>
+                  <div className="Created-by">
+                    <Link to={`/page/${post.user.username}`}><p>Created by: {userName}</p> </Link>
+                    <p>{date} {time}</p>
+                    {isOwner(post.user._id) && <Link to={`/posts/${post._id}/edit`}><button className="Button">Edit</button></Link>}
+                    {isOwner(post.user._id) && <button className="Button" value={post._id} onClick={this.deletePost}>Delete</button>}
+                    <button name="posts" value={post._id} onClick={this.handleFavouriteSubmit} className="Button">Add to Favourites</button>
+                  </div>
+                </div>
               </div>
-              <div className="Created-by">
-                <Link to={`/page/${post.user.username}`}><p>Created by: {post.user.username}</p> </Link>
-                <p>{date} {time}</p>
-                {isOwner(post.user._id) && <Link to={`/posts/${post._id}/edit`}><button className="Button">Edit</button></Link>}
-                {isOwner(post.user._id) && <button className="Button" value={post._id} onClick={this.deletePost}>Delete</button>}
-                <button name="posts" value={post._id} onClick={this.handleFavouriteSubmit} className="Button">Add to Favourites</button>
-              </div>
-
             </div>
             <div className="Comments-all">
               {isAuthenticated && <section>
@@ -147,7 +151,6 @@ class PostsShow extends React.Component {
               </section>}
             </div>
           </section>
-
         </div>
       </>
     )

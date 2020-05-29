@@ -39,34 +39,32 @@ class PostEdit extends React.Component {
 
   render() {
     return (
-      <section className="hero is-light">
-        <div className="hero-body">
-          <div className="container">
-            <div className="columns is-multiline">
-              <h1>Posts</h1>
-              <form onSubmit={this.handleSubmit} >
-                <input
-                  name="title"
-                  value={this.state.dataInput.title}
-                  place="Title"
-                  onChange={this.handleChange}
-                />
-                <input
-                  name="text"
-                  value={this.state.dataInput.text}
-                  onChange={this.handleChange}
-                />
-                <input
-                  name="photo"
-                  value={this.state.dataInput.photo}
-                  onChange={this.handleChange}
-                />
-                <button>Submit Post</button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
+      <div className="Posts-edit">
+        <form className="Post-edit-form"
+          onSubmit={this.handleSubmit} >
+          <h3>Edit your post</h3>
+          <input className="Post-input-edit"
+            name="title"
+            value={this.state.dataInput.title}
+            placeholder="Title"
+            onChange={this.handleChange}
+          />
+          <textarea className="Post-input-edit"
+            name="text"
+            rows="15"
+            value={this.state.dataInput.text}
+            placeholder="Text"
+            onChange={this.handleChange}
+          />
+          <input className="Post-input-edit"
+            name="photo"
+            value={this.state.dataInput.photo}
+            placeholder="URL of Image"
+            onChange={this.handleChange}
+          />
+          <button className="Button">Submit Post</button>
+        </form>
+      </div>
     )
   }
 }

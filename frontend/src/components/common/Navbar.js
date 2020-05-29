@@ -1,6 +1,6 @@
 import React from 'react'
-import { Link, withRouter } from 'react-router-dom'
 
+import { Link, withRouter } from 'react-router-dom'
 import { isAuthenticated, logout, getUsername } from '../../lib/auth'
 
 class Navbar extends React.Component {

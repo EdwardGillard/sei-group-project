@@ -34,7 +34,7 @@ module.exports = [
         longitude: '-0.07778637786653057'
       }
     ],
-    profilePic: 'https://lh3.googleusercontent.com/proxy/MCYlxBYLuRa5SC8PZ4oCcTKFdJUo7coyNVIPWrS6YOpA4cSh0lARH2PyTNAqlYHHARlpx6BfL09-wcl_HSKfI5P3Sxwm6eR1mJAxhHFnTyRSMwnj23wYbE_l9xUo'
+    profilePic: 'https://58southmoltonstreet.co.uk/wp-content/uploads/58PhotographyLogo_Guide.png'
   }, {
     username: 'john',
     email: 'john@mail',

@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 class About extends React.Component {
 
@@ -17,10 +16,9 @@ class About extends React.Component {
                   <h2>A place to borrow, lend & be inspired.</h2>
                 </div>
               </div>
-
               <div className="About column-center">
                 <div className="Join-us Title">
-                  <p><Link to="/register">Join us now </Link> and see where your new wardrobe could take you!</p>
+                  <p><a href="/register">Join us now </a> and see where your new wardrobe could take you!</p>
                 </div>
                 <div className="About-row">
                   <div className="Our-mission column-center">
@@ -28,7 +26,6 @@ class About extends React.Component {
                     <h4 className="Subtitle">
                       In a world where fast fashion is destroying the planet we are on a mission to <span className="bold">connect people</span> and strive for a more <span className="bold">sustainable future</span>. KEBB gives you the chance to <span className="bold">let others enjoy your clothes</span> as much as you do.</h4>
                   </div>
-
                   <div className="How-it-works column-center">
                     <h3 className="Title">How it works</h3>
                     <ul className="Subtitle">

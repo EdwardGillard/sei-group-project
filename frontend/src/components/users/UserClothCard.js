@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Link } from 'react-router-dom'
 
-const UserClothCard = ({ _id, title, image, rentalPrice }) => {
+const UserClothCard = ({ _id, title, image}) => {
   return (
     <Link to={`/clothes/${_id}`}>
       <div className="My-items-card">
@@ -11,7 +11,6 @@ const UserClothCard = ({ _id, title, image, rentalPrice }) => {
         </div>
         <div className="Card-text">
           <p className="Title">{title}</p>
-          <p className="Subtitle">{`Rent £${rentalPrice} (7 Days)`}</p>
         </div>
       </div>
     </Link>

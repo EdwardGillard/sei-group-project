@@ -30,6 +30,7 @@ import PostEdit from './components/posts/PostEdit'
 
 const App = () => {
   return (
+    <div className="Background-Color">
       <BrowserRouter>
         <Notifications />
         <Navbar className="Navbar" />
@@ -56,11 +57,11 @@ const App = () => {
             <Route path="/*" component={Error} />
           </Switch>
         </div>
-
         <div className="">
           <Footer className='Footer' />
         </div>
       </BrowserRouter>
+    </div>
   )
 }
 

@@ -1,15 +1,15 @@
-import React from "react"
+import React from 'react'
 
-import { showAllClothes } from "../../lib/api"
-import ClothCard from "./ClothCard"
-import ClothesFilter from "./ClothesFilter"
+import { showAllClothes } from '../../lib/api'
+import ClothCard from './ClothCard'
+import ClothesFilter from './ClothesFilter'
 
 class ClothesIndex extends React.Component {
   state = {
     clothes: null,
     filteredClothes: null,
     filteredCategories: null,
-    searchClothes: "",
+    searchClothes: '',
     filteredItemsToDisplay: [],
   }
 
@@ -55,7 +55,7 @@ class ClothesIndex extends React.Component {
     const { clothes } = this.state
     const searchClothes = event.target.value
     const filteredClothes = clothes.filter((cloth) => {
-      const regex = RegExp(searchClothes, "i")
+      const regex = RegExp(searchClothes, 'i')
       return (
         cloth.category.match(regex) ||
         cloth.title.match(regex) ||
@@ -91,10 +91,10 @@ class ClothesIndex extends React.Component {
   // * Function to change each filter
   filterChange = (event) => {
     const { filteredClothes } = this.state
-    const showFilter = event.value
+    const showFilter = event.target.value
     if (filteredClothes.length > 0) {
       const filteredCats = filteredClothes.filter((cloth) => {
-        const regex = RegExp(showFilter, "i")
+        const regex = RegExp(showFilter, 'i')
         return (
           cloth.category.match(regex) ||
           cloth.color[0].match(regex) ||
@@ -105,12 +105,20 @@ class ClothesIndex extends React.Component {
       this.setState({ filteredClothes: filteredCats })
       console.log(event.value)
     } else {
-      return "unavailable"
+      return 'unavailable'
     }
   }
   // * Function to reset filter
   resetFilter = () => {
-    this.setState({ filteredItemsToDisplay: this.state.clothes })
+    this.setState({
+      filteredItemsToDisplay: '',
+      filteredClothes: this.state.clothes,
+      category: '',
+      color: '',
+      gender: '',
+      size: '',
+      searchClothes: ''
+    })
   }
   render() {
     if (!this.state.filteredClothes)
@@ -137,7 +145,6 @@ class ClothesIndex extends React.Component {
     const colorOption = colors.map((col) => {
       return { value: col, label: col }
     })
-
     // * Variable of Gender options
     const genderOption = genders.map((gen) => {
       return { value: gen, label: gen }
@@ -160,20 +167,24 @@ class ClothesIndex extends React.Component {
           <div className="Clothes-filter">
             <ClothesFilter
               category={categoryOption}
+              categoryValue={this.state.category || ''}
+              colorValue={this.state.color || ''}
+              genderValue={this.state.gender || ''}
+              sizeValue={this.state.size || ''}
               color={colorOption}
               gender={genderOption}
               sizes={sizeOption}
-              handleCategoryFilter={(e) => this.handleFilter(e, "category")}
-              handleColorFilter={(e) => this.handleFilter(e, "color")}
-              handleGenderFilter={(e) => this.handleFilter(e, "gender")}
-              handleSizeFilter={(e) => this.handleFilter(e, "size")}
+              handleCategoryFilter={(e) => this.handleFilter(e, 'category')}
+              handleColorFilter={(e) => this.handleFilter(e, 'color')}
+              handleGenderFilter={(e) => this.handleFilter(e, 'gender')}
+              handleSizeFilter={(e) => this.handleFilter(e, 'size')}
             />
             <form>
               <input
                 className="input"
                 type="text"
                 placeholder="Search for Category, Name and User"
-                value={searchClothes}
+                value={searchClothes || ''}
                 onChange={this.handleChange}
               />
             </form>
