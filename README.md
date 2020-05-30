@@ -11,6 +11,8 @@ Project 3 was my first experience of putting together a *full stack app* as part
 
 *KEBB Bazaar* is a clothes rental app, inspired by Hurr collective, created in **MERN stack** in 7 days. During the course of this project, I worked in both front and back end development. I thoroughly enjoyed my first official experience in full stack development. 
 
+This app was deployed using **heroku**.
+
 ----------------------
 
 ## **Brief.**
@@ -61,6 +63,7 @@ Project 3 was my first experience of putting together a *full stack app* as part
 * Github
 * Google Chrome dev tools
 * Eslint linter
+* Heroku
 * Trello Board
 * Miro Board
 * Google Drive 
