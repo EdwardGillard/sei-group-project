@@ -1,4 +1,4 @@
-# ** SEI Project three: KEBB Bazaar**
+# SEI Project three: KEBB Bazaar
 
 ## https://kebb-bazaar-clothes.herokuapp.com/
 
