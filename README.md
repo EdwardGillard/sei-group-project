@@ -55,6 +55,7 @@ Project 3 was my first experience of putting together a *full stack app* as part
 * React input range
 
 #### Development tools.
+* VS code
 * Npm/ Nodemon
 * Git
 * Github
@@ -142,6 +143,8 @@ Looking back over previous projects the hurdles now seem less daunting. Most of 
 As a team we experienced several issues with *github*. We agreed at the beginning to come together every time we were due a push to the development branch to handle merge clashes as a team. 
 
 Another hurdle we faced as a team was styling in **SCSS** with **Bulma** present. Bulma is a brilliant tool to aid structure, but it proved problematic to deviate from when you want to add some personalised style.
+
+---------------------
 
 ## **Screen shots of project**
 ![Screenshot of user dashboard](images/Screenshot1.jpeg)
