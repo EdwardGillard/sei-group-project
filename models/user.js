@@ -4,27 +4,27 @@ const bcrypt = require('bcrypt')
 
 //! USER RATING SCHEMA
 const userRatingSchema = new mongoose.Schema({
-  rating: { type: Number, required: true, min: 1, max: 5 }, //* rating user B gives of user A 
-  user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true } //* user B (the 'rater')
+  rating: { type: Number, required: true, min: 1, max: 5 }, //* Rating
+  user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true } //* User rating
 }, {
   timestamps: true
 })
 
 //! USER COMMENTS SCHEMA
 const userCommentsSchema = new mongoose.Schema({
-  text: [{ type: String, maxlength: 200, required: true }],
-  user: { type: mongoose.Schema.ObjectId, ref: 'User' }
+  text: [{ type: String, maxlength: 200, required: true }], //* Main body of the comment. Limited to 200 characters
+  user: { type: mongoose.Schema.ObjectId, ref: 'User' } //* add user
 }, {
   timestamps: true
 })
 
 //! USER PINS SCHEMA
 const pinSchema = new mongoose.Schema({
-  title: { type: String, required: true, maxlength: 100 },
-  place: { type: String, required: true, maxlength: 100 },
-  latitude: { type: String, required: true },
-  longitude: { type: String, required: true },
-  note: { type: String, maxlength: 300 }
+  title: { type: String, required: true, maxlength: 100 }, //* Pin title
+  place: { type: String, required: true, maxlength: 100 }, //* Shop name etc.
+  latitude: { type: String, required: true }, //* location latitude
+  longitude: { type: String, required: true },  //* location longitude
+  note: { type: String, maxlength: 300 } //* a note on the pin to prompt memory.
 }, {
   timestamps: true
 })
@@ -37,11 +37,11 @@ const userSchema = new mongoose.Schema({
   postcode: { type: String, required: true },//* postcode location
   profilePic: { type: String }, //* profile picture to allow different options.
   favourites: {
-    favArticles: [{ type: mongoose.Schema.ObjectId, ref: 'Article' }],
-    favUsers: [{ type: mongoose.Schema.ObjectId, ref: 'User' }],
-    favPosts: [{ type: mongoose.Schema.ObjectId, ref: 'Post' }]
+    favArticles: [{ type: mongoose.Schema.ObjectId, ref: 'Article' }], //* Array of fav articles.
+    favUsers: [{ type: mongoose.Schema.ObjectId, ref: 'User' }], //* Array of fav users.
+    favPosts: [{ type: mongoose.Schema.ObjectId, ref: 'Post' }] //* Array of fav post.
   },
-  pins: [pinSchema],
+  pins: [pinSchema], //* pin Schema
   user: [{ type: mongoose.Schema.ObjectId, ref: 'User' }],
   ratings: [userRatingSchema],//* reference to userRating schema to find the rating and the user who rated.
   comments: [userCommentsSchema] //* array of comments on user
