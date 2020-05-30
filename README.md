@@ -45,7 +45,7 @@ Project 3 was my first experience of putting together a *full stack app* as part
 * Axios
 * Bulma
 * SCSS
-* http-proxy-middleware
+* Http-proxy-middleware
 * React Select
 * React Router Dom
 * React slideshow
@@ -69,7 +69,7 @@ Project 3 was my first experience of putting together a *full stack app* as part
 
 ## **Approach.**
 
-At the beginning of the project we split our team of four into two pairs. My self and my colleague Blanca took the back end. Once completed we moved onto front end to help bring the controllers we had created to life. 
+At the beginning of the project we split our team of four into two pairs. My colleague and I took the back end. Once completed we moved onto the front end to help bring the controllers we had created to life. 
 
 ### Back End.
 
@@ -82,29 +82,29 @@ The most *complex schema* was the user schema. We wanted to focus on the user ex
 
 ![Image of User Schema](images/UserSchema.jpeg)
 
-Using **mongoose** and **bcrypt** we manipulated incoming authorization requests to allow us to run prevalidation comparisons and encryption. We also transformed the *JSON* response to prevent the email address and password being included in the responce back to the client. 
+Using **mongoose** and **bcrypt** we manipulated incoming authorization requests to allow us to run prevalidation comparisons and encryption. We also transformed the *JSON* response to prevent the email address and password being included in the response back to the client. 
 
 #### Controllers:
 
 We started off with basic functions to handle simple **CRUD** requests on the clothing and authorization so that our colleagues focusing on the front end could begin building React components. For the *login* function we used the *JSON web token* dependency to create a user token so that we could ensure secure functionality on other aspects of the app. 
 
-Myself and my partner worked together to console log our way through creating our private messages controllers, as it was a slightly more complex concept than other controllers we had previously built. We decided to try creating an inital message to generate an *id* that we could then build an array of responses on. We used the id of the *current user* and the *target user* to ensure that they were the only two users authorized to see the messages. 
+My partner and I worked together to console log our way through creating our private messages controllers, as it was a slightly more complex concept than other controllers we had previously built. We decided to try creating an initial message to generate an *id* that we could then build an array of responses on. We used the id of the *current user* and the *target user* to ensure that they were the only two users authorized to see the messages. 
 
-Initally we created a seperate inbox and outbox get request, however, when attempting to use it on front end I realised that it would be more efficient to concatenate the two together so that the front end could display combined chats. 
+Originally we created a separate functions for inbox and outbox get requests, however, when attempting to use it on the front end I realised that it would be more efficient to concatenate the two together so that the front end could display combined chats. 
 
 ![Image of messages](images/Messages.jpeg)
 
-Once the backend had hit MVP point we moved onto front end, however, there was a few points I had to return back to create a new function to accomplish something I was trying to achieve on front end. One of those occasions I created a delete user account function. I initally thought it would be a relatively simple function to build, I quickly realised whilst testing on front end that it wasnt as simple as I had originally thought. It dawned on me after causing an error that I needed to not only delete the user profile but the entire trace of the user. I achieved this by using a *secure route* to ascertain the user's token then search anything that the user has created on different schemas. I then used a **forEach** statement to cycle through each search and delete the relevant information.
+Once the backend had hit MVP point we moved onto the front end, however, there were a few points I had to return back to create a new function to accomplish something that I was trying to achieve on the front end. One of those occasions I created a delete user account function. Initially I thought it would be a relatively simple function to build, I quickly realised whilst testing on the front end that it wasn't as simple as I had originally thought. It dawned on me after causing an error that I needed to not only delete the user profile but the entire trace of the user. I achieved this by using a *secure route* to ascertain the user's token then search anything that the user has created on different schemas. I then used a **forEach** statement to cycle through each search and delete the relevant information.
 
 ![Image of User Delete Controller](images/DeleteUserController.jpeg)
 
-Another key aspect of controllers that I undertook was the testing of all controller functions. I did two stages of testing. Firstly, I performed an initial test to ensure the controller is working efficiently. Secondly, I went through adding specific error handling to improve our JSON responses for front error handling. In the above screenshots I used consistant comments to signify that both checks had been completed. This was helpful for the rest of the team on front end as they could check if the functions had been tested yet if they were having issues with the responses.
+Another key aspect of controllers that I undertook was the testing of all controller functions. I did two stages of testing. Firstly, I performed an initial test to ensure the controller is working efficiently. Secondly, I went through adding specific error handling to improve our JSON responses for front error handling. In the above screenshots I used consistent comments to signify that both checks had been completed. This was helpful for the rest of the team on the front end as they could check if the functions had been tested yet if they were having issues with the responses.
 
 ---------------------
 
 ### Front End.
 
-By the time we had finished back end, a fair amount of work had been done on front end. This was my first proper developer moment coming into a situation where I was confronted by a bunch of code I hadn't written and had to adapt and catch up. It was great oppotunity to help my team mates, who were more familiar with the front end code, to diagnose and resolve issues. There were occasions where team mates no longer wanted to work on a certain area of the app and I took over, this was eye opening because I would have to deal with half written code that I wasn't acquainted with. 
+By the time we had finished back end, a fair amount of work had been done on front end. This was my first proper developer moment coming into a situation where I was confronted by a bunch of code I hadn't written and had to adapt and catch up. It was a great opportunity to help my team mates, who were more familiar with the front end code, to diagnose and resolve issues. There were occasions where my teammates no longer wanted to work on a certain area of the app and I took over, this was eye opening because I would have to deal with half written code that I wasn't acquainted with. 
 
 #### Comments:
 
@@ -116,13 +116,13 @@ Similar to the processes used in the above section, I used **Axios** and the **R
 
 #### Troubleshooting and finishing touches:
 
-Alot of the stuff I have done on front end has been centered around trouble shooting, error handling and testing then mending any issues I have found. I used **React notify toast** to add toast responses where neccisary to update the user with a visual response. I had a to do list that i added to if I was in the middle of a specific task so that I could return to it later.
+A lot of the stuff I have done on the front end has been centered around troubleshooting, error handling and testing then mending any issues I have found. I used **React notify toast** to add toast responses where necessary to update the user with a visual response. I had a to-do list that I added to if I was in the middle of a specific task so that I could return to it later.
 
 -------------------------
 
 ## **Bugs.**
 
-At this point, after alot of testing and trying to cause errors to measure the response, I havent noticed many bugs in the deployed app. I am however aware of an issue of returning the state back to empty on submission of a private message.
+At this point, after considerable amount of testing and trying to cause errors to measure the response, I haven't noticed any bugs in the deployed app. I am however aware of an issue of returning the state back to an empty string on submission of a private message.
 
 -------------------------
 
@@ -132,9 +132,9 @@ At this point, after alot of testing and trying to cause errors to measure the r
 
 This project was a rollercoaster of frustration and elation. There were a few moments of huge relief when resolving issues, both on my own and as a team.
 
-As I mentioned in the backend section above while working between front and back end I created a full account delete function that removed all traces of a user to prevent causing errors in any posts they have created. This function was far trickier than any of the basic RESTful actions we have learnt and it was fun console logging my way through and very satisfying when idea was fully functional. 
+As I mentioned in the backend section above, while working between front and back end I created a full account delete function that removed all traces of a user to prevent causing errors in any posts they have created. This function was far trickier than any of the basic RESTful actions we have learnt and it has been fun console logging my way through and very satisfying when the idea was fully functional. 
 
-The biggest win overall was the succesful collaboration in a team of big personalities in a time pressured environment. It was a very positive first experience of coding in a group larger than a pair.
+The biggest win overall was the successful collaboration in a team of big personalities in a time pressured environment. It was a very positive first experience of coding in a group larger than a pair.
 
 #### Hurdles: 
 
@@ -146,7 +146,7 @@ Another hurdle we faced as a team was styling in **SCSS** with **Bulma** present
 
 ---------------------
 
-## **Screen shots of project**
+## **Screenshots of project**
 ![Screenshot of user dashboard](images/Screenshot1.jpeg)
 ![Screenshot of clothes index](images/Screenshot2.jpeg)
 ![Screenshot of posts index](images/Screenshot3.jpeg)
