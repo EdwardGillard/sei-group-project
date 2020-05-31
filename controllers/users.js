@@ -2,7 +2,7 @@
 const User = require('../models/user')
 const { notFound, unauthorized, duplicate, cantAddYourself } = require('../lib/errorMessages')
 const Article = require('../models/article')
-const Posts = require('../models/post')
+const Post = require('../models/post')
 const Messages = require('../models/message')
 
 //! USERS
@@ -54,23 +54,45 @@ async function userUpdate(req, res, next) {
 async function deleteUser(req, res, next) {
   try {
     const userId = req.currentUser
-    const postsToDelete = await Posts.find({ user: req.currentUser._id })
+    const profileToDelete = await User.findByIdAndDelete(userId)
+    const posts = await Post.find()
+    const articles = await Article.find()
+    const users = await User.find()
+    const postsToDelete = await Post.find({ user: req.currentUser._id })
     const articlesToDelete = await Article.find({ user: req.currentUser._id })
     const messagesToDelete = await Messages.find({ user: req.currentUser._id })
     const messagesToDeleteTwo = await Messages.find({ owner: req.currentUser._id })
-    postsToDelete.forEach(post => {
+    await postsToDelete.forEach(post => {
       return post.remove()
     })
-    articlesToDelete.forEach(article => {
+    await articlesToDelete.forEach(article => {
       return article.remove()
     })
-    messagesToDelete.forEach(message => {
+    await messagesToDelete.forEach(message => {
       return message.remove()
     })
-    messagesToDeleteTwo.forEach(message => {
+    await messagesToDeleteTwo.forEach(message => {
       return message.remove()
     })
-    const profileToDelete = await User.findByIdAndDelete(userId)
+    await posts.forEach(post => {
+      const commentOF = post.comments.filter(comment => comment.user.equals(req.currentUser._id))
+      commentOF.forEach(com => com.remove())
+      post.save()
+    })
+    await articles.forEach(article => {
+      const commentDel = article.comments.filter(comment => comment.user.equals(req.currentUser._id))
+      commentDel.forEach(com => com.remove())
+      const ratingDel = article.ratings.filter(rating => rating.user.equals(req.currentUser._id))
+      if (ratingDel) ratingDel.forEach(rat => rat.remove())
+      article.save()
+    })
+    await users.forEach(user => {
+      const commentDel = user.comments.filter(comment => comment.user.equals(req.currentUser._id))
+      commentDel.forEach(com => com.remove())
+      const ratingDel = user.ratings.filter(rating => rating.user.equals(req.currentUser._id))
+      ratingDel.forEach(rat => rat.remove())
+      user.save()
+    })
     if (!profileToDelete) throw new Error(notFound)
     res.sendStatus(204)
   } catch (err) {
@@ -126,6 +148,9 @@ async function userRatingCreate(req, res, next) {
     const userToRate = req.params.id
     const rating = req.body
     const user = await User.findById(userToRate)
+    user.ratings.forEach(rating => {
+      if (rating.user.equals(req.currentUser._id)) throw new Error(duplicate)
+    })
     if (!user) throw new Error(notFound)
     user.ratings.push(rating)
     await user.save()
@@ -217,7 +242,7 @@ async function addPostToFavourites(req, res, next) {
     const id = req.currentUser.id
     const user = await User.findById(id)
     if (!user) throw new Error(unauthorized)
-    const post = await Posts.findById(req.body.posts)
+    const post = await Post.findById(req.body.posts)
     if (!post) throw new Error(notFound)
     if (user.favourites.favPosts.includes(post._id)) throw new Error(duplicate)
     user.favourites.favPosts.push(post)

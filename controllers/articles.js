@@ -1,7 +1,7 @@
 //! Require
 const Article = require('../models/article')
 const User = require('../models/user')
-const { notFound, unauthorized } = require('../lib/errorMessages')
+const { notFound, unauthorized, duplicate } = require('../lib/errorMessages')
 
 //! CLOTHING
 //? Function to get all articles of clothing
@@ -125,6 +125,9 @@ async function articleRatingCreate(req, res, next) {
     const rating = req.body
     const articleId = req.params.id
     const article = await Article.findById(articleId)
+    article.ratings.forEach(rating => {
+      if (rating.user.equals(req.currentUser._id)) throw new Error(duplicate)
+    })
     if (!article) throw new Error(notFound)
     article.ratings.push(rating)
     await article.save()

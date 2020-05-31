@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 import { getUserProfile, postFavoriteFriend, commentOnUser, DeleteCommentOnUser, sendMessage, rateUser } from '../../lib/api'
 import { getPostcodeInfo } from '../../lib/ext_api'
-import { isAuthenticated } from '../../lib/auth'
+import { isAuthenticated, isOwner } from '../../lib/auth'
 
 import Comments from '../common/Comments'
 import StarRating from '../common/StarRating'
@@ -21,9 +21,11 @@ class userShowProfile extends React.Component {
     },
     commentsArray: [],
     contactModalOpen: false,
-    text: '',
+    messages: {
+      text: ''
+    },
     ratingData: {
-      rating: ''
+      rating: null
     }
   }
 
@@ -69,8 +71,8 @@ class userShowProfile extends React.Component {
 
   // * Function to handle change of contact box
   handleContactChange = e => {
-    const text = { ...this.state.text, [e.target.name]: e.target.value }
-    this.setState({ text })
+    const messages = { ...this.state.messages, [e.target.name]: e.target.value }
+    this.setState({ messages })
   }
 
   // * Function to submit message
@@ -78,7 +80,8 @@ class userShowProfile extends React.Component {
     e.preventDefault()
     const userId = this.state.user._id
     try {
-      await sendMessage(userId, this.state.text)
+      await sendMessage(userId, this.state.messages)
+      this.setState({ messages: { ...this.state.messages, text: '' } })
       toast('You sent a message!')
     } catch (err) {
       toast('Couldnt submit message')
@@ -131,16 +134,13 @@ class userShowProfile extends React.Component {
   //* Function to get the page Users ratings - I they haven't been rated yet you start on 3 stars
   getUserRating = () => {
     const ratings = this.state.user.ratings
-    if (ratings.length === 0) return 3
-    return (Math.round((Object.values(ratings).reduce((a, { rating }) =>
-      a + rating, 0) / ratings.length)))
+    if (ratings.length === 0) return 0
+    return (Math.round((ratings.reduce((a, rating) => a + parseInt(rating.rating), 0) / ratings.length)))
   }
 
 
   //* ON Clicking the star sets state 
   onStarClick = (nextValue) => {
-    if (!isAuthenticated()) return
-    toast('Thankyou, rating has been added')
     const ratingData = { ...this.state.ratingData, rating: nextValue }
     this.setState({ ratingData }
       , () => {
@@ -153,7 +153,10 @@ class userShowProfile extends React.Component {
     try {
       const userId = this.state.user._id
       await rateUser(userId, this.state.ratingData)
+      this.getUser()
+      toast('Thankyou, rating has been added')
     } catch (err) {
+      console.log(err)
       toast('Rating couldnt be added')
     }
   }
@@ -175,9 +178,9 @@ class userShowProfile extends React.Component {
               <h6 className="User-location">{location}</h6>
               <StarRating
                 rating={rating}
-                onStarClick={this.onStarClick}
+                editing={false}
               />
-              <div className="Follow-message">
+              {isAuthenticated() && !isOwner(this.state.user._id) && <div className="Follow-message">
                 {isAuthenticated() && <button name="friend" value={user._id} onClick={this.handleFriendSubmit} className="Button">Follow</button>}
                 {isAuthenticated() && <button onClick={this.toggleContactModal} className="Button">Message</button>}
                 <div className="Modal-Message">
@@ -188,6 +191,7 @@ class userShowProfile extends React.Component {
                           <textarea
                             name="text"
                             onChange={this.handleContactChange}
+                            value={this.state.messages.text}
                             className="textarea is-medium is-primary"
                             placeholder="Message..."></textarea>
                         </div>
@@ -197,12 +201,19 @@ class userShowProfile extends React.Component {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div>}
             </div>
             <div className="Comments-container">
-              <h3>{userName}'s Reviews</h3>
-              {
-                isAuthenticated() && <section className="Comments">
+              <section className="Comments">
+                {isAuthenticated() && !isOwner(this.state.user._id) && <div className="ratings-comments">
+                  <div className="rate-user">
+                    <p>Rate this user:</p>
+                    <StarRating
+                      rating={this.state.ratingData.rating}
+                      onStarClick={this.onStarClick}
+                      editing={true}
+                    />
+                  </div>
                   <form
                     className="Comment-left"
                     onSubmit={this.handleCommentSubmit}>
@@ -217,17 +228,18 @@ class userShowProfile extends React.Component {
                       value={comments.text} />
                     <button className="fav-item-Button">Submit Comment</button>
                   </form>
-                  <div className="Comments-on-user">
-                    {commentsArray.map(comment => (
-                      <Comments
-                        key={comment._id}
-                        comment={comment}
-                        deleteComment={this.deleteComment}
-                      />
-                    ))}
-                  </div>
-                </section>
-              }
+                </div>}
+                <div className="Comments-on-user">
+                  <h3 className="user-review-head">{userName}'s Reviews</h3>
+                  {commentsArray.map(comment => (
+                    <Comments
+                      key={comment._id}
+                      comment={comment}
+                      deleteComment={this.deleteComment}
+                    />
+                  ))}
+                </div>
+              </section>
             </div>
           </div>
           <div className="Show-profile-bottom">

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const MessageCard = ({ user, owner, text, createdAt, reply, _id, sendReply, replyModal, replyChange, response }) => {
+const MessageCard = ({ value, user, owner, text, createdAt, reply, _id, sendReply, replyModal, replyChange, response }) => {
   const edited = createdAt.split('T')
   const date = edited[0]
   const time = edited[1].split('.')[0]
@@ -41,6 +41,7 @@ const MessageCard = ({ user, owner, text, createdAt, reply, _id, sendReply, repl
                   <textarea
                     onChange={replyChange}
                     name="text"
+                    value={value}
                     className="textarea is-medium is-primary"
                     placeholder="Message..."></textarea>
                 </div>

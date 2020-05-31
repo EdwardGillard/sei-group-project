@@ -3,6 +3,7 @@ import React from 'react'
 import PostCards from '../posts/PostsCards'
 import { getAllPosts, createPost } from '../../lib/api'
 import { toast } from '../../lib/notifications'
+import { isAuthenticated } from '../../lib/auth'
 
 class Posts extends React.Component {
 
@@ -66,7 +67,7 @@ class Posts extends React.Component {
           </div>
         </div>
         <div className="Posts">
-          <form className="Post-form"
+          {isAuthenticated() && <form className="Post-form"
             onSubmit={this.handleSubmit} >
             <h3>Add a post now!</h3>
             <input className="Post-input-title"
@@ -89,7 +90,7 @@ class Posts extends React.Component {
               onChange={this.handleChange}
             />
             <button className="Button">Submit Post</button>
-          </form>
+          </form>}
           <div className="Post-cards">
             {this.state.posts.map(post => (
               <PostCards

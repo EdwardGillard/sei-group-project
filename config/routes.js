@@ -8,6 +8,7 @@ const mapPins = require('../controllers/mapPins')
 const secureRoute = require('../lib/secureRoute')
 const messages = require('../controllers/messages')
 
+
 //? CLOTHES
 //* Get/Post Clothes
 router.route('/clothes')

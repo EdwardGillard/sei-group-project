@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { singleCloth, sendMessage, getUserProfile, postFavorite, addCommentCloth, deleteCommentCloth } from '../../lib/api'
+import { singleCloth, sendMessage, getUserProfile, postFavorite, addCommentCloth, deleteCommentCloth, rateClothes } from '../../lib/api'
 import { toast } from '../../lib/notifications'
 
 import SingleClothCard from './SingleClothCard'
@@ -16,8 +16,12 @@ class ClothesShow extends React.Component {
     },
     commentsArray: [],
     contactModalOpen: false,
-    text: '',
-    rating: 3
+    messages: {
+      text: ''
+    },
+    ratingData: {
+      rating: null
+    }
   }
 
   // * GET each clothing item on mount via Id
@@ -84,8 +88,8 @@ class ClothesShow extends React.Component {
 
   // * Function to handle change of contact box
   handleContactChange = e => {
-    const text = { ...this.state.text, [e.target.name]: e.target.value }
-    this.setState({ text })
+    const messages = { ...this.state.messages, [e.target.name]: e.target.value }
+    this.setState({ messages })
   }
 
   // * Function to submit message to user
@@ -94,7 +98,8 @@ class ClothesShow extends React.Component {
     const { user } = this.state
     const userId = user.id
     try {
-      await sendMessage(userId, this.state.text)
+      await sendMessage(userId, this.state.messages)
+      this.setState({ messages: { ...this.state.messages, text: '' } })
       toast(`Message sent to ${user.username}!`)
     } catch (err) {
       toast('Message could not be sent')
@@ -136,12 +141,38 @@ class ClothesShow extends React.Component {
     }
   }
 
-  //* Function to get the page Users ratings - I they haven't been rated yet you start on 3 stars
+  //* Function to get the page Users ratings - If they haven't been rated yet you start on 3 stars
   getUserRating = () => {
     const ratings = this.state.user.ratings
-    if (ratings.length === 0) return 3
-    return (Math.round((Object.values(ratings).reduce((a, { rating }) =>
-      a + rating, 0) / ratings.length)))
+    if (ratings.length === 0) return 0
+    return (Math.round((ratings.reduce((a, rating) => a + parseInt(rating.rating), 0) / ratings.length)))
+  }
+
+  getArticleRating = () => {
+    const articleRating = this.state.cloth.ratings
+    if (articleRating.length === 0) return 0
+    return (Math.round((articleRating.reduce((a, rating) => a + parseInt(rating.rating), 0) / articleRating.length)))
+  }
+
+  //* ON Clicking the star sets state 
+  onStarClick = (nextValue) => {
+    const ratingData = { ...this.state.ratingData, rating: nextValue }
+    this.setState({ ratingData }
+      , () => {
+        this.submitArticleRating()
+      })
+  }
+
+  //*POST rating on the user
+  async submitArticleRating() {
+    try {
+      const clothId = this.props.match.params.id
+      await rateClothes(clothId, this.state.ratingData)
+      this.getSingleCloth()
+      toast('Thankyou, rating has been added')
+    } catch (err) {
+      toast('Rating couldnt be added')
+    }
   }
 
   render() {
@@ -149,6 +180,7 @@ class ClothesShow extends React.Component {
     if (!this.state.cloth) return <h1>Even more Ninjas are working on this</h1>
     const { cloth, user, comments, commentsArray, contactModalOpen } = this.state
     const rating = parseInt(this.getUserRating())
+    const articleRating = parseInt(this.getArticleRating())
     //* Variable of images from articles user posted
     const images = user.createdArticles.map(image => { return { image: image.image, id: image._id } })
     //* Current users Id
@@ -189,6 +221,11 @@ class ClothesShow extends React.Component {
                 handleContactChange={this.handleContactChange}
                 handleContactSubmit={this.handleContactSubmit}
                 rating={rating}
+                articleRating={articleRating}
+                onStarClick={this.onStarClick}
+                userid={this.state.cloth.user._id}
+                val={this.state.ratingData.rating}
+                message={this.state.messages.text}
               />
             </div>
           </div>

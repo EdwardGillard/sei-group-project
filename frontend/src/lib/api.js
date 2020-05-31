@@ -214,3 +214,8 @@ export const replyMessage = (id, message) => {
 export const rateUser = (id, rating) => {
   return axios.post(`${kebb_url}/profile/${id}/rating`, rating, withHeaders())
 }
+
+//* Rate clothes
+export const rateClothes = (id, rating) => {
+  return axios.post(`${kebb_url}/clothes/${id}/rating`, rating, withHeaders())
+}

@@ -4,8 +4,8 @@ const bcrypt = require('bcrypt')
 
 //! USER RATING SCHEMA
 const userRatingSchema = new mongoose.Schema({
-  rating: { type: Number, required: true, min: 1, max: 5 }, //* Rating
-  user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true } //* User rating
+  rating: { type: Number, required: true, min: 1, max: 5 },
+  user: { type: mongoose.Schema.ObjectId, ref: 'User' } //* add user
 }, {
   timestamps: true
 })

@@ -25,7 +25,9 @@ class UserProfile extends React.Component {
     messages: null,
     replyModalOpen: false,
     replyId: '',
-    text: '',
+    message: {
+    text: ''
+    },
     messagesModalOpen: false
   }
   // * Function to GET the users details
@@ -57,8 +59,8 @@ class UserProfile extends React.Component {
 
   // * Function to handle change of reply textbox
   handleReplyChange = e => {
-    const text = { ...this.state.text, [e.target.name]: e.target.value }
-    this.setState({ text })
+    const message = { ...this.state.message, [e.target.name]: e.target.value }
+    this.setState({ message })
   }
 
   // * Function to reply to messages
@@ -66,9 +68,9 @@ class UserProfile extends React.Component {
     e.preventDefault()
     const { replyId } = this.state
     try {
-      await replyMessage(replyId, this.state.text)
+      await replyMessage(replyId, this.state.message)
+      await this.setState({ message: { ...this.state.message, text: '' } })
       this.getInbox()
-      this.setState({ text: '' })
       toast('Reply sent!')
     } catch (err) {
       toast('Couldnt send reply')
@@ -224,6 +226,7 @@ class UserProfile extends React.Component {
                   <div>
                     {sortedMessages.map((message, i) =>
                       <MessageCard
+                        value={this.state.message.text}
                         key={i}
                         {...message}
                         reply={this.toggleReplyModal}
