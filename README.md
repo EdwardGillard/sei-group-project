@@ -152,7 +152,9 @@ Another hurdle we faced as a team was styling in **SCSS** with **Bulma** present
 ## **Screenshots of project**
 ![Screenshot of user dashboard](images/Screenshot1.jpeg)
 ![Screenshot of clothes index](images/Screenshot2.jpeg)
-![Screenshot of posts index](images/Screenshot3.jpeg)
+![Screenshot of clothes show](images/Screenshot3.jpeg)
+![Screenshot of other user show](images/Screenshot4.jpeg)
+![Screenshot of posts index](images/Screenshot5.jpeg)
 
 
 
