@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 
 const LoginForm = ({ email, password, handleChange, handleSubmit, errors }) => {
   return (
-    <div>
-       <div className="Registration-title">
+    <div className="Login-form">
+      <div className="Registration-title">
         <h1>Login</h1>
       </div>
       <form

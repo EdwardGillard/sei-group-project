@@ -90,12 +90,8 @@ const SingleClothCard = ({ deleteComment, rentalPrice, handleContactSubmit, hand
         <div className="show-main-content">
           <div className="show-page-user-content">
             <Link to={`/page/${username}`}>
-              <div className="container">
-                <figure className="media-left">
-                  <p className="image is-64x64">
-                    <img src={profilePic} alt={username} />
-                  </p>
-                </figure>
+              <div className="user-info-show">
+                <img src={profilePic} alt={username} />
                 <p><strong>{userName}</strong></p>
                 <StarRating
                   rating={rating}
@@ -104,7 +100,6 @@ const SingleClothCard = ({ deleteComment, rentalPrice, handleContactSubmit, hand
               </div>
             </Link>
             <div className="show-buttons">
-              <hr />
               {!isAuthenticated() &&
                 <div className="columns">
                   <Link to="/login"><button className="Tiny-Buttons-Show"> LOG IN</button></Link>
@@ -113,6 +108,7 @@ const SingleClothCard = ({ deleteComment, rentalPrice, handleContactSubmit, hand
               {!isOwner(userid) && isAuthenticated() && <button onClick={toggleContact} className="fav-item-Button">CONTACT USER</button>}
             </div>
           </div>
+          <hr />
           <div className="right-hand-show-content">
             <div className="show-page-content">
               <p><strong>Brand: </strong> {brand}</p>

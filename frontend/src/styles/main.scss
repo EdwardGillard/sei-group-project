@@ -179,6 +179,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 99;
   padding: 0;
   background-color: var(--navbar-color);
   position: fixed;
@@ -187,6 +188,10 @@ a {
   height: 2.5rem;
 }
 
+.registration-form {
+  margin: 0;
+  height: 80vh;
+}
 .Registration-title {
   display: flex;
   justify-content: center;
@@ -210,7 +215,7 @@ a {
 .box-two {
   background-color: rgba(var(--navbar-color-rgb), 1);
   padding: 5vh 10vw 5vh 10vw;
-  height: 40vh;
+  height: 50vh;
   .field {
     padding: 3px;
     font-family: "Playfair Display", serif;
@@ -423,15 +428,14 @@ a {
       border-radius: 7px;
     }
     .Button {
-      width: 10vw;
-      padding: 1vw;
-      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      width: 13vw;
       font-size: 1vw;
-      font-family: inherit;
-      font-weight: 200;
-      background-color: rgba(66, 48, 48, 0.327);
-      border-radius: 10px;
-      color: white;
+      padding: 1.5vw;
     }
   }
   .Post-cards {
@@ -502,16 +506,18 @@ a {
       width: 70%;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
+      margin: 2vh 0 0 0;
       overflow: hidden;
       .Post-main {
         display: flex;
         justify-content: center;
+        padding: 2vh 0 3vh 0;
         background-color: rgba(var(--navbar-color-rgb), 0.5);
         width: 100%;
-        height: 75vh;
+        height: 70vh;
         .Post-Show-Image {
-          width: 35%;
+          width: 25%;
           padding: 1vh 1vw;
           display: flex;
           flex-direction: column;
@@ -532,6 +538,10 @@ a {
             justify-content: space-evenly;
             width: 100%;
             .Button {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
               width: 100%;
               width: 13vw;
               font-size: 1vw;
@@ -575,6 +585,9 @@ a {
     p {
       font-size: 2vw;
     }
+    h3 {
+      font-size: 2vh;
+    }
     .Post-comment {
       display: flex;
       flex-direction: column;
@@ -594,7 +607,7 @@ a {
       display: flex;
       flex-direction: column;
       width: 100%;
-      height: 55vh;
+      height: 48vh;
       overflow: scroll;
       margin: 2vh 2vw;
       word-break: break-all;
@@ -602,7 +615,7 @@ a {
         font-size: 2vh;
       }
       h4 {
-        font-size: 3vh;
+        font-size: 2.3vh;
       }
     }
   }
@@ -745,7 +758,7 @@ a {
     height: 2vw;
     font-size: 1vw;
     padding: 0;
-    background-color: var(--delete-btn-color);
+    background: rgb(48, 47, 47);
   }
 
   .Comment {
@@ -891,10 +904,6 @@ a {
 
 //? Register
 
-.registration-form {
-  margin: 0;
-  height: 70vh;
-}
 .pin-modal {
   display: flex;
   align-items: center;
@@ -944,6 +953,7 @@ a {
   display: flex;
   align-items: center;
   height: 45vh;
+  margin: 2vh 0;
 
   .Photo-delete-rating {
     .Modal {
@@ -1091,168 +1101,166 @@ a {
 
 .My-profile-columns {
   display: flex;
-  .Left-col {
-    display: flex;
-    height: 41vh;
-    flex-direction: column;
-    width: 33%;
-    overflow: scroll;
-  }
   .Center-col {
-    width: 67%;
-    height: 42vh;
+    width: 100%;
+    height: 40vh;
     display: flex;
     align-items: center;
-  }
-}
+    .My-items {
+      height: 40vh;
+      width: 50%;
+      overflow: scroll;
+    }
 
-.Messages-Title {
-  font-size: 2vw;
-  font-weight: 600;
-}
-
-.My-profile-message-board {
-  height: 80vh;
-  margin-left: 2vw;
-  display: flex;
-  flex-direction: column;
-  overflow: scroll;
-  max-height: 40vw;
-  width: 100%;
-}
-
-.Message {
-  display: flex;
-  flex-direction: column;
-  margin: 1vw;
-  padding: 1.5vw;
-  background-color: rgba(var(--navbar-color-rgb), 0.3);
-  width: 90%;
-
-  img {
-    max-width: 5vw;
-    max-height: 5vw;
-    border-radius: 50px;
-  }
-
-  .Message-top {
-    display: flex;
-    justify-content: center;
-    height: 15%;
-    .Message-top-right {
+    .My-items-top {
       display: flex;
-      flex-direction: column;
-      align-items: left;
-      margin-left: 1vw;
-      text-align: center;
-      h4 {
+      justify-content: space-evenly;
+      margin: 0 2vw;
+      h3 {
+        font-weight: 600;
         font-size: 2vw;
       }
-      h5 {
-        font-size: 1vw;
-        font-weight: 200;
-      }
     }
-  }
-  .Message-text,
-  .Message-reply {
-    margin-top: 1vw;
-    h5 {
-      text-align: center;
-      font-size: 1vw;
-      font-weight: 200;
-    }
-    p {
-      font-size: 1.4vw;
-    }
-  }
-
-  .Message-from-date {
-    display: flex;
-    flex-direction: column;
-    p {
-      font-size: 1.2vw;
-    }
-    h4 {
-      font-size: 1vw;
-    }
-  }
-
-  .Message-content {
-    height: 55%;
-    text-align: center;
-    font-weight: normal;
-    font-size: 1.3vw;
-  }
-
-  .Message-reply-delete {
-    height: 15%;
-    display: flex;
-    justify-content: center;
-    .Reply-btn {
-      width: 3vw;
-      background-color: red;
-    }
-  }
-}
-
-.My-items {
-  height: 40vh;
-  width: 50%;
-  overflow: scroll;
-}
-
-.My-items-top {
-  display: flex;
-  justify-content: space-evenly;
-  margin: 0 2vw;
-  h3 {
-    font-weight: 600;
-    font-size: 2vw;
-  }
-}
-.My-items-index {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  height: 50vh;
-  .My-items-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 5px 5px;
-    width: 150px;
-    height: 150px;
-    .img img {
-      margin: 0;
-      height: 150px;
-      width: 150px;
-      max-width: auto;
-      object-fit: cover;
-      z-index: 0;
-      box-sizing: content-box;
-    }
-    .Card-text {
+    .My-items-index {
       display: flex;
-      flex-direction: column;
-      align-items: center;
+      flex-wrap: wrap;
       justify-content: center;
-      min-height: 40px;
-      width: 100%;
-      position: relative;
-      bottom: 47px;
-      z-index: 1;
-      background-color: rgba(var(--navbar-color-rgb), 0.5);
-      color: var(--cards-text-color);
-      .Title {
-        font-size: 11px;
-        font-weight: 600;
-        width: 90%;
-        text-align: center;
-        margin-top: 5px;
+      height: 40vh;
+      .My-items-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 5px 5px;
+        width: 150px;
+        height: 150px;
+        .img img {
+          margin: 0;
+          height: 150px;
+          width: 150px;
+          max-width: auto;
+          object-fit: cover;
+          z-index: 0;
+          box-sizing: content-box;
+        }
+        .Card-text {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          min-height: 40px;
+          width: 100%;
+          position: relative;
+          bottom: 47px;
+          z-index: 1;
+          background-color: rgba(var(--navbar-color-rgb), 0.5);
+          color: var(--cards-text-color);
+          .Title {
+            font-size: 11px;
+            font-weight: 600;
+            width: 90%;
+            text-align: center;
+            margin-top: 5px;
+          }
+          .Subtitle {
+            font-size: 10px;
+          }
+        }
       }
-      .Subtitle {
-        font-size: 10px;
+    }
+    .Messages-main {
+      width: 50%;
+      height: 40vh;
+      overflow: scroll;
+      .Messages-Title {
+        font-size: 2vw;
+        text-align: center;
+        font-weight: 600;
+      }
+
+      .My-profile-message-board {
+        height: 80vh;
+        margin-left: 2vw;
+        display: flex;
+        flex-direction: column;
+        overflow: scroll;
+        max-height: 40vw;
+        width: 100%;
+      }
+
+      .Message {
+        display: flex;
+        flex-direction: column;
+        margin: 1vw;
+        padding: 1.5vw;
+        background-color: rgba(var(--navbar-color-rgb), 0.3);
+        width: 90%;
+
+        img {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+
+        .Message-top {
+          display: flex;
+          justify-content: center;
+          height: 15%;
+          .Message-top-right {
+            display: flex;
+            justify-content: space-around;
+            align-items: left;
+            margin: 0 1vw;
+            h4 {
+              font-size: 2.2vh;
+              text-align: center;
+            }
+            h5 {
+              font-size: 1vw;
+              font-weight: 200;
+            }
+          }
+        }
+        .Message-text,
+        .Message-reply {
+          margin-top: 1vw;
+          h5 {
+            text-align: center;
+            font-size: 1vw;
+            font-weight: 200;
+          }
+          p {
+            font-size: 1.2vw;
+          }
+        }
+
+        .Message-from-date {
+          display: flex;
+          flex-direction: column;
+          p {
+            font-size: 1.2vw;
+          }
+          h4 {
+            font-size: 1vw;
+          }
+        }
+
+        .Message-content {
+          height: 55%;
+          text-align: center;
+          font-weight: normal;
+          font-size: 1.3vw;
+        }
+
+        .Message-reply-delete {
+          height: 15%;
+          display: flex;
+          justify-content: center;
+          .Reply-btn {
+            width: 3vw;
+            background-color: red;
+          }
+        }
       }
     }
   }
@@ -1318,8 +1326,10 @@ a {
   width: 50%;
   height: 41vh;
   .My-comments {
+    width: 100%;
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     max-height: 50vh;
     overflow: scroll;
     word-break: break-all;
@@ -1331,6 +1341,7 @@ a {
 }
 
 .Comments-users {
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -1356,9 +1367,10 @@ a {
   justify-content: left;
   margin-bottom: 2vw;
   img {
-    max-width: 5vw;
-    max-height: 5vw;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
+    object-fit: cover;
   }
   .Comment-top-right {
     display: flex;
@@ -1366,7 +1378,7 @@ a {
     align-items: left;
     margin-left: 2vw;
     h4 {
-      font-size: 2vw;
+      font-size: 2.2vh;
     }
     h5 {
       font-size: 1vw;
@@ -1555,6 +1567,7 @@ a:hover {
     }
     .show-comments-div {
       height: 40%;
+      width: 100%;
       display: flex;
       justify-content: center;
 
@@ -1572,7 +1585,7 @@ a:hover {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        width: 70%;
+        width: 60%;
         height: 30vh;
         overflow: scroll;
         h4 {
@@ -1583,7 +1596,7 @@ a:hover {
   }
   .show-right-column {
     height: 100%;
-    width: 50%;
+    width: 60%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -1605,24 +1618,40 @@ a:hover {
     }
   }
   .show-main-content {
-    margin: 3vh 0 2vh 0;
+    margin: 3vh 0 5vh 0;
     height: 25%;
     width: 100%;
     display: flex;
-    justify-content: flex-start;
+    justify-content: flex-end;
   }
   .show-page-user-content {
-    width: 50%;
+    width: 30%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
+    .user-info-show {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 0 0 2vh 0;
+      img {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+    }
     .show-buttons {
       height: 20%;
       width: 50%;
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
+      justify-content: flex-end;
       align-items: center;
       .Tiny-Buttons-Show {
         width: 8vw;
@@ -1640,17 +1669,19 @@ a:hover {
   }
 
   .right-hand-show-content {
-    width: 50%;
+    width: 70%;
     height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     .show-page-content {
       height: 85%;
       width: 100%;
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
+      text-align: left;
+      justify-content: center;
+      padding-left: 14vw;
     }
     .add-to-favs-but {
       height: 15%;
@@ -1667,9 +1698,9 @@ a:hover {
   .Other-items-index {
     overflow: scroll;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    max-height: 20vh;
+    justify-content: flex-start;
+    max-height: 25vh;
+    padding: 0 0 2vh 0;
     .My-items-card {
       display: flex;
       flex-direction: column;
@@ -1679,8 +1710,8 @@ a:hover {
       height: 150px;
       .img img {
         margin: 0;
-        height: 150px;
-        width: 150px;
+        height: 130px;
+        width: 130px;
         max-width: auto;
         object-fit: cover;
         z-index: 0;
@@ -1715,7 +1746,7 @@ a:hover {
 }
 
 .User-location {
-  padding: 20px;
+  padding: 5px;
   text-align: center;
 }
 

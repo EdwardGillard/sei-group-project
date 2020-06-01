@@ -217,27 +217,27 @@ class UserProfile extends React.Component {
           </div>
         </div>
         <div className="My-profile-columns">
-          <div className="Left-col">
-            <div>
-              <h3 className="Messages-Title"> {`${messages.length}`} Message(s)</h3>
-              <div className="My-profile-message-board">
-                <div>
-                  {sortedMessages.map((message, i) =>
-                    <MessageCard
-                      value={this.state.message.text}
-                      key={i}
-                      {...message}
-                      reply={this.toggleReplyModal}
-                      sendReply={this.handleReplySubmit}
-                      replyModal={this.state.replyModalOpen}
-                      replyChange={this.handleReplyChange}
-                    />
-                  )}
+          <div className="Center-col">
+            <div className="Messages-main">
+              <div>
+                <h3 className="Messages-Title"> {`${messages.length}`} Message(s)</h3>
+                <div className="My-profile-message-board">
+                  <div>
+                    {sortedMessages.map((message, i) =>
+                      <MessageCard
+                        value={this.state.message.text}
+                        key={i}
+                        {...message}
+                        reply={this.toggleReplyModal}
+                        sendReply={this.handleReplySubmit}
+                        replyModal={this.state.replyModalOpen}
+                        replyChange={this.handleReplyChange}
+                      />
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div className="Center-col">
             <div className="My-items">
               <div className="My-items-top">
                 <div className="My-items-title">

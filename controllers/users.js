@@ -58,6 +58,7 @@ async function deleteUser(req, res, next) {
     const posts = await Post.find()
     const articles = await Article.find()
     const users = await User.find()
+    //* Delete all of users comments and ratings on posts, other users and clothing
     await posts.forEach(post => {
       const commentOF = post.comments.filter(comment => comment.user.equals(req.currentUser._id))
       commentOF.forEach(com => com.remove())
@@ -77,6 +78,7 @@ async function deleteUser(req, res, next) {
       ratingDel.forEach(rat => rat.remove())
       user.save()
     })
+    //* Delete all of users posts, message chains and clothes
     const postsToDelete = await Post.find({ user: req.currentUser._id })
     const articlesToDelete = await Article.find({ user: req.currentUser._id })
     const messagesToDelete = await Messages.find({ user: req.currentUser._id })
