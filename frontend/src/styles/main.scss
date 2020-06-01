@@ -139,7 +139,7 @@ a {
   flex-direction: column;
   justify-content: left;
   align-items: center;
-  height: 96vh;
+  height: 100vh;
   background-color: rgba(var(--main-bg-rgb), 0.8);
   a:hover {
     color: white;
@@ -205,9 +205,10 @@ a {
 .box-reg {
   background-color: rgba(var(--navbar-color-rgb), 1);
   padding: 5vh 10vw 5vh 10vw;
-  height: 75vh;
+  margin: 0 0 10vh 0;
+  height: 85vh;
   .field {
-    padding: 3px;
+    padding: 1px;
     font-family: "Playfair Display", serif;
   }
 }
@@ -298,7 +299,8 @@ a {
       width: 100%;
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: flex-end;
+
       form {
         min-width: 70%;
         font-size: 4vh;
