@@ -17,31 +17,31 @@ const ClothesFilter = ({
 }) => {
   return (
     <>
-        <Select className="Clothes-select"
-          options={category}
-          placeholder={"Category"}
-          onChange={handleCategoryFilter}
-          name="category"
-          value={categoryValue ? {label: categoryValue, value: categoryValue} : null}
-        />
-        <Select className="Clothes-select"
-          options={color}
-          placeholder={"Color"}
-          onChange={handleColorFilter}
-          value={colorValue ? {label: colorValue, value: colorValue} : null}
-        />
-        <Select className="Clothes-select"
-          options={gender}
-          placeholder={"Gender"}
-          onChange={handleGenderFilter}
-          value={genderValue ? {label: genderValue, value: genderValue} : null}
-        />
-        <Select className="Clothes-select"
-          options={sizes}
-          placeholder={"Size"}
-          onChange={handleSizeFilter}
-          value={sizeValue ? {label: sizeValue, value: sizeValue} : null}
-        />
+      <Select className="Clothes-select"
+        options={category}
+        placeholder={"Category"}
+        onChange={handleCategoryFilter}
+        name="category"
+        value={categoryValue ? { label: categoryValue, value: categoryValue } : null}
+      />
+      <Select className="Clothes-select"
+        options={color}
+        placeholder={"Color"}
+        onChange={handleColorFilter}
+        value={colorValue ? { label: colorValue, value: colorValue } : null}
+      />
+      <Select className="Clothes-select"
+        options={gender}
+        placeholder={"Gender"}
+        onChange={handleGenderFilter}
+        value={genderValue ? { label: genderValue, value: genderValue } : null}
+      />
+      <Select className="Clothes-select"
+        options={sizes}
+        placeholder={"Size"}
+        onChange={handleSizeFilter}
+        value={sizeValue ? { label: sizeValue, value: sizeValue } : null}
+      />
     </>
   )
 }

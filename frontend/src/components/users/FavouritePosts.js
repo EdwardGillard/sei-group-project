@@ -41,26 +41,26 @@ class FavouritePosts extends React.Component {
     const { posts } = this.state
     return (
       <>
-        <div className="Fav-Posts">
+        <div className="Fav-items">
           <div className="Page-head">
             <div className="Page-title">
               <h1>MY FAVOURITE ITEMS</h1>
             </div>
           </div>
-          <div className="Fav-posts">
+          <div className="Favs">
             {posts.map(post => (
-              <div key={post._id} className="Fav-post-card">
-                <div className="Post-img-text">
+              <div key={post._id} className="m">
+                <div className="Card">
                   <Link to={`/posts/${post._id}`}>
                     <div className="fav-img">
                       <img src={post.photo} alt={post.title} loading="lazy" width="255" height="255" />
                     </div>
                     <div className="Card-content">
-                      <h4 className="">{post.title}</h4>
+                      <h4><strong>{post.title}</strong></h4>
                     </div>
                   </Link>
-                  <button className="fav-item-Button" onClick={this.removeFromFavs} value={post._id}>Remove from favourites</button>
                 </div>
+                <button className="fav-item-Button" onClick={this.removeFromFavs} value={post._id}>Remove from favourites</button>
               </div>
             ))}
           </div>

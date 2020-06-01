@@ -26,7 +26,7 @@ class UserProfile extends React.Component {
     replyModalOpen: false,
     replyId: '',
     message: {
-    text: ''
+      text: ''
     },
     messagesModalOpen: false
   }
@@ -175,101 +175,99 @@ class UserProfile extends React.Component {
     // * Sorted messages by date
     const sortedMessages = messages.sort((a, b) => b.createdAt - a.createdAt)
     return (
-      <>
-        <div className="My-profile">
-          <div className="My-profile-top-row">
-            <div className="Photo-delete-rating">
-              <div className="Profile-img image ">
-                <img src={profilePic} alt="profile pic" />
-                <EditProfilePicture
-                  profilePic={this.state.user.profilePic}
-                  toggleModal={this.toggleModal}
-                  modalOpen={this.state.modalOpen}
-                  onChange={this.handleChange}
-                  onSubmit={this.handleSubmit}
-                />
-                <button onClick={this.toggleModal}
-                  className="button is-profile-btn"
-                >Change Profile Picture</button>
-              </div>
-              <div className="My-profile-rating">
-                <StarRating
-                  rating={rating}
-                  editing={false}
-                />
-              </div>
-              <div className="Edit-delete">
-                <button onClick={this.handleEditProfile}
-                  className="My-profile-update-btn"
-                >Update Profile</button>
-                <button onClick={() => { if (window.confirm("Are you sure?")) this.deleteUserProfile() }} className="My-profile-delete-btn">Delete Profile</button>
-              </div>
+      <div className="My-profile">
+        <div className="My-profile-top-row">
+          <div className="Photo-delete-rating">
+            <div className="Profile-img image ">
+              <img src={profilePic} alt="profile pic" />
+              <EditProfilePicture
+                profilePic={this.state.user.profilePic}
+                toggleModal={this.toggleModal}
+                modalOpen={this.state.modalOpen}
+                onChange={this.handleChange}
+                onSubmit={this.handleSubmit}
+              />
+              <button onClick={this.toggleModal}
+                className="button is-profile-btn"
+              >Change Profile Picture</button>
             </div>
-            <div className="Welcome">
-              <div className="Welcome-user">
-                <h5 className="title">WELCOME {nameCap}</h5>
-                <h6 className="subtitle">{location}</h6>
-              </div>
-              <div className="My-profile-favs">
-                <Link to={`/profile/${username}/friends`} className="Favs-btn">Following</Link>
-                <Link to={`/profile/${username}/favourites`} className="Favs-btn">Favourite Items</Link>
-                <Link to={`/profile/${username}/favouriteposts`} className="Favs-btn">Favourite Posts</Link>
+            <div className="My-profile-rating">
+              <StarRating
+                rating={rating}
+                editing={false}
+              />
+            </div>
+            <div className="Edit-delete">
+              <button onClick={this.handleEditProfile}
+                className="My-profile-update-btn"
+              >Update Profile</button>
+              <button onClick={() => { if (window.confirm("Are you sure?")) this.deleteUserProfile() }} className="My-profile-delete-btn">Delete Profile</button>
+            </div>
+          </div>
+          <div className="Welcome">
+            <div className="My-profile-favs">
+              <Link to={`/profile/${username}/friends`} className="Favs-btn">Following</Link>
+              <Link to={`/profile/${username}/favourites`} className="Favs-btn">Favourite Items</Link>
+              <Link to={`/profile/${username}/favouriteposts`} className="Favs-btn">Favourite Posts</Link>
+            </div>
+            <div className="Welcome-user">
+              <h5 className="title">WELCOME {nameCap}</h5>
+              <h6 className="subtitle">{location}</h6>
+            </div>
+          </div>
+        </div>
+        <div className="My-profile-columns">
+          <div className="Left-col">
+            <div>
+              <h3 className="Messages-Title"> {`${messages.length}`} Message(s)</h3>
+              <div className="My-profile-message-board">
+                <div>
+                  {sortedMessages.map((message, i) =>
+                    <MessageCard
+                      value={this.state.message.text}
+                      key={i}
+                      {...message}
+                      reply={this.toggleReplyModal}
+                      sendReply={this.handleReplySubmit}
+                      replyModal={this.state.replyModalOpen}
+                      replyChange={this.handleReplyChange}
+                    />
+                  )}
+                </div>
               </div>
             </div>
           </div>
-          <div className="My-profile-columns">
-            <div className="Left-col">
-              <div>
-                <h3 className="Messages-Title"> {`${messages.length}`} Message(s)</h3>
-                {/* Notifications / chat section */}
-                <div className="My-profile-message-board">
-                  <div>
-                    {sortedMessages.map((message, i) =>
-                      <MessageCard
-                        value={this.state.message.text}
-                        key={i}
-                        {...message}
-                        reply={this.toggleReplyModal}
-                        sendReply={this.handleReplySubmit}
-                        replyModal={this.state.replyModalOpen}
-                        replyChange={this.handleReplyChange}
+          <div className="Center-col">
+            <div className="My-items">
+              <div className="My-items-top">
+                <div className="My-items-title">
+                  <h3>My Items</h3>
+                </div>
+                <button className="fav-item-Button"
+                  onClick={this.handleAddClothes}
+                >Add Clothes Now</button>
+              </div>
+              <div className="My-items-index">
+                {(reversedCreatedArticles.length === 0) ?
+                  <div className="">
+                    <h1>Looks like you haven't uploaded anthing yet.</h1>
+                    <p> Why don't you add some clothes now? <br /> Or browse the clothes that are on offer? </p>
+                  </div>
+                  :
+                  <div className="My-items-index">
+                    {reversedCreatedArticles.map(item =>
+                      <UserClothCard
+                        {...item}
+                        key={item._id}
                       />
                     )}
-                  </div>
-                </div>
+                  </div>}
               </div>
             </div>
-            <div className="Center-col">
-              <div className="My-items">
-                <div className="My-items-top">
-                  <div className="My-items-title">
-                    <h3>My Items</h3>
-                  </div>
-                  <button className="fav-item-Button"
-                    onClick={this.handleAddClothes}
-                  >Add Clothes Now</button>
-                </div>
-                <div>
-                  {(reversedCreatedArticles.length === 0) ?
-                    <div className="">
-                      <h1>Looks like you haven't uploaded anthing yet.</h1>
-                      <p> Why don't you add some clothes now? <br /> Or browse the clothes that are on offer? </p>
-                    </div>
-                    :
-                    <div className="My-items-index">
-                      {reversedCreatedArticles.map(item =>
-                        <UserClothCard
-                          {...item}
-                          key={item._id}
-                        />
-                      )}
-                    </div>
-                  }
-                </div>
-              </div>
+            <div className="My-comments-wrapper">
               <div className="My-comments">
                 <div className="My-comments-title">
-                  <h3>User's comments About Me</h3>
+                  <h3>Comments</h3>
                 </div>
                 <div className="Comments-users">
                   {commentsArray.map(comment => (
@@ -283,7 +281,7 @@ class UserProfile extends React.Component {
             </div>
           </div>
         </div>
-      </>
+      </div>
     )
   }
 }

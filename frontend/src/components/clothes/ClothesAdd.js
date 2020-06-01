@@ -68,13 +68,12 @@ class ClothesAdd extends React.Component {
     return (
       <>
         <div className="Page-head">
-          <div className="Page-title">
+          <div className="Page-title-form">
             <h1>Add Clothes</h1>
           </div>
           <ClothesForm
             onChange={this.handleImageChange}
             onClick={this.handleAddImage}
-
             handleChange={this.handleChange}
             handleMultiChange={this.handleMultiChange}
             handleSubmit={this.handleSubmit}

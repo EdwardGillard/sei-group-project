@@ -96,63 +96,61 @@ class PostsShow extends React.Component {
     const time = edited[1].split('.')[0]
     const userName = post.user.username.charAt(0).toUpperCase() + post.user.username.slice(1)
     return (
-      <>
-        <div className="Post">
-          <section className="">
-            <div className="hero-body">
-              <div className="container">
-                <h1 className="Title">{post.title}</h1>
-              </div>
-            </div>
-            <div className="Post-and-comments">
-              <div className="Post-main">
-                <img src={post.photo} alt={post.title} height="200" width="100" />
-                <div className="Post-Right">
-                  <div className="Content">
-                    <p className="Content">{post.text}</p>
-                  </div>
-                  <div className="Created-by">
-                    <Link to={`/page/${post.user.username}`}><p>Created by: {userName}</p> </Link>
-                    <p>{date} {time}</p>
-                    {isOwner(post.user._id) && <Link to={`/posts/${post._id}/edit`}><button className="Button">Edit</button></Link>}
-                    {isOwner(post.user._id) && <button className="Button" value={post._id} onClick={this.deletePost}>Delete</button>}
-                    <button name="posts" value={post._id} onClick={this.handleFavouriteSubmit} className="Button">Add to Favourites</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="Comments-all">
-              {isAuthenticated && <section>
-                <form onSubmit={this.handleCommentSubmit}>
-                  <div className="Post-comment">
-                    <div className="label for comments">
-                      <p> Leave a comment </p>
-                    </div>
-                    <textarea
-                      className="comments-input"
-                      type="textArea"
-                      rows="5"
-                      maxLength="250"
-                      name="text"
-                      onChange={this.handleCommentChange}
-                      value={this.state.comments.text} />
-                    <button className="Button">Submit Comment</button>
-                  </div>
-                </form>
-                <div className="User-comments">
-                  {commentsArray.map(comment => (
-                    <Comments
-                      key={comment._id}
-                      comment={comment}
-                      deleteComment={this.deleteComment}
-                    />
-                  ))}
-                </div>
-              </section>}
-            </div>
-          </section>
+      <div className="Post">
+        <div className="Post-Title">
+          <h1 className="Post-Title">{post.title}</h1>
         </div>
-      </>
+        <div className="Main-Post-Show">
+          <div className="Post-and-comments">
+            <div className="Post-main">
+              <div className="Post-Show-Image">
+                <div className="Post-Show-Image-Container">
+                  <img src={post.photo} alt={post.title} height="200" width="100" />
+                </div>
+                <div className="post-show-buttons">
+                  {isOwner(post.user._id) && <Link to={`/posts/${post._id}/edit`}><button className="Button">Edit</button></Link>}
+                  {isOwner(post.user._id) && <button className="Button" value={post._id} onClick={this.deletePost}>Delete</button>}
+                  {isAuthenticated() && <button name="posts" value={post._id} onClick={this.handleFavouriteSubmit} className="Button">Add to Favourites</button>}
+                </div>
+              </div>
+              <div className="Post-Right">
+                <div className="Content">
+                  <p>{post.text}</p>
+                </div>
+                <div className="Created-by">
+                  <Link to={`/page/${post.user.username}`}><p>Created by: {userName}</p> </Link>
+                  <p>{date} {time}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="Comments-all">
+            {isAuthenticated() && <form className="Post-comment" onSubmit={this.handleCommentSubmit}>
+              <div className="label-for-comments">
+                <p> Leave a comment </p>
+              </div>
+              <textarea
+                className="comments-input"
+                type="textArea"
+                rows="6"
+                maxLength="150"
+                name="text"
+                onChange={this.handleCommentChange}
+                value={this.state.comments.text} />
+              <button className="Button">Submit Comment</button>
+            </form>}
+            <div className="User-comments">
+              {commentsArray.map(comment => (
+                <Comments
+                  key={comment._id}
+                  comment={comment}
+                  deleteComment={this.deleteComment}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </div >
     )
   }
 }

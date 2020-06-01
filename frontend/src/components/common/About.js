@@ -1,4 +1,5 @@
 import React from 'react'
+import { isAuthenticated } from '../../lib/auth'
 
 class About extends React.Component {
 
@@ -18,7 +19,7 @@ class About extends React.Component {
               </div>
               <div className="About column-center">
                 <div className="Join-us Title">
-                  <p><a href="/register">Join us now </a> and see where your new wardrobe could take you!</p>
+                  {!isAuthenticated() && <p><a href="/register">Join us now </a> and see where your new wardrobe could take you!</p>}
                 </div>
                 <div className="About-row">
                   <div className="Our-mission column-center">

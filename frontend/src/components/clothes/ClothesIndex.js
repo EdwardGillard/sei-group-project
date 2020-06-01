@@ -153,42 +153,43 @@ class ClothesIndex extends React.Component {
       return { value: size, label: size }
     })
     return (
-      <>
-        <div className="Page-head">
-          <div className="Page-title">
-            <h1>CLOTHES</h1>
-          </div>
-          <div className="Page-subtitle">
-            <h2>Latest Items</h2>
+      <div>
+        <div className="Clothes-Index-Header">
+          <div className="Page-head">
+            <div className="Page-title">
+              <h1>CLOTHES</h1>
+            </div>
           </div>
         </div>
-        <div className="Latest column-center">
-          <div className="Clothes-filter">
-            <ClothesFilter
-              category={categoryOption}
-              categoryValue={this.state.category || ''}
-              colorValue={this.state.color || ''}
-              genderValue={this.state.gender || ''}
-              sizeValue={this.state.size || ''}
-              color={colorOption}
-              gender={genderOption}
-              sizes={sizeOption}
-              handleCategoryFilter={(e) => this.handleFilter(e, 'category')}
-              handleColorFilter={(e) => this.handleFilter(e, 'color')}
-              handleGenderFilter={(e) => this.handleFilter(e, 'gender')}
-              handleSizeFilter={(e) => this.handleFilter(e, 'size')}
-            />
-            <form>
-              <input
-                className="input"
-                type="text"
-                placeholder="Search for Category, Name and User"
-                value={searchClothes || ''}
-                onChange={this.handleChange}
+        <div className="Main-Content-Index">
+          <div className="Latest-filter">
+            <div className="Clothes-filter-all">
+              <ClothesFilter
+                category={categoryOption}
+                categoryValue={this.state.category || ''}
+                colorValue={this.state.color || ''}
+                genderValue={this.state.gender || ''}
+                sizeValue={this.state.size || ''}
+                color={colorOption}
+                gender={genderOption}
+                sizes={sizeOption}
+                handleCategoryFilter={(e) => this.handleFilter(e, 'category')}
+                handleColorFilter={(e) => this.handleFilter(e, 'color')}
+                handleGenderFilter={(e) => this.handleFilter(e, 'gender')}
+                handleSizeFilter={(e) => this.handleFilter(e, 'size')}
               />
-            </form>
+              <form>
+                <input
+                  className="input"
+                  type="text"
+                  placeholder="Search for Category, Name and User"
+                  value={searchClothes || ''}
+                  onChange={this.handleChange}
+                />
+              </form>
+            </div>
+            <button onClick={this.resetFilter} className="Button">Reset Filter</button>
           </div>
-          <button onClick={this.resetFilter} className="Button">Reset Filter</button>
           <br />
           <div className="Clothes-index">
             {filteredItemsToDisplay.length > 0 ? (
@@ -204,7 +205,7 @@ class ClothesIndex extends React.Component {
                 )}
           </div>
         </div >
-      </>
+      </div>
     )
   }
 }

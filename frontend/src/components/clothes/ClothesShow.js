@@ -189,16 +189,6 @@ class ClothesShow extends React.Component {
     const clothId = cloth._id
     return (
       <>
-        <section className="hero is-light">
-          <div className="hero-body">
-            <div className="container">
-              <h1 className="title">
-                {cloth.title}
-              </h1>
-            </div>
-          </div>
-        </section>
-        <section className="section">
           <div className="container">
             <div className="columns">
               <SingleClothCard
@@ -229,7 +219,6 @@ class ClothesShow extends React.Component {
               />
             </div>
           </div>
-        </section>
       </>
     )
   }

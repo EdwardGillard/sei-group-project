@@ -43,24 +43,26 @@ class FavouriteFriends extends React.Component {
     const { friends } = this.state
     return (
       <>
-        <div className="Friends">
+        <div className="Fav-items">
           <div className="Page-head">
             <div className="Page-title">
               <h1>MY FRIENDS</h1>
             </div>
           </div>
-          <div className="Fav-friends">
+          <div className="Favs">
             {friends.map(friend =>
-              <div key={friend.username} className="Fav-card">
-                <Link to={`/page/${friend.username}`}>
-                  <div className="Card-image">
-                    <img src={friend.profilePic} loading="lazy" width="150" height="150" alt={friend.username} />
-                  </div>
-                  <div className="Card-content">
-                    <h4 className=""><strong>{friend.username}</strong></h4>
-                  </div>
-                </Link>
-                <button className="Button" onClick={this.removeFromFavs} value={friend._id}>Unfollow</button>
+              <div key={friend.username} className="m">
+                <div className="Card">
+                  <Link to={`/page/${friend.username}`}>
+                    <div className="fav-img">
+                      <img src={friend.profilePic} alt={friend.username} loading="lazy" width="255" height="255" />
+                    </div>
+                    <div className="Card-content">
+                      <h4><strong>{friend.username}</strong></h4>
+                    </div>
+                  </Link>
+                </div>
+                <button className="fav-item-Button" onClick={this.removeFromFavs} value={friend._id}>Unfollow</button>
               </div>
             )}
           </div>

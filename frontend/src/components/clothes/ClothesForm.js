@@ -103,7 +103,6 @@ const ClothesForm = ({ handleChange, handleSubmit, handleMultiChange, formData, 
             </div>
             {errors.genderCategory && <small className="help is-danger">Please select an input</small>}
           </div>
-
           <div className="field">
             <label className="label">Size</label>
             <div className="control">

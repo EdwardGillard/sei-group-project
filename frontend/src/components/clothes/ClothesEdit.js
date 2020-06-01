@@ -79,23 +79,21 @@ class ClothesEdit extends React.Component {
     if (!this.state.formData) return null
 
     return (
-      <>
-        <div className="Page-head">
-          <div className="Page-title">
-            <h1>Edit {this.state.formData.title}</h1>
-          </div>
-          <ClothesEditForm
-            onChange={this.handleImageChange}
-            onClick={this.handleAddImage}
-            handleChange={this.handleChange}
-            handleMultiChange={this.handleMultiChange}
-            handleSubmit={this.handleSubmit}
-            formData={this.state.formData}
-            errors={this.state.errors}
-            name="image"
-          />
+      <div className="Page-head-edit-form">
+        <div className="Page-title-edit-form">
+          <h1>Edit {this.state.formData.title}</h1>
         </div>
-      </>
+        <ClothesEditForm
+          onChange={this.handleImageChange}
+          onClick={this.handleAddImage}
+          handleChange={this.handleChange}
+          handleMultiChange={this.handleMultiChange}
+          handleSubmit={this.handleSubmit}
+          formData={this.state.formData}
+          errors={this.state.errors}
+          name="image"
+        />
+      </div>
     )
   }
 }

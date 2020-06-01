@@ -87,21 +87,27 @@ class EditProfile extends React.Component {
     const { createdArticles } = this.state.formData
 
     return (
-      <div>
-        <EditProfileForm
-          errors={this.state.errors}
-          onChange={this.handleChange}
-          onSubmit={this.handleSubmit}
-          onPostcodeChange={this.handlePostcodeChange}
-          {...this.state.formData}
-        />
-        <div className="My-items-index">
-          {createdArticles.map(item =>
-            <EditClothCard
-              deleteArticle={this.deleteArticle}
-              {...item}
-              key={`${item._id}1`}
-            />)}
+      <div className="Edit-profile">
+        <div className="Edit-profile-form">
+          <h1 className="title edit-profile-title">Edit your details </h1>
+          <EditProfileForm
+            errors={this.state.errors}
+            onChange={this.handleChange}
+            onSubmit={this.handleSubmit}
+            onPostcodeChange={this.handlePostcodeChange}
+            {...this.state.formData}
+          />
+        </div>
+        <div className="Edit-profile-index">
+          <h1 className="title edit-profile-title">Edit your items </h1>
+          <div className="My-items-index">
+            {createdArticles.map(item =>
+              <EditClothCard
+                deleteArticle={this.deleteArticle}
+                {...item}
+                key={`${item._id}1`}
+              />)}
+          </div>
         </div>
       </div>
     )

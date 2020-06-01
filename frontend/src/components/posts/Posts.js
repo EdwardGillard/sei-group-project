@@ -57,13 +57,12 @@ class Posts extends React.Component {
   render() {
     if (!this.state.posts) return null
     return (
-      <>
-        <div className="Page-head">
-          <div className="Page-title">
-            <h1>POSTS</h1>
-          </div>
-          <div className="Page-subtitle">
-            <h2>Check the latest post</h2>
+      <div>
+        <div className="Clothes-Index-Header">
+          <div className="Page-head">
+            <div className="Page-title">
+              <h1>POSTS</h1>
+            </div>
           </div>
         </div>
         <div className="Posts">
@@ -100,7 +99,7 @@ class Posts extends React.Component {
             ))}
           </div>
         </div>
-      </>
+      </div>
     )
   }
 }

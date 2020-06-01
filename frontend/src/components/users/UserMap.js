@@ -97,11 +97,8 @@ class UserMap extends React.Component {
       <>
         <div className="Map-page">
           <div className="Page-head">
-            <div className="Page-title">
+            <div className="Map-Page-Title">
               <h1>SAVED PINS</h1>
-            </div>
-            <div className="Page-subtitle">
-              <h2>Add & save locations to remember later</h2>
             </div>
           </div>
           <div className="pin-details">

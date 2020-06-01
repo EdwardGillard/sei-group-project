@@ -139,7 +139,7 @@ a {
   flex-direction: column;
   justify-content: left;
   align-items: center;
-  min-height: 140vh;
+  height: 96vh;
   background-color: rgba(var(--main-bg-rgb), 0.8);
   a:hover {
     color: white;
@@ -149,9 +149,8 @@ a {
 }
 
 .Navbar {
-  top: 0;
   position: fixed;
-  height: 7vh;
+  height: 5vh;
   display: flex;
   align-items: center;
   background-color: rgba(var(--navbar-color-rgb), 0.3);
@@ -248,45 +247,65 @@ a {
 
 //? LATEST
 
-.Latest {
-  position: absolute;
-  top: var(--main-start-point);
-
-  .Button {
-    width: 10vw;
-    padding: 0.5vw;
-    text-align: center;
-    font-size: 1vw;
-    font-family: inherit;
-    font-weight: 200;
-    background-color: rgba(66, 48, 48, 0.327);
-    border-radius: 10px;
-    color: white;
-  }
-
-  .Clothes-filter {
-    margin: 1vw;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    width: 90vw;
-  }
-  .input {
-    margin: 1vw;
-  }
-  .Clothes-select {
-    margin: 1vw;
-    min-width: 12vw;
-  }
+.Clothes-Index-Header {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  height: 15vh;
+  margin: 2vh;
 }
 
-.Clothes-index {
+.Main-Content-Index {
+  width: 100%;
   display: flex;
+  margin: 2vw;
   justify-content: center;
-  flex-wrap: wrap;
-  overflow: scroll;
-  width: 80vw;
-  max-height: 40vw;
+  .Latest-filter {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    .Clothes-filter-all {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      form {
+        min-width: 70%;
+        font-size: 4vh;
+        margin: 1vh;
+      }
+    }
+    .Clothes-select {
+      min-width: 70%;
+      margin: 1vh;
+    }
+    .Button {
+      width: 10vw;
+      padding: 0.5vw;
+      text-align: center;
+      font-size: 1vw;
+      font-family: inherit;
+      font-weight: 200;
+      background-color: rgba(66, 48, 48, 0.327);
+      border-radius: 10px;
+      color: white;
+    }
+  }
+
+  .Clothes-index {
+    display: flex;
+    justify-content: center;
+    width: 70%;
+    flex-wrap: wrap;
+    overflow: scroll;
+    width: 80vw;
+    max-height: 38vw;
+  }
 }
 
 .Clothes-card {
@@ -328,44 +347,6 @@ a {
   }
 }
 
-//? CLOTHES SHOW
-
-// ? SLIDE IMAGE - SHOW PAGE
-
-.slide {
-  margin-top: 13px;
-}
-.slide-container {
-  width: 30vw;
-  margin: auto;
-}
-
-.Slide-details {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  font-size: 2vw;
-}
-
-.Slide-user {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-h3 {
-  text-align: center;
-}
-
-.each-slide > div {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-size: cover;
-  height: 30vw;
-  width: 30vw;
-}
-
 //? Posts Edit
 .Posts-edit {
   display: flex;
@@ -391,18 +372,9 @@ h3 {
 
 .Posts {
   display: flex;
-  flex-direction: row;
   justify-content: center;
+  height: 65vh;
   overflow: hidden;
-
-  .Post-form {
-    display: column;
-    justify-content: right;
-    align-items: center;
-    padding: 0 30px;
-  }
-  position: absolute;
-  top: var(--main-start-point);
   .Post-form {
     display: flex;
     flex-direction: column;
@@ -432,7 +404,7 @@ h3 {
     }
     .Button {
       width: 10vw;
-      padding: 0.5vw;
+      padding: 1vw;
       text-align: center;
       font-size: 1vw;
       font-family: inherit;
@@ -447,8 +419,8 @@ h3 {
     justify-content: center;
     flex-wrap: wrap;
     overflow: scroll;
-    max-height: 50vw;
-    max-width: 70vw;
+    height: 65vh;
+    width: 70vw;
     .Post-bottom {
       display: flex;
     }
@@ -488,80 +460,131 @@ h3 {
 .Post {
   display: flex;
   flex-direction: column;
-  width: 80vw;
-
-  .Button {
-    width: 13vw;
-    font-size: 1.2vw;
-  }
-  .Title {
-    font-size: 3vw;
-    text-align: center;
-    color: white;
-    font-weight: 200;
-  }
-
-  .Post-and-comments {
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  margin: 0 0 2vh 0;
+  .Post-Title {
     display: flex;
-
-    .Comments-all {
+    justify-content: center;
+    width: 100%;
+    font-family: "Playfair Display", serif;
+    font-size: 6vh;
+    margin: 0;
+    color: white;
+    height: 7vh;
+  }
+  .Main-Post-Show {
+    display: flex;
+    padding: 3vh 2vw 2vh 2vw;
+    justify-content: center;
+    .Post-and-comments {
+      width: 70%;
       display: flex;
+      flex-direction: column;
       justify-content: center;
-      align-items: center;
-      width: 15%;
-      p {
-        font-size: 2vw;
+      overflow: hidden;
+      .Post-main {
+        display: flex;
+        justify-content: center;
+        background-color: rgba(var(--navbar-color-rgb), 0.5);
+        width: 100%;
+        height: 75vh;
+        .Post-Show-Image {
+          width: 35%;
+          padding: 1vh 1vw;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-evenly;
+          .Post-Show-Image-Container {
+            height: 75%;
+          }
+          img {
+            object-fit: contain;
+            width: 100%;
+          }
+          .post-show-buttons {
+            display: flex;
+            height: 25%;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            width: 100%;
+            .Button {
+              width: 100%;
+              width: 13vw;
+              font-size: 1vw;
+              padding: 1.5vw;
+            }
+          }
+        }
+        .Post-Right {
+          width: 65%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          overflow: hidden;
+          .Content {
+            font-size: 2vh;
+            padding: 4vh 2vw 3vh 2vw;
+            height: 90%;
+            width: 100%;
+            word-break: keep-all;
+            text-align: left;
+            overflow: scroll;
+          }
+          .Created-by {
+            height: 10%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 1vw;
+          }
+        }
       }
     }
   }
-
-  .Post-comment {
-    display: flex;
-    flex-direction: column;
-    width: 30%;
-    padding-bottom: 10vh;
-    p {
-      font-size: 2vw;
-    }
-  }
-
-  .User-comments {
-    display: flex;
-    flex-direction: column;
-    width: 60%;
-    overflow: scroll;
-    max-height: 15vw;
-    margin-top: -5vh;
-    margin-bottom: 20px;
-    width: 30vw;
-    font-size: 1vw;
-  }
-
-  .Post-main {
-    display: flex;
-    justify-content: center;
-    background-color: rgba(var(--navbar-color-rgb), 0.5);
-    width: 100%;
-
-    img {
-      object-fit: cover;
-      width: 30vw;
-      height: 100%;
-    }
-    .Content {
-      font-size: 1.2vw;
-      padding: 5vh;
-      text-align: center;
-      overflow: scroll;
-    }
-  }
-  .Created-by {
-    height: 20%;
+  .Comments-all {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: 1vw;
-    padding: 1vh;
+    width: 30%;
+    overflow: scroll;
+    p {
+      font-size: 2vw;
+    }
+    .Post-comment {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      width: 100%;
+      height: 30%;
+      p {
+        font-size: 2vw;
+      }
+      textarea {
+        font-size: 1.2vw;
+        width: 70%;
+      }
+    }
+    .User-comments {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 55vh;
+      overflow: scroll;
+      margin: 2vh 2vw;
+      word-break: break-all;
+      p {
+        font-size: 2vh;
+      }
+      h4 {
+        font-size: 3vh;
+      }
+    }
   }
 }
 
@@ -581,7 +604,44 @@ h3 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 100vh;
+  justify-content: center;
+  height: 100vh;
+  .Map-Page-Title {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-family: "Playfair Display", serif;
+    font-size: 6vh;
+    margin: 0;
+    color: white;
+    height: 7vh;
+  }
+  .Map {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .MapGL {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: white;
+      overflow: hidden;
+      border-radius: 10px;
+      border: 2px solid white;
+    }
+    .pincard p {
+      font-size: 1.5vw;
+      font-weight: 200;
+      small {
+        font-size: 1vw;
+      }
+    }
+    .map-pins {
+      width: 300px;
+    }
+  }
   .Button {
     width: 20vw;
     max-width: 120px;
@@ -589,32 +649,6 @@ h3 {
     max-height: 30px;
     padding: 0;
     font-size: 1.5vw;
-  }
-}
-.Map {
-  .MapGL {
-    position: relative;
-    top: 17vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: white;
-    overflow: hidden;
-    border-radius: 10px;
-    border: 2px solid white;
-    width: 100%;
-    height: 100%;
-    margin-bottom: 10vw;
-  }
-  .pincard p {
-    font-size: 1.5vw;
-    font-weight: 200;
-    small {
-      font-size: 1vw;
-    }
-  }
-  .map-pins {
-    width: 300px;
   }
 }
 
@@ -631,15 +665,17 @@ h3 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 50%;
+  width: 90%;
 }
 
 .Show-profile-top {
   display: flex;
   align-items: center;
+  width: 100%;
 }
 
 .Photo-user-rating {
+  width: 50%;
   img {
     height: 200px;
     width: 200px;
@@ -694,6 +730,7 @@ h3 {
 
   .Comment {
     max-width: 30vw;
+    font-size: 1vw;
     word-wrap: break-word;
     h4 {
       color: white;
@@ -728,7 +765,7 @@ h3 {
       }
     }
   }
-  .user-review-head{
+  .user-review-head {
     text-align: left;
     padding-left: 8vw;
   }
@@ -745,7 +782,8 @@ h3 {
 
 .Page-Div {
   width: 100%;
-  padding-top: 50px;
+  padding: 3vh;
+  height: 80vh;
   display: flex;
   justify-content: center;
   form {
@@ -778,29 +816,32 @@ h3 {
   background-color: white;
   height: 350px;
 }
+
 .Show-profile-bottom {
   display: flex;
   justify-content: center;
+  height: 40vh;
+  width: 100%;
 
   .User-items-index {
     display: flex;
-    margin-top: 4vw;
     overflow: scroll;
     max-height: 40vw;
-    max-width: 78vw;
+    width: 90%;
+    margin: 1vh 0 5vh 0;
 
     .Card {
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin: 0 2vw;
-      width: 300px;
-      height: 300px;
+      margin: 0 1vw;
+      width: 25vh;
+      height: 25vh;
 
       .img img {
         margin: 0;
-        width: 300px;
-        height: 300px;
+        width: 25vh;
+        height: 25vh;
         object-fit: cover;
         z-index: 0;
         box-sizing: content-box;
@@ -874,12 +915,13 @@ h3 {
 .My-profile {
   display: flex;
   flex-direction: column;
-  width: 100vw;
+  width: 100%;
 }
 
 .My-profile-top-row {
   display: flex;
   align-items: center;
+  height: 45vh;
 
   .Photo-delete-rating {
     .Modal {
@@ -981,25 +1023,35 @@ h3 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     width: 70%;
-    h5.title {
-      margin-top: 5vw;
-      font-family: "Playfair Display", serif;
-      text-align: center;
-      color: var(--title-color);
-    }
-    h6.subtitle {
-      font-family: "Playfair Display", serif;
-      text-align: center;
-      color: var(--subtite-color);
+    height: 100%;
+    .Welcome-user {
+      height: 70%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      h5.title {
+        font-family: "Playfair Display", serif;
+        text-align: center;
+        font-size: 7vh;
+        color: var(--title-color);
+      }
+      h6.subtitle {
+        font-family: "Playfair Display", serif;
+        text-align: center;
+        color: var(--subtite-color);
+      }
     }
 
     .My-profile-favs {
-      margin-top: 5vw;
       display: flex;
       justify-content: space-evenly;
+      height: 30%;
       .Favs-btn {
+        height: 40%;
         width: 20vw;
         padding: 1vw;
         text-align: center;
@@ -1019,22 +1071,22 @@ h3 {
   display: flex;
   .Left-col {
     display: flex;
+    height: 41vh;
     flex-direction: column;
-    width: 30%;
-    height: auto;
+    width: 33%;
+    overflow: scroll;
   }
   .Center-col {
-    width: 70%;
-    height: auto;
+    width: 67%;
+    height: 42vh;
     display: flex;
-    flex-direction: column;
+    align-items: center;
   }
 }
 
 .Messages-Title {
-  margin: 0;
-  font-size: 20px;
-  padding-left: 7px;
+  font-size: 2vw;
+  font-weight: 600;
 }
 
 .My-profile-message-board {
@@ -1123,24 +1175,25 @@ h3 {
 }
 
 .My-items {
-  padding: 3vw;
+  height: 40vh;
+  width: 50%;
+  overflow: scroll;
 }
 
 .My-items-top {
   display: flex;
-  justify-content: space-between;
-  margin: 0 3vw;
+  justify-content: space-evenly;
+  margin: 0 2vw;
   h3 {
     font-weight: 600;
-    font-size: 20px;
+    font-size: 2vw;
   }
 }
 .My-items-index {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  max-height: 80vh;
-  overflow: scroll;
+  height: 50vh;
   .My-items-card {
     display: flex;
     flex-direction: column;
@@ -1183,6 +1236,51 @@ h3 {
   }
 }
 
+.Edit-profile {
+  display: flex;
+  width: 90%;
+  justify-content: center;
+  .Edit-profile-form {
+    width: 30%;
+    height: 60vh;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    .edit-profile-title {
+      text-align: center;
+    }
+  }
+  .Edit-profile-index {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 75vh;
+    overflow: scroll;
+  }
+}
+
+.Edit-Page-Container {
+  margin: 2vh 2vw;
+  max-height: 80vh;
+  overflow: scroll;
+}
+
+.Page-head-edit-form {
+  text-align: center;
+  font-family: "Playfair Display", serif;
+  font-size: 3vw;
+}
+
+.Page-title-form {
+  text-align: center;
+  font-family: "Playfair Display", serif;
+  font-size: 3vw;
+}
+
 //? Add clothes to rent
 
 .ClothesForm {
@@ -1192,18 +1290,30 @@ h3 {
 
 //? Comments from users
 
-.My-comments {
-  padding: 3vw;
-  h3 {
-    font-weight: 600;
-    font-size: 20px;
+.My-comments-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  width: 50%;
+  height: 41vh;
+  .My-comments {
+    display: flex;
+    flex-direction: column;
+    max-height: 50vh;
+    overflow: scroll;
+    word-break: break-all;
+    h3 {
+      font-weight: 600;
+      font-size: 2vw;
+    }
   }
 }
 
 .Comments-users {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
+  align-items: flex-start;
 }
 
 .Comment {
@@ -1213,6 +1323,12 @@ h3 {
   }
 }
 
+.label-for-comments {
+  text-align: center;
+  font-weight: 600;
+  font-size: 2vw;
+}
+
 .Comment-top {
   display: flex;
   justify-content: left;
@@ -1220,7 +1336,7 @@ h3 {
   img {
     max-width: 5vw;
     max-height: 5vw;
-    border-radius: 50px;
+    border-radius: 50%;
   }
   .Comment-top-right {
     display: flex;
@@ -1236,6 +1352,7 @@ h3 {
     }
   }
 }
+
 .Comment-text {
   margin-top: 2vw;
   h5 {
@@ -1244,7 +1361,7 @@ h3 {
     font-weight: 200;
   }
   p {
-    font-size: 1.4vw;
+    font-size: 1vw;
   }
 }
 
@@ -1254,47 +1371,23 @@ h3 {
 
 //? FAVOURITE
 
-.Friends {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  .Button {
-    width: 10vw;
-    height: 2vw;
-    font-size: 1vw;
-    padding: 0;
-  }
-  .Fav-friends {
-    margin-top: 12vw;
-    display: flex;
-    flex-wrap: wrap;
-    max-height: 40vw;
-    max-width: 90vw;
-  }
-  .Fav-card {
-    .Card-image img {
-      height: 25vh;
-      width: 20vw;
-      border-radius: 10px;
-    }
-    a {
-      color: inherit;
-    }
-    a:hover {
-      color: white;
-    }
-    margin: 1vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
+.Button {
+  width: 10vw;
+  height: 2vw;
+  font-size: 1vw;
+  padding: 0;
+}
+a {
+  color: inherit;
+}
+a:hover {
+  color: white;
 }
 
 .Fav-items {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   align-items: center;
   text-align: center;
 
@@ -1306,17 +1399,28 @@ h3 {
     max-height: 40vw;
   }
   .Card {
+    margin: 2vh 1vw;
+    width: 25vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
     .fav-img {
       overflow: hidden;
-      width: 20vw;
+      width: 25vw;
       height: 30vh;
       .fav-img img {
         min-width: 25vw;
         min-height: 30vh;
       }
     }
-    font-size: 1.3vw;
-    text-align: center;
+    .Card-content {
+      font-size: 1.3vw;
+      text-align: center;
+      overflow: hidden;
+    }
+
     a {
       color: black;
     }
@@ -1385,27 +1489,181 @@ h3 {
   }
 }
 
-.Other-items-index {
-  overflow: scroll;
+//? Show page
+
+.show-master-div {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  max-height: 40vh;
-  .My-items-card {
+  width: 100vw;
+  height: 100vh;
+  margin: 2vh 0 0 0;
+  .show-left-column {
+    height: 90vh;
+    width: 50%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    margin: 5px 5px;
-    width: 150px;
-    height: 150px;
-    .img img {
-      margin: 0;
-      height: 150px;
+    .slide-container {
+      height: 60%;
+      width: 30vw;
+      margin: auto;
+      .Slide-details {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 2vw;
+      }
+      .slide {
+        margin-top: 13px;
+      }
+
+      .Slide-user {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+    .each-slide > div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-size: cover;
+      height: 55vh;
+    }
+    .show-comments-div {
+      height: 40%;
+      display: flex;
+      justify-content: center;
+
+      .show-comments-input {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 40%;
+        textarea {
+          min-width: 100%;
+        }
+      }
+      .comments-box-show {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 60%;
+        height: 30vh;
+        overflow: scroll;
+        h4 {
+          font-size: 2vh;
+        }
+      }
+    }
+  }
+  .show-right-column {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    .show-article-title {
+      display: flex;
+      justify-content: flex-start;
+      width: 100%;
+      font-family: "Playfair Display", serif;
+      font-size: 4vh;
+      color: white;
+      height: 7vh;
+    }
+    .Show-rating-div {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+    }
+  }
+  .show-main-content {
+    margin: 3vh 0 2vh 0;
+    height: 25%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+  }
+  .show-page-user-content {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    .show-buttons {
+      height: 20%;
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      .Tiny-Buttons-Show {
+        width: 8vw;
+        height: 8vh;
+        padding: 2vh 2vw;
+        text-align: center;
+        font-size: 12px;
+        font-weight: 300;
+        background: rgb(48, 47, 47);
+        border-radius: 10px;
+        margin: 0;
+        color: white;
+      }
+    }
+  }
+
+  .right-hand-show-content {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    .show-page-content {
+      height: 85%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+    .add-to-favs-but {
+      height: 15%;
+      width: 80%;
+      padding: 3vh 2vw;
+      margin: 1.25vh 0 0 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .Other-items-index {
+    overflow: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-height: 20vh;
+    .My-items-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 5px 5px;
       width: 150px;
-      max-width: auto;
-      object-fit: cover;
-      z-index: 0;
-      box-sizing: content-box;
+      height: 150px;
+      .img img {
+        margin: 0;
+        height: 150px;
+        width: 150px;
+        max-width: auto;
+        object-fit: cover;
+        z-index: 0;
+        box-sizing: content-box;
+      }
     }
   }
 }
@@ -1439,23 +1697,22 @@ h3 {
   text-align: center;
 }
 
-.rating-on-clothes{
+.rating-on-clothes {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  .clothes-rating{
+  .clothes-rating {
     text-align: center;
   }
 }
 
-.add-to-favs-but{
-  text-align: center;
-}
-
-@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+@media only screen and (min-device-width: 375px) and (max-device-width: 800px) {
   .Main {
     padding: 0;
+  }
+  .Clothes-filter-all {
+    display: none;
   }
 
   //POSTS
@@ -1466,16 +1723,6 @@ h3 {
     }
     .Card {
       width: 100%;
-    }
-  }
-
-  .Latest {
-    .Clothes-filter {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
-      min-height: 60vw;
     }
   }
 }

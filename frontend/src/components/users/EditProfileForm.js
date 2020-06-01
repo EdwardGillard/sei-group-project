@@ -8,7 +8,6 @@ const EditProfileForm = ({ onPostcodeChange, onChange, onSubmit, username, postc
         <div className="container">
           <div className="columns">
             <form onSubmit={onSubmit}>
-              <h1 className="title">Edit Your Profile </h1>
               <div className="field" >
                 <label className="label">Username</label>
                 <div className="control">
