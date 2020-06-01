@@ -4,9 +4,12 @@ import { Link } from 'react-router-dom'
 
 const LoginForm = ({ email, password, handleChange, handleSubmit, errors }) => {
   return (
-    <div className="column">
+    <div>
+       <div className="Registration-title">
+        <h1>Login</h1>
+      </div>
       <form
-        className="box"
+        className="box-two"
         onSubmit={handleSubmit}
       >
         <p>Not signed up yet? <Link to="/register">Register here</Link></p>

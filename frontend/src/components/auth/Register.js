@@ -68,15 +68,6 @@ class Register extends React.Component {
 
     return (
       <>
-        <div className="Page-head">
-          <div className="Page-title">
-            <h1>REGISTER</h1>
-          </div>
-          <div className="Page-subtitle">
-            <h2>Join now and start enjoying to world of KEBB</h2>
-          </div>
-        </div>
-        <div className="columns">
           <RegisterForm
             handlePostcodeChange={this.handlePostcodeChange}
             handleChange={this.handleChange}
@@ -84,7 +75,6 @@ class Register extends React.Component {
             errors={this.state.errors}
             {...this.state.formData}
           />
-        </div>
       </>
     )
   }

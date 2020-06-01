@@ -187,12 +187,32 @@ a {
   height: 2.5rem;
 }
 
-.box {
-  // width: 30%;
-  margin-top: 32vh;
-  background-color: rgba(var(--navbar-color-rgb), 0.1);
+.Registration-title {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font-family: "Playfair Display", serif;
+  font-size: 6vh;
+  margin: 0 0 3vh 0;
+  color: white;
+  height: 7vh;
+}
+.box-reg {
+  background-color: rgba(var(--navbar-color-rgb), 1);
+  padding: 5vh 10vw 5vh 10vw;
+  height: 75vh;
   .field {
-    padding: 5px;
+    padding: 3px;
+    font-family: "Playfair Display", serif;
+  }
+}
+
+.box-two {
+  background-color: rgba(var(--navbar-color-rgb), 1);
+  padding: 5vh 10vw 5vh 10vw;
+  height: 40vh;
+  .field {
+    padding: 3px;
     font-family: "Playfair Display", serif;
   }
 }
@@ -869,9 +889,11 @@ a {
   }
 }
 
-//? REGISTER & LOGIN FORMS
-.register-form {
-  top: var(--main-start-point);
+//? Register
+
+.registration-form {
+  margin: 0;
+  height: 70vh;
 }
 .pin-modal {
   display: flex;
@@ -1550,7 +1572,7 @@ a:hover {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        width: 60%;
+        width: 70%;
         height: 30vh;
         overflow: scroll;
         h4 {
