@@ -9,7 +9,7 @@ const ClothCard = ({ _id, title, image }) => {
         <div className="card-header">
         </div>
         <div className="img">
-          <img src={image[0]} alt={title} loading="lazy" width="255" height="255" />
+          <img src={image[0]} alt={title} loading="lazy" />
         </div>
         <div className="Card-text">
           <h4 className="Title"><strong>{title}</strong></h4>

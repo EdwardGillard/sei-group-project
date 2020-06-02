@@ -182,13 +182,15 @@ class ClothesIndex extends React.Component {
                 <input
                   className="input"
                   type="text"
-                  placeholder="Search for Category, Name and User"
+                  placeholder="Category, Name and User"
                   value={searchClothes || ''}
                   onChange={this.handleChange}
                 />
               </form>
+              <div className="reset-button">
+                <button onClick={this.resetFilter} className="Button reset-button">Reset Filter</button>
+              </div>
             </div>
-            <button onClick={this.resetFilter} className="Button">Reset Filter</button>
           </div>
           <br />
           <div className="Clothes-index">

@@ -97,8 +97,10 @@ class PostsShow extends React.Component {
     const userName = post.user.username.charAt(0).toUpperCase() + post.user.username.slice(1)
     return (
       <div className="Post">
-        <div className="Post-Title">
-          <h1 className="Post-Title">{post.title}</h1>
+        <div className="Post-Top">
+          <div className="Post-Title">
+            <h1>{post.title}</h1>
+          </div>
         </div>
         <div className="Main-Post-Show">
           <div className="Post-and-comments">
@@ -137,7 +139,9 @@ class PostsShow extends React.Component {
                 name="text"
                 onChange={this.handleCommentChange}
                 value={this.state.comments.text} />
-              <button className="Button">Submit Comment</button>
+              <div className="Butt-Bigger">
+                <button className="Button">Submit Comment</button>
+              </div>
             </form>}
             <div className="User-comments">
               {commentsArray.map(comment => (

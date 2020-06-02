@@ -6,7 +6,7 @@
 
 Project 3 was my first experience of putting together a *full stack app* as part of a team. We started off by picking a shortlist of ideas which expanded together and then made a group decision on the best option for us. The unanimous decision resulted in **KEBB Bazaar**. From there we created a wireframe using *miro.com*. 
 
-![Image of Miro Board](images/MiroBoard.jpeg)
+![Image of Miro Board](images/MiroBoard.jpeg) 
 ![Image of Schemas wireframes](images/MiroBoard2.jpeg)
 
 *KEBB Bazaar* is a clothes rental app, inspired by Hurr collective, created in **MERN stack** in 7 days. During the course of this project, I worked in both front and back end development. I thoroughly enjoyed my first official experience in full stack development. 
@@ -97,7 +97,7 @@ Originally we created a separate functions for inbox and outbox get requests, ho
 
 ![Image of messages](images/Messages.jpeg)
 
-Once the backend had hit MVP point we moved onto the front end, however, there were a few points I had to return back to create a new function to accomplish something that I was trying to achieve on the front end. One of those occasions I created a delete user account function. Initially I thought it would be a relatively simple function to build, I quickly realised whilst testing on the front end that it wasn't as simple as I had originally thought. It dawned on me after causing an error that I needed to not only delete the user profile but the entire trace of the user. I achieved this by using a *secure route* to ascertain the user's token then search anything that the user has created on different schemas. I then used a **forEach** statement to cycle through each search and delete the relevant information.
+Once the backend had hit MVP point we moved onto the front end, however, there were a few points I had to return back to create a new function to accomplish something that I was trying to achieve on the front end. One of those occasions I created a delete user account function. Initially I thought it would be a relatively simple function to build, I quickly realised whilst testing on the front end that it wasn't as simple as I had originally thought. It dawned on me after causing an error that I needed to not only delete the user profile but the entire trace of the user. I achieved this by using a *secure route* to ascertain the user's token then search anything that the user has created on different schemas. I then used a **forEach** statement to cycle through each search and delete the relevant information. Comments and ratings were slightly more tricky. As seen in the picture below, I had to filter through every comment and rating on users, clothes and posts and then remove those which matched the id of the user deleting their profile.
 
 ![Image of User Delete Controller](images/DeleteUserController.jpeg)
 

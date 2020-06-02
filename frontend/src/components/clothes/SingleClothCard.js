@@ -20,12 +20,15 @@ const properties = {
 }
 
 
-const SingleClothCard = ({ deleteComment, rentalPrice, handleContactSubmit, handleContactChange, contactModalOpen, toggleContact, commentsArray, title, clothId, profilePic, username, image, onClick, handleCommentSubmit, handleCommentChange, rating, commentText, brand, color, category, genderCategory, size, createdArticles, articleRating, onStarClick, userid, val, message }) => {
-  const slideImages = [image[0], image[1]]
+const SingleClothCard = ({ deleteComment, rentalPrice, handleContactSubmit, handleContactChange, contactModalOpen, toggleContact, commentsArray, title, clothId, profilePic, images, username, image, onClick, handleCommentSubmit, handleCommentChange, rating, commentText, brand, color, category, genderCategory, size, createdArticles, articleRating, onStarClick, userid, val, message }) => {
+  let slideImages = [image[0], image[1]]
   const userName = username.charAt(0).toUpperCase() + username.slice(1)
   return (
     <div className="show-master-div">
       <div className="show-left-column">
+        <div className="hidden-image">
+          <img src={image[0]} alt={title} />
+        </div>
         <div className="slide-container">
           <Slide {...properties}>
             <div className="each-slide">
@@ -44,7 +47,6 @@ const SingleClothCard = ({ deleteComment, rentalPrice, handleContactSubmit, hand
         <div className="show-comments-div">
           <div className="show-comments-input">
             {isAuthenticated() && <form onSubmit={handleCommentSubmit}>
-              <div>
                 <textarea
                   type="textArea"
                   maxLength="150"
@@ -54,7 +56,6 @@ const SingleClothCard = ({ deleteComment, rentalPrice, handleContactSubmit, hand
                   value={commentText}
                   placeholder="Add your comment"
                 ></textarea>
-              </div>
               <br />
               <div>
                 <button className="fav-item-Button">Submit Comment</button>
@@ -62,7 +63,6 @@ const SingleClothCard = ({ deleteComment, rentalPrice, handleContactSubmit, hand
             </form>}
           </div>
           <div className="comments-box-show">
-            <div>
               {commentsArray.map(comment => (
                 <Comments
                   key={comment._id}
@@ -70,7 +70,6 @@ const SingleClothCard = ({ deleteComment, rentalPrice, handleContactSubmit, hand
                   deleteComment={deleteComment}
                 />
               ))}
-            </div>
           </div>
         </div>
       </div>

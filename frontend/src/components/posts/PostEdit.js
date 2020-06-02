@@ -62,7 +62,7 @@ class PostEdit extends React.Component {
             placeholder="URL of Image"
             onChange={this.handleChange}
           />
-          <button className="Button">Submit Post</button>
+          <button className="Button Edit-Button">Submit Post</button>
         </form>
       </div>
     )

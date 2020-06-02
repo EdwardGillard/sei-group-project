@@ -181,8 +181,14 @@ class userShowProfile extends React.Component {
                 editing={false}
               />
               {isAuthenticated() && !isOwner(this.state.user._id) && <div className="Follow-message">
-                {isAuthenticated() && <button name="friend" value={user._id} onClick={this.handleFriendSubmit} className="Button">Follow</button>}
-                {isAuthenticated() && <button onClick={this.toggleContactModal} className="Button">Message</button>}
+                {isAuthenticated() && <button
+                  name="friend"
+                  value={user._id}
+                  onClick={this.handleFriendSubmit}
+                >Follow</button>}
+                {isAuthenticated() && <button
+                  onClick={this.toggleContactModal}
+                >Message</button>}
                 <div className="Modal-Message">
                   <div className={contactModalOpen ? "modal is-active" : "modal"}>
                     <div className="field">
@@ -204,7 +210,7 @@ class userShowProfile extends React.Component {
               </div>}
             </div>
             <div className="Comments-container">
-              <section className="Comments">
+              <div className="Comments">
                 {isAuthenticated() && !isOwner(this.state.user._id) && <div className="ratings-comments">
                   <div className="rate-user">
                     <p>Rate this user:</p>
@@ -226,7 +232,7 @@ class userShowProfile extends React.Component {
                       name="text"
                       onChange={this.handleCommentChange}
                       value={comments.text} />
-                    <button className="fav-item-Button">Submit Comment</button>
+                    <button>Submit</button>
                   </form>
                 </div>}
                 <div className="Comments-on-user">
@@ -239,7 +245,7 @@ class userShowProfile extends React.Component {
                     />
                   ))}
                 </div>
-              </section>
+              </div>
             </div>
           </div>
           <div className="Show-profile-bottom">
@@ -262,8 +268,8 @@ class userShowProfile extends React.Component {
           </div>
         </div>
       </>
-    )
-  }
-}
+        )
+        }
+        }
 
 export default userShowProfile

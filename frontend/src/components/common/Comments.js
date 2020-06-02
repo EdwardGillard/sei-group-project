@@ -20,7 +20,7 @@ const Comments = ({ comment, deleteComment }) => {
         <p>{comment.text}</p>
       </div>
       <div className="Delete">
-        {isOwner(comment.user._id) && <button className="Button" onClick={deleteComment
+        {isOwner(comment.user._id) && <button onClick={deleteComment
         } value={comment._id} >Delete</button>}
       </div>
     </div>
