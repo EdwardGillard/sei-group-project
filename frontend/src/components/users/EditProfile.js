@@ -99,8 +99,7 @@ class EditProfile extends React.Component {
           />
         </div>
         <div className="Edit-profile-index">
-          <h1 className="title edit-profile-title">Edit your items </h1>
-          <div className="My-items-index">
+          <div className="Edit-items-index">
             {createdArticles.map(item =>
               <EditClothCard
                 deleteArticle={this.deleteArticle}

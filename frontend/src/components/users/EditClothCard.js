@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const EditClothCard = ({ _id, title, image, deleteArticle }) => {
 
   return (
-    <div className="My-items-card">
+    <div className="My-items-card edit-items-card">
       <div className="img">
         <img src={image[0]} alt={title} loading="lazy" width="255" height="255" />
       </div>
