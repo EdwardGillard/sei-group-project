@@ -150,6 +150,8 @@ a {
   justify-content: left;
   align-items: center;
   height: 100vh;
+  width: 100%;
+  max-width: 100%;
   background-color: rgba(var(--main-bg-rgb), 0.8);
   a:hover {
     color: white;
@@ -160,19 +162,19 @@ a {
 
 .Navbar {
   position: fixed;
-  height: 4vh;
   display: flex;
   align-items: center;
   background-color: rgba(var(--navbar-color-rgb), 0.3);
-
+  margin: 0 10px 0 10px;
   .Navbar-item {
     color: inherit;
+    font-size: 15px;
     font-weight: 500;
     font-family: "Playfair Display", serif;
     text-transform: uppercase;
   }
   .navbar-item {
-    margin: 0;
+    margin: 0 0 0 10px;
     background-color: rgba(var(--navbar-color-rgb), 0.3);
   }
   .navbar-item:hover,
@@ -1893,10 +1895,9 @@ a:hover {
       }
       
     }
-   
   }
-  .Clothes-Index-Header {
-    margin: 0 auto;
+  .Main-Page-Index-Header h1 {
+    display: none;
   }
   .Posts {
     margin: 0;
@@ -2041,6 +2042,9 @@ a:hover {
 }
 
 @media only screen and (max-width: 681px) {
+  .Navbar-item a{
+    font-size: 15px;
+  }
   .is-profile-btn {
     display: none;
   }
@@ -2205,6 +2209,8 @@ a:hover {
     display: none;
   }
   .Map-page {
+    min-height: 100%;
+    
     .Button {
       font-size: 20px;
       height: 5vh;
@@ -2212,7 +2218,7 @@ a:hover {
     }
     .Map {
       min-width: 100%;
-      height: 100vh;
+      min-height: 100%;
       margin: 0;
       align-items: center;
       justify-content: flex-start;

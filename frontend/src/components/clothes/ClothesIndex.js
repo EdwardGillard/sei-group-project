@@ -154,9 +154,9 @@ class ClothesIndex extends React.Component {
     })
     return (
       <div>
-        <div className="Clothes-Index-Header">
+        <div className="Clothes-Index-Header Main-Page-Index-Header">
           <div className="Page-head">
-            <div className="Page-title">
+            <div className="Page-title ">
               <h1>CLOTHES</h1>
             </div>
           </div>
