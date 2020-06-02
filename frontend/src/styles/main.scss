@@ -1583,25 +1583,20 @@ a:hover {
 
 .show-master-div {
   display: flex;
-  width: 100vw;
-  height: 100%;
-  margin: 0;
+  min-width: 100%;
+  margin: 3vh 0 0 0;
   .show-left-column {
-    height: 90vh;
+    height: 100vh;
     width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    .hidden-image{
+    .hidden-image {
       display: none;
     }
     .slide-container {
-      height: 60%;
-      width: 30vw;
-      margin: auto;
-      display: flex;
-      justify-content: center;
+      width: 70%;
       .Slide-details {
         display: flex;
         flex-direction: column;
@@ -1623,8 +1618,8 @@ a:hover {
       align-items: center;
       justify-content: center;
       background-size: cover;
-      height: 55vh;
-      width: 30vw;
+      height: 60vh;
+      width: 100%;
     }
     .show-comments-div {
       height: 40%;
@@ -1657,7 +1652,7 @@ a:hover {
   }
   .show-right-column {
     height: 100%;
-    width: 60%;
+    width: 40%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -1675,7 +1670,7 @@ a:hover {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: flex-start;
+      align-items: flex-end;
     }
   }
   .show-main-content {
@@ -1756,6 +1751,7 @@ a:hover {
     }
   }
 
+
   .Other-items-index {
     overflow: scroll;
     display: flex;
@@ -1780,6 +1776,10 @@ a:hover {
       }
     }
   }
+}
+
+.container {
+  min-width: 100%;
 }
 
 .Tiny-Buttons {
@@ -1890,45 +1890,46 @@ a:hover {
       justify-content: center;
     }
   }
-}
-.show-master-div {
-  background-color: rgba(var(--main-bg-rgb), 1);
-  height: 100%;
-}
-.show-left-column {
-  display: flex;
-  justify-content: center;
-  .hidden-image {
+  .show-master-div {
+    margin: 0;
+    height: 100%;
+    background-color: rgba(var(--main-bg-rgb), 1);
+  }
+  .show-left-column {
     display: flex;
     justify-content: center;
-    max-width: 50vw;
-    img {
-      width: 50%;
-    }
-  }
-  .show-comments-div {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    height: 45vh;
-    .show-comments-input {
-      min-height: 22.5vh;
-      max-width: 50%;
-    }
-    .comments-box-show{
+    .hidden-image {
       display: flex;
-      flex-wrap: nowrap;
-      min-height: 50%;
+      justify-content: center;
       max-width: 50vw;
+      img {
+        width: 50%;
+      }
     }
-  }
-  .slide-container {
-    display: none;
-  }
-  .show-comments-div {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
+    .show-comments-div {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      height: 45vh;
+      .show-comments-input {
+        min-height: 22.5vh;
+        max-width: 50%;
+      }
+      .comments-box-show {
+        display: flex;
+        flex-wrap: nowrap;
+        min-height: 50%;
+        max-width: 50vw;
+      }
+    }
+    .slide-container {
+      display: none;
+    }
+    .show-comments-div {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+    }
   }
 }
 

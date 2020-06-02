@@ -190,7 +190,6 @@ class ClothesShow extends React.Component {
     return (
       <>
           <div className="container">
-            <div className="columns">
               <SingleClothCard
                 {...cloth}
                 {...user}
@@ -217,7 +216,6 @@ class ClothesShow extends React.Component {
                 val={this.state.ratingData.rating}
                 message={this.state.messages.text}
               />
-            </div>
           </div>
       </>
     )
