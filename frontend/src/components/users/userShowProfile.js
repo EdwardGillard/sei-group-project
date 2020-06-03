@@ -169,107 +169,105 @@ class userShowProfile extends React.Component {
     const { location } = this.state
     const userName = user.username.charAt(0).toUpperCase() + user.username.slice(1)
     return (
-      <>
-        <div className="Show-profile">
-          <div className="Show-profile-top">
-            <div className="Photo-user-rating">
-              <img src={user.profilePic} alt={user.username} />
-              <h4 className="Username">{userName}</h4>
-              <h6 className="User-location">{location}</h6>
-              <StarRating
-                rating={rating}
-                editing={false}
-              />
-              {isAuthenticated() && !isOwner(this.state.user._id) && <div className="Follow-message">
-                {isAuthenticated() && <button
-                  name="friend"
-                  value={user._id}
-                  onClick={this.handleFriendSubmit}
-                >Follow</button>}
-                {isAuthenticated() && <button
-                  onClick={this.toggleContactModal}
-                >Message</button>}
-                <div className="Modal-Message">
-                  <div className={contactModalOpen ? "modal is-active" : "modal"}>
-                    <div className="field">
-                      <form onSubmit={this.handleContactSubmit}>
-                        <div className="control">
-                          <textarea
-                            name="text"
-                            onChange={this.handleContactChange}
-                            value={this.state.messages.text}
-                            className="textarea is-medium is-primary"
-                            placeholder="Message..."></textarea>
-                        </div>
-                        <br />
-                        <button className="Button">SEND</button>
-                      </form>
-                    </div>
+      <div className="Show-profile">
+        <div className="Show-profile-top">
+          <div className="Photo-user-rating">
+            <img src={user.profilePic} alt={user.username} />
+            <h4 className="Username">{userName}</h4>
+            <h6 className="User-location">{location}</h6>
+            <StarRating
+              rating={rating}
+              editing={false}
+            />
+            {isAuthenticated() && !isOwner(this.state.user._id) && <div className="Follow-message">
+              {isAuthenticated() && <button
+                name="friend"
+                value={user._id}
+                onClick={this.handleFriendSubmit}
+              >Follow</button>}
+              {isAuthenticated() && <button
+                onClick={this.toggleContactModal}
+              >Message</button>}
+              <div className="Modal-Message">
+                <div className={contactModalOpen ? "modal is-active" : "modal"}>
+                  <div className="field">
+                    <form onSubmit={this.handleContactSubmit}>
+                      <div className="control">
+                        <textarea
+                          name="text"
+                          onChange={this.handleContactChange}
+                          value={this.state.messages.text}
+                          className="textarea is-medium is-primary"
+                          placeholder="Message..."></textarea>
+                      </div>
+                      <br />
+                      <button className="Button">SEND</button>
+                    </form>
                   </div>
                 </div>
+              </div>
+            </div>}
+          </div>
+          <div className="Comments-container">
+            <div className="Comments">
+              {isAuthenticated() && !isOwner(this.state.user._id) && <div className="ratings-comments">
+                <div className="rate-user">
+                  <p>Rate this user:</p>
+                  <StarRating
+                    rating={this.state.ratingData.rating}
+                    onStarClick={this.onStarClick}
+                    editing={true}
+                  />
+                </div>
+                <form
+                  className="Comment-left"
+                  onSubmit={this.handleCommentSubmit}>
+                  <p> Your review for {userName}:</p>
+                  <textarea
+                    className="Comment-text"
+                    rows="5"
+                    type="textArea"
+                    maxLength="200"
+                    name="text"
+                    onChange={this.handleCommentChange}
+                    value={comments.text} />
+                  <button>Submit</button>
+                </form>
               </div>}
-            </div>
-            <div className="Comments-container">
-              <div className="Comments">
-                {isAuthenticated() && !isOwner(this.state.user._id) && <div className="ratings-comments">
-                  <div className="rate-user">
-                    <p>Rate this user:</p>
-                    <StarRating
-                      rating={this.state.ratingData.rating}
-                      onStarClick={this.onStarClick}
-                      editing={true}
-                    />
-                  </div>
-                  <form
-                    className="Comment-left"
-                    onSubmit={this.handleCommentSubmit}>
-                    <p> Your review for {userName}:</p>
-                    <textarea
-                      className="Comment-text"
-                      rows="5"
-                      type="textArea"
-                      maxLength="200"
-                      name="text"
-                      onChange={this.handleCommentChange}
-                      value={comments.text} />
-                    <button>Submit</button>
-                  </form>
-                </div>}
-                <div className="Comments-on-user">
-                  <h3 className="user-review-head">{userName}'s Reviews</h3>
-                  {commentsArray.map(comment => (
-                    <Comments
-                      key={comment._id}
-                      comment={comment}
-                      deleteComment={this.deleteComment}
-                    />
-                  ))}
-                </div>
+              <div className="Comments-on-user">
+                <h3 className="user-review-head">{userName}'s Reviews</h3>
+                {commentsArray.map(comment => (
+                  <Comments
+                    key={comment._id}
+                    comment={comment}
+                    deleteComment={this.deleteComment}
+                  />
+                ))}
               </div>
             </div>
           </div>
-          <div className="Show-profile-bottom">
-            <div className="User-items-index">
-              {userItems.map(item =>
-                <div key={item._id}>
-                  <Link to={`/clothes/${item._id}`}>
-                    <div className="Card">
-                      <div className="img">
-                        <img src={item.image} alt={item.title} loading="lazy" width="300" height="300" />
-                      </div>
-                      <div className="Card-text">
-                        <h4 className="Title">{item.title}</h4>
-                      </div>
+        </div>
+        <div className="Show-profile-bottom">
+          <div className="User-items-index">
+            {userItems.map(item =>
+              <div key={item._id}>
+                <Link to={`/clothes/${item._id}`}>
+                  <div className="Card">
+                    <div className="img">
+                      <img src={item.image} alt={item.title} loading="lazy" width="300" height="300" />
                     </div>
-                  </Link>
-                </div>
-              )}
-            </div>
+                    <div className="Card-text">
+                      <h4 className="Title">{item.title}</h4>
+                    </div>
+                  </div>
+                </Link>
+              </div>
+            )}
           </div>
         </div>
-      </>
-        )
-        }
-        }
+      </div>
+    )
+  }
+}
 
 export default userShowProfile

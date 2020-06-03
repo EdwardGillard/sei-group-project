@@ -554,18 +554,18 @@ a {
             height: 25%;
             flex-direction: column;
             align-items: center;
-            justify-content: space-evenly;
+            justify-content: flex-end;
             width: 100%;
-            .Button button {
+            .Button {
               font-size: 20px;
               display: flex;
               flex-direction: column;
               justify-content: center;
               align-items: center;
-              width: 100%;
-              width: 13vw;
-              font-size: 1vw;
-              padding: 1.5vw;
+              width: 130px;
+              height: 25px;
+              font-size: 15px;
+              font-weight: 600;
             }
           }
         }
@@ -607,6 +607,21 @@ a {
     }
     h3 {
       font-size: 2vh;
+    }
+    .Button {
+      font-size: 10px;
+      font-weight: 600;
+      width: 120px;
+      height: 20px;
+    }
+    .Delete button {
+      font-size: 10px;
+      font-weight: 600;
+      width: 60px;
+      height: 20px;
+      background-color: black;
+      color: white;
+      border-radius: 10px;
     }
     .Post-comment {
       display: flex;
@@ -718,13 +733,66 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 90%;
-}
-
-.Show-profile-top {
-  display: flex;
-  align-items: center;
   width: 100%;
+  height: 120vh;
+  background-color: rgba(var(--main-bg-rgb), 1);
+  .Show-profile-top {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  .Show-profile-bottom {
+    display: flex;
+    justify-content: center;
+    height: 40vh;
+    width: 100%;
+    margin: 10px 0 20px 0;
+
+    .User-items-index {
+      display: flex;
+      overflow: scroll;
+      max-height: 40vw;
+      width: 90%;
+      margin: 1vh 0 5vh 0;
+
+      .Card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 1vw;
+        width: 25vh;
+        height: 25vh;
+
+        .img img {
+          margin: 0;
+          width: 25vh;
+          height: 25vh;
+          object-fit: cover;
+          z-index: 0;
+          box-sizing: content-box;
+        }
+        .Card-text {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          height: 40px;
+          width: 100%;
+          position: relative;
+          bottom: 47px;
+          z-index: 1;
+          background-color: rgba(var(--navbar-color-rgb), 0.5);
+          color: var(--cards-text-color);
+          .Title {
+            font-size: 11px;
+            width: 90%;
+            text-align: center;
+            font-weight: 600;
+            margin-top: 5px;
+          }
+        }
+      }
+    }
+  }
 }
 
 .Photo-user-rating {
@@ -785,7 +853,7 @@ a {
   .Button {
     width: 7vw;
     height: 2vw;
-    font-size: 1vw;
+    font-size: 15px;
     padding: 0;
     background: rgb(48, 47, 47);
   }
@@ -909,58 +977,6 @@ a {
   height: 350px;
 }
 
-.Show-profile-bottom {
-  display: flex;
-  justify-content: center;
-  height: 40vh;
-  width: 100%;
-
-  .User-items-index {
-    display: flex;
-    overflow: scroll;
-    max-height: 40vw;
-    width: 90%;
-    margin: 1vh 0 5vh 0;
-
-    .Card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin: 0 1vw;
-      width: 25vh;
-      height: 25vh;
-
-      .img img {
-        margin: 0;
-        width: 25vh;
-        height: 25vh;
-        object-fit: cover;
-        z-index: 0;
-        box-sizing: content-box;
-      }
-      .Card-text {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        height: 40px;
-        width: 100%;
-        position: relative;
-        bottom: 47px;
-        z-index: 1;
-        background-color: rgba(var(--navbar-color-rgb), 0.5);
-        color: var(--cards-text-color);
-        .Title {
-          font-size: 11px;
-          width: 90%;
-          text-align: center;
-          font-weight: 600;
-          margin-top: 5px;
-        }
-      }
-    }
-  }
-}
-
 //? Register
 
 .pin-modal {
@@ -1006,316 +1022,316 @@ a {
   display: flex;
   flex-direction: column;
   width: 100%;
-}
+  height: 140vh;
+  background-color: rgba(var(--main-bg-rgb), 1);
+  .My-profile-top-row {
+    display: flex;
+    align-items: center;
+    height: 45vh;
+    margin: 8vh 0;
 
-.My-profile-top-row {
-  display: flex;
-  align-items: center;
-  height: 45vh;
-  margin: 2vh 0;
-
-  .Photo-delete-rating {
-    .Modal {
-      display: none;
-      z-index: 99;
-      width: 60vw;
-      height: 40vw;
-      position: fixed;
-      top: 23vh;
-      left: 30vw;
-      background-color: rgba(var(--navbar-color-rgb), 0.9);
-      border-radius: 20px;
-      .Modal-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+    .Photo-delete-rating {
+      .Modal {
+        display: none;
+        z-index: 99;
         width: 60vw;
         height: 40vw;
-      }
-      .Modal-close {
-        position: absolute;
-        right: 2vw;
-        top: 2vw;
-        width: 6vw;
-        height: 3vw;
-        background-color: var(--main-bg-color);
-        border-radius: 5px;
-        font-size: 1.4vw;
-      }
-    }
-    .Modal-inactive {
-      display: block;
-    }
-
-    .Profile-img {
-      width: 200px;
-      height: 200px;
-      img {
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
-        object-fit: cover;
-      }
-    }
-
-    .is-profile-btn {
-      top: 95%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: rgba(var(--navbar-color-rgb), 0.3);
-      color: white;
-      font-size: 1.2vw;
-      border: none;
-      cursor: pointer;
-      border-radius: 5px;
-      font-size: 10px;
-    }
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 30%;
-    margin: 2vw;
-    padding: 1vw;
-    .Edit-delete {
-      display: flex;
-      justify-content: center;
-      .My-profile-update-btn,
-      .My-profile-delete-btn {
-        text-align: center;
-        font-size: 10px;
-        font-family: inherit;
-        font-weight: 600;
-        width: 100px;
-        padding: 0.5vw 0.7vw;
-        background-color: rgba(66, 48, 48, 0.327);
-        border-radius: 10px;
-        margin: 0.7vw;
-        color: white;
-      }
-      .My-profile-update-btn {
-        background-color: green;
-      }
-      .My-profile-delete-btn {
-        background-color: red;
-      }
-    }
-    .My-profile-rating {
-      font-size: 1.5vw;
-      margin-top: 2vh;
-    }
-  }
-
-  .Welcome {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    width: 70%;
-    height: 100%;
-    .Welcome-user {
-      height: 70%;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
-      h5.title {
-        font-family: "Playfair Display", serif;
-        text-align: center;
-        font-size: 7vh;
-        color: var(--title-color);
-      }
-      h6.subtitle {
-        font-family: "Playfair Display", serif;
-        text-align: center;
-        color: var(--subtite-color);
-      }
-    }
-
-    .My-profile-favs {
-      display: flex;
-      justify-content: space-evenly;
-      height: 30%;
-      .Favs-btn {
-        height: 7vh;
-        width: 20vw;
-        padding: 1vw;
-        text-align: center;
-        font-family: inherit;
-        font-weight: 200;
-        background-color: rgba(66, 48, 48, 0.327);
-        border-radius: 10px;
-        margin: 1vw;
-        a {
-          color: white;
-        }
-      }
-    }
-  }
-}
-
-.My-profile-columns {
-  display: flex;
-  .Center-col {
-    width: 100%;
-    height: 40vh;
-    display: flex;
-    align-items: center;
-    .My-items {
-      height: 40vh;
-      width: 50%;
-      overflow: scroll;
-    }
-
-    .My-items-top {
-      display: flex;
-      justify-content: space-evenly;
-      margin: 0 2vw;
-      h3 {
-        font-weight: 600;
-        font-size: 2vw;
-      }
-    }
-    .My-items-index {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      height: 40vh;
-      .My-items-card {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: 5px 5px;
-        width: 150px;
-        height: 150px;
-        .img img {
-          margin: 0;
-          height: 150px;
-          width: 150px;
-          max-width: auto;
-          object-fit: cover;
-          z-index: 0;
-          box-sizing: content-box;
-        }
-        .Card-text {
+        position: fixed;
+        top: 23vh;
+        left: 30vw;
+        background-color: rgba(var(--navbar-color-rgb), 0.9);
+        border-radius: 20px;
+        .Modal-content {
           display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: center;
-          min-height: 40px;
-          width: 100%;
-          position: relative;
-          bottom: 47px;
-          z-index: 1;
-          background-color: rgba(var(--navbar-color-rgb), 0.5);
-          color: var(--cards-text-color);
-          .Title {
-            font-size: 11px;
-            font-weight: 600;
-            width: 90%;
-            text-align: center;
-            margin-top: 5px;
-          }
-          .Subtitle {
-            font-size: 10px;
+          width: 60vw;
+          height: 40vw;
+        }
+        .Modal-close {
+          position: absolute;
+          right: 2vw;
+          top: 2vw;
+          width: 6vw;
+          height: 3vw;
+          background-color: var(--main-bg-color);
+          border-radius: 5px;
+          font-size: 1.4vw;
+        }
+      }
+      .Modal-inactive {
+        display: block;
+      }
+
+      .Profile-img {
+        width: 200px;
+        height: 200px;
+        img {
+          width: 200px;
+          height: 200px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+      }
+
+      .is-profile-btn {
+        top: 95%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(var(--navbar-color-rgb), 0.3);
+        color: white;
+        font-size: 1.2vw;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 10px;
+      }
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 30%;
+      margin: 2vw;
+      padding: 1vw;
+      .Edit-delete {
+        display: flex;
+        justify-content: center;
+        .My-profile-update-btn,
+        .My-profile-delete-btn {
+          text-align: center;
+          font-size: 10px;
+          font-family: inherit;
+          font-weight: 600;
+          width: 100px;
+          padding: 0.5vw 0.7vw;
+          background-color: rgba(66, 48, 48, 0.327);
+          border-radius: 10px;
+          margin: 0.7vw;
+          color: white;
+        }
+        .My-profile-update-btn {
+          background-color: green;
+        }
+        .My-profile-delete-btn {
+          background-color: red;
+        }
+      }
+      .My-profile-rating {
+        font-size: 1.5vw;
+        margin-top: 2vh;
+      }
+    }
+    .Welcome {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      width: 70%;
+      height: 100%;
+      .Welcome-user {
+        height: 70%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        h5.title {
+          font-family: "Playfair Display", serif;
+          text-align: center;
+          font-size: 7vh;
+          color: var(--title-color);
+        }
+        h6.subtitle {
+          font-family: "Playfair Display", serif;
+          text-align: center;
+          color: var(--subtite-color);
+        }
+      }
+
+      .My-profile-favs {
+        display: flex;
+        justify-content: space-evenly;
+        height: 30%;
+        .Favs-btn {
+          height: 7vh;
+          width: 20vw;
+          padding: 1vw;
+          text-align: center;
+          font-family: inherit;
+          font-weight: 200;
+          background-color: rgba(66, 48, 48, 0.327);
+          border-radius: 10px;
+          margin: 1vw;
+          a {
+            color: white;
           }
         }
       }
     }
-    .Messages-main {
-      width: 50%;
+  }
+  .My-profile-columns {
+    display: flex;
+    min-height: 50vh;
+    .Center-col {
+      width: 100%;
       height: 40vh;
-      overflow: scroll;
-      .Messages-Title {
-        font-size: 2vw;
-        text-align: center;
-        font-weight: 600;
-      }
-
-      .My-profile-message-board {
-        height: 80vh;
-        margin-left: 2vw;
-        display: flex;
-        flex-direction: column;
+      display: flex;
+      align-items: center;
+      .My-items {
+        height: 40vh;
+        width: 50%;
         overflow: scroll;
-        max-height: 40vw;
-        width: 100%;
       }
 
-      .Message {
+      .My-items-top {
         display: flex;
-        flex-direction: column;
-        margin: 1vw;
-        padding: 1.5vw;
-        background-color: rgba(var(--navbar-color-rgb), 0.3);
-        width: 90%;
-
-        img {
-          width: 50px;
-          height: 50px;
-          border-radius: 50%;
-          object-fit: cover;
+        justify-content: space-evenly;
+        margin: 0 2vw;
+        h3 {
+          font-weight: 600;
+          font-size: 2vw;
         }
-
-        .Message-top {
-          display: flex;
-          justify-content: center;
-          height: 15%;
-          .Message-top-right {
-            display: flex;
-            justify-content: space-around;
-            align-items: left;
-            margin: 0 1vw;
-            h4 {
-              font-size: 2.2vh;
-              text-align: center;
-            }
-            h5 {
-              font-size: 1vw;
-              font-weight: 200;
-            }
-          }
-        }
-        .Message-text,
-        .Message-reply {
-          margin-top: 1vw;
-          h5 {
-            text-align: center;
-            font-size: 10px;
-            font-weight: 200;
-          }
-          p {
-            font-size: 15px;
-          }
-        }
-
-        .Message-from-date {
+      }
+      .My-items-index {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        height: 40vh;
+        .My-items-card {
           display: flex;
           flex-direction: column;
-          p {
-            font-size: 1.2vw;
+          align-items: center;
+          margin: 5px 5px;
+          width: 150px;
+          height: 150px;
+          .img img {
+            margin: 0;
+            height: 150px;
+            width: 150px;
+            max-width: auto;
+            object-fit: cover;
+            z-index: 0;
+            box-sizing: content-box;
           }
-          h4 {
-            font-size: 1vw;
+          .Card-text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 40px;
+            width: 100%;
+            position: relative;
+            bottom: 47px;
+            z-index: 1;
+            background-color: rgba(var(--navbar-color-rgb), 0.5);
+            color: var(--cards-text-color);
+            .Title {
+              font-size: 11px;
+              font-weight: 600;
+              width: 90%;
+              text-align: center;
+              margin-top: 5px;
+            }
+            .Subtitle {
+              font-size: 10px;
+            }
           }
         }
-
-        .Message-content {
-          height: 55%;
+      }
+      .Messages-main {
+        width: 50%;
+        height: 40vh;
+        overflow: scroll;
+        .Messages-Title {
+          font-size: 2vw;
           text-align: center;
-          font-weight: normal;
-          font-size: 1.3vw;
+          font-weight: 600;
         }
 
-        .Message-reply-delete {
-          height: 15%;
+        .My-profile-message-board {
+          height: 80vh;
+          margin-left: 2vw;
           display: flex;
-          justify-content: center;
-          .Reply-btn {
-            width: 3vw;
-            background-color: red;
+          flex-direction: column;
+          overflow: scroll;
+          max-height: 40vw;
+          width: 100%;
+        }
+
+        .Message {
+          display: flex;
+          flex-direction: column;
+          margin: 1vw;
+          padding: 1.5vw;
+          background-color: rgba(var(--navbar-color-rgb), 0.3);
+          width: 90%;
+
+          img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+          }
+
+          .Message-top {
+            display: flex;
+            justify-content: center;
+            height: 15%;
+            .Message-top-right {
+              display: flex;
+              justify-content: space-around;
+              align-items: left;
+              margin: 0 1vw;
+              h4 {
+                font-size: 2.2vh;
+                text-align: center;
+              }
+              h5 {
+                font-size: 1vw;
+                font-weight: 200;
+              }
+            }
+          }
+          .Message-text,
+          .Message-reply {
+            margin-top: 1vw;
+            h5 {
+              text-align: center;
+              font-size: 10px;
+              font-weight: 200;
+            }
+            p {
+              font-size: 15px;
+            }
+          }
+
+          .Message-from-date {
+            display: flex;
+            flex-direction: column;
+            p {
+              font-size: 1.2vw;
+            }
+            h4 {
+              font-size: 1vw;
+            }
+          }
+
+          .Message-content {
+            height: 55%;
+            text-align: center;
+            font-weight: normal;
+            font-size: 1.3vw;
+          }
+
+          .Message-reply-delete {
+            height: 15%;
+            display: flex;
+            justify-content: center;
+            .Reply-btn {
+              width: 3vw;
+              background-color: red;
+            }
           }
         }
       }
@@ -1889,11 +1905,10 @@ a:hover {
     width: 150px;
   }
   .Message-reply {
-    .Tiny-Buttons{
+    .Tiny-Buttons {
       button {
         min-width: 50px;
       }
-      
     }
   }
   .Main-Page-Index-Header h1 {
@@ -2023,7 +2038,7 @@ a:hover {
   .Edit-profile {
     display: flex;
     flex-direction: column;
-    .Edit-profile-form{
+    .Edit-profile-form {
       width: 100%;
       justify-content: center;
       align-items: center;
@@ -2034,15 +2049,15 @@ a:hover {
     }
     .Edit-profile-index {
       width: 100%;
-      .Edit-items-index{
-      padding-bottom: 30px;
+      .Edit-items-index {
+        padding-bottom: 30px;
       }
     }
   }
 }
 
 @media only screen and (max-width: 681px) {
-  .Navbar-item a{
+  .Navbar-item a {
     font-size: 15px;
   }
   .is-profile-btn {
@@ -2055,6 +2070,9 @@ a:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    img {
+      margin-top: 3vh 0 0 0;
+    }
     .Welcome-user h5,
     h6 {
       display: none;
@@ -2072,7 +2090,8 @@ a:hover {
   .Center-col {
     flex-direction: column;
     min-height: 100vh;
-    background-color: lightgray;
+    background-color: rgba(var(--main-bg-rgb), 1);
+    margin: 20px 0 0 0;
     .Messages-main {
       margin: 1vh 1vw;
       height: 40vh;
@@ -2153,15 +2172,12 @@ a:hover {
       .Created-by p {
         font-size: 10px;
       }
-      .post-show-buttons button {
-        font-size: 10px;
-        height: 20px;
-        width: 100px;
-      }
-      .Butt-Bigger button {
-        font-size: 10px;
-        height: 20px;
-        width: 100px;
+      .post-show-buttons {
+        .Button button {
+          font-size: 5px;
+          height: 20px;
+          width: 100px;
+        }
       }
     }
     .Comments-all {
@@ -2177,7 +2193,7 @@ a:hover {
     flex-direction: column;
     .Comments-container {
       width: 90%;
-      max-height: 25vh;
+      max-height: 33vh;
       .Comments {
         flex-direction: row;
         align-items: flex-start;
@@ -2210,7 +2226,7 @@ a:hover {
   }
   .Map-page {
     min-height: 100%;
-    
+
     .Button {
       font-size: 20px;
       height: 5vh;
@@ -2227,6 +2243,29 @@ a:hover {
       .mapboxgl-ctrl-logo,
       .mapboxgl-ctrl-bottom-right {
         display: none;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .Post-main {
+    max-height: 40vh;
+    .Post-Right {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      max-height: 70%;
+      .Content {
+        max-height: 100%;
+        overflow: scroll;
+        justify-content: flex-start;
+      }
+    }
+    .Post-show-Butts {
+      display: none;
+      .Button {
+        width: 100px;
       }
     }
   }

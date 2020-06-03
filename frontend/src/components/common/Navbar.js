@@ -34,7 +34,7 @@ class Navbar extends React.Component {
         <div className="container">
           <div className="navbar-brand">
             <Link to="/" className="navbar-item Navbar-item" >Home</Link>
-            <Link to="/about" className="navbar-item Navbar-item" >About Us</Link>
+            {/* <Link to="/about" id="About-us-hide" className="navbar-item Navbar-item" >About Us</Link> */}
             <Link to="/clothes" className="navbar-item Navbar-item" >Latest Items</Link>
             <Link to="/posts" className="navbar-item Navbar-item">Posts</Link>
             <span onClick={this.handleToggle} className={`navbar-burger ${isOpen ? 'is-active' : ''}`}>
@@ -45,6 +45,7 @@ class Navbar extends React.Component {
           </div>
           <div className={`navbar-menu ${isOpen ? 'is-active' : ''}`}>
             <div className="navbar-end">
+              <Link to="/about" className="navbar-item Navbar-item Hidden-navbar-item" >About Us</Link>
               {isAuthenticated() && <Link to={`/profile/${this.username}`} className="navbar-item Navbar-item">View Profile</Link>}
               {isAuthenticated() && <Link to={`/profile/${this.username}/map`} className="navbar-item Navbar-item">User Map</Link>}
               {!isAuthenticated() && <Link to="/register" className="navbar-item Navbar-item">Register</Link>}
