@@ -66,8 +66,7 @@ class ClothesAdd extends React.Component {
 
   render() {
     return (
-      <>
-        <div className="Page-head">
+        <div className="Page-head Add-Clothes">
           <div className="Page-title-form add-clothes-title">
             <h1>Add Clothes</h1>
           </div>
@@ -82,7 +81,6 @@ class ClothesAdd extends React.Component {
             name="image"
           />
         </div>
-      </>
     )
   }
 }
