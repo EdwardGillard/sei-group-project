@@ -507,6 +507,9 @@ a {
   justify-content: center;
   width: 100%;
   margin: 0 0 2vh 0;
+  .Horizontal-buttons {
+    display: none;
+  }
   .Post-Title {
     display: flex;
     justify-content: center;
@@ -537,7 +540,7 @@ a {
         height: 70vh;
         .Post-Show-Image {
           width: 25%;
-          padding: 1vh 1vw;
+          padding: 20px 20px;
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -554,16 +557,12 @@ a {
             height: 25%;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-end;
-            width: 100%;
+            justify-content: center;
+            max-width: 80%;
             .Button {
               font-size: 20px;
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-              align-items: center;
               width: 130px;
-              height: 25px;
+              min-height: 25px;
               font-size: 15px;
               font-weight: 600;
             }
@@ -734,12 +733,146 @@ a {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 120vh;
+  min-height: 140vh;
   background-color: rgba(var(--main-bg-rgb), 1);
   .Show-profile-top {
     display: flex;
     align-items: center;
     width: 100%;
+    .Photo-user-rating {
+      width: 50%;
+      img {
+        height: 200px;
+        width: 200px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin: 2vw 2vw 0 0;
+      }
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-right: 12vw;
+      h4 {
+        font-size: 3vw;
+      }
+      h6 {
+        font-size: 2vw;
+      }
+      .Follow-message {
+        display: flex;
+        align-items: center;
+        font-size: 30px;
+        button {
+          width: 100px;
+          padding: 1vw;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          font-size: 15px;
+          font-family: inherit;
+          font-weight: 600;
+          background-color: rgba(66, 48, 48, 0.327);
+          border-radius: 10px;
+          color: white;
+        }
+      }
+    }
+    .Comments-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      width: 50%;
+      height: 50vh;
+      .Comments {
+        display: flex;
+        justify-content: right;
+        align-items: flex-end;
+        height: 100%;
+        .Comments-on-user {
+          display: flex;
+          flex-direction: column;
+          overflow: scroll;
+          min-width: 30vw;
+          max-width: 30vw;
+          width: 100%;
+          height: 100%;
+          .user-review-head {
+            text-align: left;
+            padding-left: 8vw;
+          }
+          .Delete button {
+            width: 60px;
+            height: 20px;
+            padding: 1vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: 10px;
+            font-family: inherit;
+            font-weight: 600;
+            background-color: rgba(3, 2, 2, 0.327);
+            border-radius: 10px;
+            color: white;
+          }
+        }
+        .ratings-comments {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          height: 100%;
+          .rate-user {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+          }
+          .Comment-left {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            button {
+              width: 100px;
+              padding: 1vw;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              text-align: center;
+              font-size: 15px;
+              font-family: inherit;
+              font-weight: 600;
+              background-color: rgba(66, 48, 48, 0.327);
+              border-radius: 10px;
+              color: white;
+            }
+            p {
+              font-size: 1.5vw;
+              text-align: center;
+            }
+            .Comment-text {
+              border-radius: 5px;
+              border: none;
+              margin: 1vw;
+              width: 15vw;
+            }
+          }
+        }
+        .Button {
+          width: 7vw;
+          height: 2vw;
+          font-size: 15px;
+          padding: 0;
+          background: rgb(48, 47, 47);
+        }
+      }
+    }
   }
   .Show-profile-bottom {
     display: flex;
@@ -747,11 +880,13 @@ a {
     height: 40vh;
     width: 100%;
     margin: 10px 0 20px 0;
-
+    #bottom-comments {
+      display: none;
+    }
     .User-items-index {
       display: flex;
       overflow: scroll;
-      max-height: 40vw;
+      height: 30vw;
       width: 90%;
       margin: 1vh 0 5vh 0;
 
@@ -791,151 +926,6 @@ a {
           }
         }
       }
-    }
-  }
-}
-
-.Photo-user-rating {
-  width: 50%;
-  img {
-    height: 200px;
-    width: 200px;
-    object-fit: cover;
-    border-radius: 50%;
-    margin: 2vw 2vw 0 0;
-  }
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-right: 12vw;
-  h4 {
-    font-size: 3vw;
-  }
-  h6 {
-    font-size: 2vw;
-  }
-}
-
-.Follow-message {
-  display: flex;
-  align-items: center;
-  font-size: 30px;
-  button {
-    width: 100px;
-    padding: 1vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-size: 15px;
-    font-family: inherit;
-    font-weight: 200;
-    background-color: rgba(66, 48, 48, 0.327);
-    border-radius: 10px;
-    color: white;
-  }
-}
-
-.Comments-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  width: 50%;
-  height: 50vh;
-}
-.Comments {
-  display: flex;
-  justify-content: right;
-  align-items: flex-end;
-  height: 100%;
-  .Button {
-    width: 7vw;
-    height: 2vw;
-    font-size: 15px;
-    padding: 0;
-    background: rgb(48, 47, 47);
-  }
-
-  .Comment {
-    max-width: 30vw;
-    font-size: 1vw;
-    word-wrap: break-word;
-    h4 {
-      color: white;
-    }
-  }
-  .ratings-comments {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
-    .rate-user {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      justify-content: center;
-    }
-    .Comment-left {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      button {
-        width: 100px;
-        padding: 1vw;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        font-size: 15px;
-        font-family: inherit;
-        font-weight: 200;
-        background-color: rgba(66, 48, 48, 0.327);
-        border-radius: 10px;
-        color: white;
-      }
-      p {
-        font-size: 1.5vw;
-        text-align: center;
-      }
-      .Comment-text {
-        border-radius: 5px;
-        border: none;
-        margin: 1vw;
-        width: 15vw;
-      }
-    }
-  }
-  .user-review-head {
-    text-align: left;
-    padding-left: 8vw;
-  }
-  .Comments-on-user {
-    display: flex;
-    flex-direction: column;
-    overflow: scroll;
-    min-width: 30vw;
-    max-width: 30vw;
-    width: 100%;
-    height: 100%;
-    .Delete button {
-      width: 60px;
-      padding: 1vw;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      font-size: 10px;
-      font-family: inherit;
-      font-weight: 200;
-      background-color: rgba(3, 2, 2, 0.327);
-      border-radius: 10px;
-      color: white;
     }
   }
 }
@@ -1390,6 +1380,9 @@ a {
   margin: 2vh 2vw;
   max-height: 80vh;
   overflow: scroll;
+  #bigger-button {
+    width: 140px;
+  }
 }
 
 .Page-head-edit-form {
@@ -1409,6 +1402,9 @@ a {
 .ClothesForm {
   position: relative;
   top: 15vw;
+}
+
+.Clothes-add-page {
 }
 
 //? Comments from users
@@ -1723,7 +1719,7 @@ a:hover {
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      p{
+      p {
         font-size: 15px;
       }
     }
@@ -1736,15 +1732,14 @@ a:hover {
     justify-content: flex-end;
   }
   .show-page-user-content {
-    width: 30%;
-    height: 31vh;
+    width: 50%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
     .user-info-show {
       width: 100%;
-      height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -1759,7 +1754,6 @@ a:hover {
     .show-buttons {
       width: 100%;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
       .Tiny-Buttons-Show {
@@ -1884,6 +1878,21 @@ a:hover {
 }
 
 @media only screen and (max-width: 1030px) {
+  .add-clothes-title {
+    display: none;
+  }
+  .Clothes-add-page {
+    margin-top: 20px;
+    max-height: 80vh;
+    min-width: 100%;
+    overflow: scroll;
+    #Clothes-add-but-one {
+      width: 100px;
+    }
+    #Clothes-add-but-two {
+      width: 100px;
+    }
+  }
   .show-master-div {
     max-width: 100%;
     .show-left-column {
@@ -2002,56 +2011,67 @@ a:hover {
       width: 100%;
       flex-direction: column;
       align-items: center;
-      .header-rating-top{
+      .header-rating-top {
         width: 100%;
         height: 20px;
+        margin-bottom: 20px;
         .show-article-title {
           justify-content: center;
           text-align: center;
           font-size: 20px;
         }
-        .Show-rating-div p{
-            font-size: 12px;
-          } 
+        .Show-rating-div p {
+          font-size: 12px;
+        }
       }
       .show-main-content {
-        min-height: 70vh;
+        min-height: 60vh;
         max-width: 90%;
         margin: 0;
         overflow: scroll;
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
-        .right-hand-show-content{
+        .right-hand-show-content {
           flex-direction: column;
           align-items: flex-start;
           max-width: 100%;
           height: 30vh;
-        .show-page-content {
-          max-width: 100%;
-          font-size: 13px;
-          max-height: 50vh;
-          justify-content: center;
-          align-items: center;
+          .show-page-content {
+            max-width: 100%;
+            font-size: 13px;
+            max-height: 50vh;
+            justify-content: center;
+            align-items: center;
             .item-main-details {
               width: 100%;
             }
           }
           .move-button {
             min-width: 100%;
-            justify-content: flex-start;
+            justify-content: center;
+            align-items: center;
+            button {
+              align-items: center;
+            }
           }
         }
         .fav-item-Button,
         .add-to-favs-but {
           width: 170px;
           text-align: center;
+          justify-content: center;
+          button {
+            display: flex;
+            justify-content: center;
+          }
         }
         .show-page-user-content {
+          margin-top: 30px;
           width: 50%;
-          max-height: 50vh;
+          max-height: 30vh;
           flex-direction: column;
-          .user-info-show{
+          .user-info-show {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -2061,16 +2081,18 @@ a:hover {
             width: 100%;
             flex-direction: row;
             justify-content: center;
+            margin: 0;
+            padding: 0;
             #login {
               width: 100px;
             }
             #join {
-              width:100px;
+              width: 100px;
             }
           }
         }
       }
-      .Other-items-index{
+      .Other-items-index {
         width: 90%;
       }
       .all-comments-show {
@@ -2134,8 +2156,12 @@ a:hover {
 }
 
 @media only screen and (max-width: 681px) {
+  .Footer {
+    display: none;
+  }
   .Map-page {
     min-width: 100%;
+    min-height: 100%;
     background-color: rgba(var(--main-bg-rgb), 1);
   }
   .Index-page-main {
@@ -2245,42 +2271,71 @@ a:hover {
   .Edit-Button {
     width: 20vw;
   }
-  .Post-Top {
-    display: none;
-  }
-  .Main-Post-Show {
+  .Post {
+    min-height: 100%;
+    display: flex;
     flex-direction: column;
-    align-items: center;
-    .Post-and-comments {
-      min-width: 90%;
-      .Post-Show-Image {
-        justify-content: center;
-        .Post-Show-Image-Container {
-          flex-direction: column;
-          align-content: center;
-          height: 50%;
-        }
-      }
-      .Content p {
-        font-size: 10px;
-      }
-      .Created-by p {
-        font-size: 10px;
-      }
-      .post-show-buttons {
-        .Button button {
-          font-size: 5px;
-          height: 20px;
-          width: 100px;
-        }
-      }
+    justify-content: flex-start;
+    background-color: rgba(var(--main-bg-rgb), 1);
+    .Post-Top {
+      display: none;
     }
-    .Comments-all {
-      flex-direction: row;
-      align-items: flex-start;
-      width: 100%;
-      .User-comments {
-        height: 20vh;
+    .Main-Post-Show {
+      flex-direction: column;
+      align-items: center;
+      .Post-and-comments {
+        min-width: 90%;
+        .Post-Show-Image {
+          justify-content: center;
+          .Post-Show-Image-Container {
+            flex-direction: column;
+            align-content: center;
+          }
+          #hide-this-div {
+            display: none;
+          }
+        }
+        .Post-Right {
+          min-height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          .Content p {
+            font-size: 10px;
+          }
+          .Created-by p {
+            font-size: 10px;
+          }
+          .Horizontal-buttons {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+            width: 100%;
+            .Button {
+              height: 20px;
+              width: 80px;
+              font-size: 15px;
+              font-weight: 600;
+            }
+          }
+        }
+      }
+      .Comments-all {
+        flex-direction: row;
+        align-items: flex-start;
+        width: 100%;
+        .User-comments {
+          height: 20vh;
+        }
+        .Post-comment {
+          margin-top: 15px;
+          .label-for-comments {
+            display: none;
+          }
+          textarea {
+            font-size: 12px;
+          }
+        }
       }
     }
   }
@@ -2299,48 +2354,76 @@ a:hover {
         display: none;
       }
     }
+    .Show-profile-bottom {
+      margin: 20px;
+      max-height: 30vh;
+      .User-items-index {
+        max-height: 27vh;
+        margin-bottom: 10px;
+      }
+    }
     .Comments-container-two {
       margin-bottom: 70px;
-      width: 90%;
-      max-height: 28vh;
+      min-width: 90%;
+      max-height: 30vh;
+      display: flex;
+      justify-content: space-evenly;
       .Comments {
+        display: flex;
         flex-direction: row;
-        align-items: space-evenly;
-        justify-content: flex-start;
+        align-items: center;
+        justify-content: space-between;
+        min-width: 90%;
         .ratings-comments {
+          display: flex;
+          flex-direction: column;
           justify-content: flex-start;
-          width: 50%;
-          .Comment-left {
-            .Comment-text {
-              width: 100%;
+          align-items: flex-start;
+          min-width: 50%;
+          #bottom-coms-form{
+            min-width: 100%;
+            display: flex;
+            text-align: center;
+            flex-direction: column;
+            text-area{
+              min-width: 100%;
             }
+            button {
+              width: 50px;
+              background-color: black;
+              color: white;
+              border-radius: 10px;
+              font-weight: 600;
+            }
+          }
+          .rate-user{
+            min-width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
           }
         }
         .Comments-on-user {
-          width: 50%;
-        }
-        .Button {
-          width: 7vw;
-          height: 2vw;
-          font-size: 1vw;
-          padding: 0;
-          background: rgb(48, 47, 47);
+          overflow: scroll;
+          min-width: 50%;
+          max-height: 30vh;
         }
 
         .Comment {
           max-width: 30vw;
           font-size: 1vw;
           word-wrap: break-word;
+          button {
+            width: 50px;
+            background-color: black;
+            color: white;
+            border-radius: 10px;
+            font-weight: 600;
+          }
           h4 {
             color: white;
           }
         }
-      }
-    }
-    .Show-profile-bottom {
-      margin: 0;
-      .User-items-index {
-        min-height: 40vh;
       }
     }
   }
@@ -2386,8 +2469,17 @@ a:hover {
   .Navbar {
     margin: 0 3px 0 3px;
   }
+  .Left-Post-Show-Column {
+    display: none;
+  }
   .Post-main {
     max-height: 40vh;
+    .Post-show-Butts {
+      display: none;
+      .Button {
+        width: 100px;
+      }
+    }
     .Post-Right {
       display: flex;
       flex-direction: column;
@@ -2397,12 +2489,6 @@ a:hover {
         max-height: 100%;
         overflow: scroll;
         justify-content: flex-start;
-      }
-    }
-    .Post-show-Butts {
-      display: none;
-      .Button {
-        width: 100px;
       }
     }
   }

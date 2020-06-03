@@ -148,7 +148,7 @@ const ClothesForm = ({ handleChange, handleSubmit, handleMultiChange, formData, 
             {errors.rentalPrice && <small className="help is-danger">{errors.rentalPrice}</small>}
           </div>
           <div className="field">
-            <button type="submit" className="fav-item-Button">Update Changes</button>
+            <button type="submit" id="bigger-button" className="fav-item-Button">Update Changes</button>
           </div>
         </form>
       </div>

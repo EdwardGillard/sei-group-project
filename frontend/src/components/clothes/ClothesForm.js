@@ -27,8 +27,8 @@ const ClothesForm = ({ handleChange, handleSubmit, handleMultiChange, formData, 
 
 
   return (
-    <div className="Page-Div">
-      <div className="Edit-Page-Container">
+    <div className="Page-Div Clothes-add-page">
+      <div>
         <form
           onSubmit={handleSubmit}
         >
@@ -172,10 +172,10 @@ const ClothesForm = ({ handleChange, handleSubmit, handleMultiChange, formData, 
                 )
               })
               }
-              {image.length < 5 && <button className="fav-item-Button" onClick={onClick}>Add Image</button>}
+              {image.length < 5 && <button id="Clothes-add-but-one" className="fav-item-Button" onClick={onClick}>Add Image</button>}
             </div>
             <div className="field">
-              <button type="submit" className="fav-item-Button">Add Item</button>
+              <button id="Clothes-add-but-two" type="submit" className="fav-item-Button">Add Item</button>
             </div>
           </div>
         </form>

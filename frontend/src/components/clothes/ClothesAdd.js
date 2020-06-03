@@ -68,7 +68,7 @@ class ClothesAdd extends React.Component {
     return (
       <>
         <div className="Page-head">
-          <div className="Page-title-form">
+          <div className="Page-title-form add-clothes-title">
             <h1>Add Clothes</h1>
           </div>
           <ClothesForm

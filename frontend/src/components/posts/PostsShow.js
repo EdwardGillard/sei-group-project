@@ -105,14 +105,14 @@ class PostsShow extends React.Component {
         <div className="Main-Post-Show">
           <div className="Post-and-comments">
             <div className="Post-main">
-              <div className="Post-Show-Image Left-Post-Show-Column">
+              <div className="Post-Show-Image">
                 <div className="Post-Show-Image-Container">
-                  <img src={post.photo} alt={post.title} height="200" width="100" />
+                  <img src={post.photo} alt={post.title} />
                 </div>
-                <div className="post-show-buttons Post-show-Butts">
+                <div className="post-show-buttons" id="hide-this-div">
                   {isOwner(post.user._id) && <Link to={`/posts/${post._id}/edit`}><button className="Button">Edit</button></Link>}
                   {isOwner(post.user._id) && <button className="Button" value={post._id} onClick={this.deletePost}>Delete</button>}
-                  {isAuthenticated() && <button name="posts" value={post._id} onClick={this.handleFavouriteSubmit} className="Button">Add to Favourites</button>}
+                  {isAuthenticated() && <button className="Button" name="posts" value={post._id} onClick={this.handleFavouriteSubmit}>Add to Favourites</button>}
                 </div>
               </div>
               <div className="Post-Right">
@@ -122,6 +122,11 @@ class PostsShow extends React.Component {
                 <div className="Created-by">
                   <Link to={`/page/${post.user.username}`}><p>Created by: {userName}</p> </Link>
                   <p>{date} {time}</p>
+                </div>
+                <div className="Horizontal-buttons">
+                  {isOwner(post.user._id) && <Link to={`/posts/${post._id}/edit`}><button className="Button">Edit</button></Link>}
+                  {isOwner(post.user._id) && <button className="Button" value={post._id} onClick={this.deletePost}>Delete</button>}
+                  {isAuthenticated() && <button className="Button" name="posts" value={post._id} onClick={this.handleFavouriteSubmit}>Favs</button>}
                 </div>
               </div>
             </div>

@@ -119,7 +119,6 @@ const SingleClothCard = ({ deleteComment, rentalPrice, handleContactSubmit, hand
                 />
               </Link>
             </div>
-
             <div className="show-buttons">
               {!isAuthenticated() && <Link to="/login"><button className="Tiny-Buttons-Show" id="login"> Log In</button></Link>}
               {!isAuthenticated() && <Link to="/register"><button className="Tiny-Buttons-Show" id="join">Join KEBB</button></Link>}

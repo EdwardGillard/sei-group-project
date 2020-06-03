@@ -277,7 +277,7 @@ class userShowProfile extends React.Component {
                 />
               </div>
               <form
-                className="Comment-left"
+                id="bottom-coms-form"
                 onSubmit={this.handleCommentSubmit}>
                 <p> Your review for {userName}:</p>
                 <textarea
