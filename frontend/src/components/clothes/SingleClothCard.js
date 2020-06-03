@@ -47,15 +47,15 @@ const SingleClothCard = ({ deleteComment, rentalPrice, handleContactSubmit, hand
         <div className="show-comments-div">
           <div className="show-comments-input">
             {isAuthenticated() && <form onSubmit={handleCommentSubmit}>
-                <textarea
-                  type="textArea"
-                  maxLength="150"
-                  rows="6"
-                  name="text"
-                  onChange={handleCommentChange}
-                  value={commentText}
-                  placeholder="Add your comment"
-                ></textarea>
+              <textarea
+                type="textArea"
+                maxLength="150"
+                rows="6"
+                name="text"
+                onChange={handleCommentChange}
+                value={commentText}
+                placeholder="Add your comment"
+              ></textarea>
               <br />
               <div>
                 <button className="fav-item-Button">Submit Comment</button>
@@ -63,64 +63,66 @@ const SingleClothCard = ({ deleteComment, rentalPrice, handleContactSubmit, hand
             </form>}
           </div>
           <div className="comments-box-show">
-              {commentsArray.map(comment => (
-                <Comments
-                  key={comment._id}
-                  comment={comment}
-                  deleteComment={deleteComment}
-                />
-              ))}
+            {commentsArray.map(comment => (
+              <Comments
+                key={comment._id}
+                comment={comment}
+                deleteComment={deleteComment}
+              />
+            ))}
           </div>
         </div>
       </div>
       <div className="show-right-column">
-        <div className="show-article-title">
-          <h1>{title}</h1>
+        <div className="header-rating-top">
+          <div className="show-article-title">
+            <h1>{title}</h1>
+          </div>
+          {isAuthenticated() && !isOwner(userid) && <div className="Show-rating-div">
+            <p>Rate {title}:</p>
+            <StarRating
+              rating={val}
+              onStarClick={onStarClick}
+              editing={true}
+            />
+          </div>}
         </div>
-        {isAuthenticated() && !isOwner(userid) && <div className="Show-rating-div">
-          <p>Rate {title}:</p>
-          <StarRating
-            rating={val}
-            onStarClick={onStarClick}
-            editing={true}
-          />
-        </div>}
         <hr />
         <div className="show-main-content">
           <hr />
           <div className="right-hand-show-content">
             <div className="show-page-content">
-              <p><strong>Brand: </strong> {brand}</p>
-              <p><strong>{category}: </strong> {genderCategory}</p>
-              <p><strong>Color:</strong> {color.map(col => <span>{col}, </span>)}</p>
-              <p><strong>Size: </strong> {size}</p>
-              <p><strong>Rental price: </strong> £{rentalPrice}</p>
-              <StarRating
-                rating={articleRating}
-                editing={false}
-              />
-            </div>
-            <div className="add-to-favs-but move-button">
-              {isAuthenticated() && <button name="item" value={clothId} onClick={onClick} className="fav-item-Button add-to-favs-but">Add to Favourites</button>}
+              <div className="item-main-details">
+                <p><strong>Brand: </strong> {brand}</p>
+                <p><strong>{category}: </strong> {genderCategory}</p>
+                <p><strong>Color:</strong> {color.map(col => <span>{col}, </span>)}</p>
+                <p><strong>Size: </strong> {size}</p>
+                <p><strong>Rental price: </strong> £{rentalPrice}</p>
+                <StarRating
+                  rating={articleRating}
+                  editing={false}
+                />
+              </div>
+              <div className="add-to-favs-but move-button">
+                {isAuthenticated() && <button name="item" value={clothId} onClick={onClick} className="fav-item-Button add-to-favs-but">Add to Favourites</button>}
+              </div>
             </div>
           </div>
           <div className="show-page-user-content">
-            <Link to={`/page/${username}`}>
-              <div className="user-info-show">
+            <div className="user-info-show">
+              <Link to={`/page/${username}`}>
                 <img src={profilePic} alt={username} />
                 <p><strong>{userName}</strong></p>
                 <StarRating
                   rating={rating}
                   editing={false}
                 />
-              </div>
-            </Link>
+              </Link>
+            </div>
+
             <div className="show-buttons">
-              {!isAuthenticated() &&
-                <div className="columns">
-                  <Link to="/login"><button className="Tiny-Buttons-Show"> Log In</button></Link>
-                  <Link to="/register"><button className="Tiny-Buttons-Show">Join KEBB</button></Link>
-                </div>}
+              {!isAuthenticated() && <Link to="/login"><button className="Tiny-Buttons-Show" id="login"> Log In</button></Link>}
+              {!isAuthenticated() && <Link to="/register"><button className="Tiny-Buttons-Show" id="join">Join KEBB</button></Link>}
               {!isOwner(userid) && isAuthenticated() && <button onClick={toggleContact} className="fav-item-Button">Contact user</button>}
             </div>
           </div>
@@ -152,29 +154,30 @@ const SingleClothCard = ({ deleteComment, rentalPrice, handleContactSubmit, hand
         <div className="show-comments-div all-comments-show">
           <div className="show-comments-input comment-form-show">
             {isAuthenticated() && <form onSubmit={handleCommentSubmit}>
-                <textarea
-                  type="textArea"
-                  maxLength="150"
-                  rows="6"
-                  name="text"
-                  onChange={handleCommentChange}
-                  value={commentText}
-                  placeholder="Add your comment"
-                ></textarea>
+              <textarea
+                className="clothes-show-text-area"
+                type="textArea"
+                maxLength="150"
+                rows="6"
+                name="text"
+                onChange={handleCommentChange}
+                value={commentText}
+                placeholder="Add your comment"
+              ></textarea>
               <br />
-              <div>
+              <div className="Comments-Button-Show">
                 <button className="fav-item-Button">Submit Comment</button>
               </div>
             </form>}
           </div>
           <div className="comments-box-show">
-              {commentsArray.map(comment => (
-                <Comments
-                  key={comment._id}
-                  comment={comment}
-                  deleteComment={deleteComment}
-                />
-              ))}
+            {commentsArray.map(comment => (
+              <Comments
+                key={comment._id}
+                comment={comment}
+                deleteComment={deleteComment}
+              />
+            ))}
           </div>
         </div>
       </div>
