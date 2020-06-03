@@ -265,6 +265,44 @@ class userShowProfile extends React.Component {
             )}
           </div>
         </div>
+        <div className="Comments-container-two">
+          <div className="Comments">
+            {isAuthenticated() && !isOwner(this.state.user._id) && <div className="ratings-comments">
+              <div className="rate-user">
+                <p>Rate this user:</p>
+                <StarRating
+                  rating={this.state.ratingData.rating}
+                  onStarClick={this.onStarClick}
+                  editing={true}
+                />
+              </div>
+              <form
+                className="Comment-left"
+                onSubmit={this.handleCommentSubmit}>
+                <p> Your review for {userName}:</p>
+                <textarea
+                  className="Comment-text"
+                  rows="5"
+                  type="textArea"
+                  maxLength="200"
+                  name="text"
+                  onChange={this.handleCommentChange}
+                  value={comments.text} />
+                <button>Submit</button>
+              </form>
+            </div>}
+            <div className="Comments-on-user">
+              <h3 className="user-review-head">{userName}'s Reviews</h3>
+              {commentsArray.map(comment => (
+                <Comments
+                  key={comment._id}
+                  comment={comment}
+                  deleteComment={this.deleteComment}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     )
   }

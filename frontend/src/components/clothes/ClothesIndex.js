@@ -153,7 +153,7 @@ class ClothesIndex extends React.Component {
       return { value: size, label: size }
     })
     return (
-      <div>
+      <div className="Index-page-main">
         <div className="Clothes-Index-Header Main-Page-Index-Header">
           <div className="Page-head">
             <div className="Page-title ">

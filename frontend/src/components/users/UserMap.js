@@ -94,39 +94,37 @@ class UserMap extends React.Component {
     if (!this.state.user) return null
 
     return (
-      <>
-        <div className="Map-page">
-          <div className="Page-head">
-            <div className="Map-Page-Title">
-              <h1>SAVED PINS</h1>
-            </div>
-          </div>
-          <div className="pin-details">
-            {/* Map for user to view locations & drop pins */}
-            <div className="map-page">
-              <div className="Map">
-                <Map
-                  onChange={this.handleChange}
-                  onClick={this.toggleModal}
-                  pins={this.state.user.pins}
-                  location={this.addLocation}
-                  onClickDelete={this.deletePin}
-                  name="location" />
-              </div>
-              {/* PinForm will pop up if a user decides to drop a pin on thr map */}
-              <PinForm
-                handleChange={this.handleChange}
-                handleSubmit={this.handleSubmit}
-                toggleModal={this.toggleModal}
-                errors={this.state.errors}
-                numberOfPins={this.numberOfPins}
-                modalStatus={this.state.modalOpen}
-                form={this.state.formData}
-              />
-            </div>
+      <div className="Map-page">
+        <div className="Page-head">
+          <div className="Map-Page-Title">
+            <h1>SAVED PINS</h1>
           </div>
         </div>
-      </>
+        <div className="pin-details">
+          {/* Map for user to view locations & drop pins */}
+          <div className="map-page">
+            <div className="Map">
+              <Map
+                onChange={this.handleChange}
+                onClick={this.toggleModal}
+                pins={this.state.user.pins}
+                location={this.addLocation}
+                onClickDelete={this.deletePin}
+                name="location" />
+            </div>
+            {/* PinForm will pop up if a user decides to drop a pin on thr map */}
+            <PinForm
+              handleChange={this.handleChange}
+              handleSubmit={this.handleSubmit}
+              toggleModal={this.toggleModal}
+              errors={this.state.errors}
+              numberOfPins={this.numberOfPins}
+              modalStatus={this.state.modalOpen}
+              form={this.state.formData}
+            />
+          </div>
+        </div>
+      </div>
     )
   }
 }

@@ -57,7 +57,7 @@ class Posts extends React.Component {
   render() {
     if (!this.state.posts) return null
     return (
-      <div>
+      <div className="Posts-index-Main">
         <div className="Clothes-Index-Header">
           <div className="Page-head">
             <div className="Page-title">

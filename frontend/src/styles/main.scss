@@ -1898,6 +1898,9 @@ a:hover {
 }
 
 @media only screen and (max-width: 780px) {
+  .Clothes-Index-Header {
+    display: none;
+  }
   .My-items-title {
     display: none;
   }
@@ -2057,6 +2060,24 @@ a:hover {
 }
 
 @media only screen and (max-width: 681px) {
+  .Map-page {
+    min-width: 100%;
+    background-color: rgba(var(--main-bg-rgb), 1);
+  }
+  .Index-page-main {
+    min-width: 100%;
+    background-color: rgba(var(--main-bg-rgb), 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .Posts-index-Main {
+    min-width: 100%;
+    background-color: rgba(var(--main-bg-rgb), 1);
+    .Clothes-Index-Header {
+      display: none;
+    }
+  }
   .Navbar-item a {
     font-size: 15px;
   }
@@ -2189,9 +2210,19 @@ a:hover {
       }
     }
   }
-  .Show-profile-top {
+  .Show-profile {
+    display: flex;
     flex-direction: column;
-    .Comments-container {
+    align-items: center;
+    .Show-profile-top {
+      flex-direction: column;
+      align-items: center;
+      .Comments-container {
+        display: none;
+      }
+    }
+    .Comments-container-two {
+      margin-bottom: 70px;
       width: 90%;
       max-height: 33vh;
       .Comments {
@@ -2219,6 +2250,12 @@ a:hover {
         }
       }
     }
+    .Show-profile-bottom{
+      margin: 0;
+      .User-items-index{
+        min-height: 40vh;
+      }
+    }
   }
 
   .Map-Page-Title h1 {
@@ -2226,7 +2263,6 @@ a:hover {
   }
   .Map-page {
     min-height: 100%;
-
     .Button {
       font-size: 20px;
       height: 5vh;
@@ -2244,11 +2280,23 @@ a:hover {
       .mapboxgl-ctrl-bottom-right {
         display: none;
       }
+      .MapGL {
+        justify-content: center;
+      }
+      .pin-modal {
+        min-height: 60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+      }
     }
   }
 }
 
 @media only screen and (max-width: 550px) {
+  .Navbar {
+    margin: 0 3px 0 3px;
+  }
   .Post-main {
     max-height: 40vh;
     .Post-Right {
