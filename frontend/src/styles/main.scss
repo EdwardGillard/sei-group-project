@@ -510,6 +510,9 @@ a {
   .Horizontal-buttons {
     display: none;
   }
+  .Post-Top{
+    width: 100%;
+  }
   .Post-Title {
     display: flex;
     justify-content: center;
@@ -519,6 +522,9 @@ a {
     margin: 0;
     color: white;
     height: 7vh;
+    h1{
+      text-align: center;
+    }
   }
   .Main-Post-Show {
     display: flex;
