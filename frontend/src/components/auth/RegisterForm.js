@@ -24,6 +24,7 @@ const RegisterForm = ({ handlePostcodeChange, handleChange, handleSubmit, userna
               value={username}
               onChange={handleChange}
             />
+            {errors.email && <small className="help is-danger">{errors.email}</small>}
           </div>
           {errors.username && <small className="help is-danger">{errors.username}</small>}
         </div>

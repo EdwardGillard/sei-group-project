@@ -30,7 +30,6 @@ import PostEdit from './components/posts/PostEdit'
 
 const App = () => {
   return (
-    <div className="Background-Color">
       <BrowserRouter>
         <Notifications />
         <Navbar className="Navbar" />
@@ -61,7 +60,6 @@ const App = () => {
           <Footer className='Footer' />
         </div>
       </BrowserRouter>
-    </div>
   )
 }
 

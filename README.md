@@ -1,8 +1,8 @@
-# SEI Project three: KEBB Bazaar
+# SEI Project three: KEBB Bazaar.
 
 ## https://kebb-bazaar-clothes.herokuapp.com/
 
-## **Overview**
+## **Overview.**
 
 Project 3 was my first experience of putting together a *full stack app* as part of a team. We started off by picking a shortlist of ideas which expanded together and then made a group decision on the best option for us. The unanimous decision resulted in **KEBB Bazaar**. From there we created a wireframe using *miro.com*. 
 
@@ -13,21 +13,21 @@ Project 3 was my first experience of putting together a *full stack app* as part
 
 This app was deployed using **heroku**.
 
-----------------------
+-----------------------
 
 ## **Brief.**
 
 #### Project brief:
 
-* **Build a full-stack application** by making your own backend and your own front-end
-* **Use an Express API** to serve your data from a Mongo database
-* **Consume your API with a separate front-end** built with React
-* **Be a complete product** which most likely means multiple relationships and CRUD functionality for at least a couple of models
-* **Implement thoughtful user stories/wireframes** that are significant enough to help you know which features are core MVP and which you can cut
+* **Build a full-stack application** by making your own backend and your own front-end.
+* **Use an Express API** to serve your data from a Mongo database.
+* **Consume your API with a separate front-end** built with React.
+* **Be a complete product** which most likely means multiple relationships and CRUD functionality for at least a couple of models.
+* **Implement thoughtful user stories/wireframes** that are significant enough to help you know which features are core MVP and which you can cut.
 * **Have a visually impressive design** to kick your portfolio up a notch and have something to wow future clients & employers. **ALLOW** time for this.
 * **Be deployed online** so it's publicly accessible.
 
----------------------
+-----------------------
 
 ## **Technologies used.**
 
@@ -56,7 +56,8 @@ This app was deployed using **heroku**.
 * React notify toast
 * React input range
 
-#### Development tools.
+#### Development tools:
+
 * VS code
 * Npm/ Nodemon
 * Git
@@ -67,14 +68,21 @@ This app was deployed using **heroku**.
 * Trello Board
 * Miro Board
 * Google Drive 
+* Zoom
 
---------------------
+-----------------------
 
 ## **Approach.**
 
-At the beginning of the project we split our team of four into two pairs. My colleague and I took the back end. Once completed we moved onto the front end to help bring the controllers we had created to life. 
+## Planning.
 
-### Back End.
+We began by using a shared **Google Drive** document to plot ideas. Once we had come to a decision we used the **Miro Board** shown in the overview section to build a wireframe. When we had a good idea on our *MVP*. Then we used a Trello Board to divide each component into seperate tasks and draft which dependencies we required and what we will use them for. 
+
+![Image of Trello Board](images/Trello.jpeg)
+
+Once we had finalised rough plans as a team we split ourselves into two groups of two. My colleague and I took the back end. We agreed the best way to avoid conflicts would be to use **VS Code's** 'Live Share' facility and work from the same place whilst using *Zoom* to stay in constant communication. Once completed we moved onto the front end to help bring the controllers we had created to life. 
+
+## Back End.
 
 #### Models:
 
@@ -103,9 +111,7 @@ Once the backend had hit MVP point we moved onto the front end, however, there w
 
 Another key aspect of controllers that I undertook was the testing of all controller functions. I did two stages of testing. Firstly, I performed an initial test to ensure the controller is working efficiently. Secondly, I went through adding specific error handling to improve our JSON responses for front error handling. In the above screenshots I used consistent comments to signify that both checks had been completed. This was helpful for the rest of the team on the front end as they could check if the functions had been tested yet if they were having issues with the responses.
 
----------------------
-
-### Front End.
+## Front End.
 
 By the time we had finished back end, a fair amount of work had been done on front end. This was my first proper developer moment coming into a situation where I was confronted by a bunch of code I hadn't written and had to adapt and catch up. It was a great opportunity to help my team mates, who were more familiar with the front end code, to diagnose and resolve issues. There were occasions where my teammates no longer wanted to work on a certain area of the app and I took over, this was eye opening because I would have to deal with half written code that I wasn't acquainted with. 
 
@@ -121,15 +127,15 @@ Similar to the processes used in the above section, I used **Axios** and the **R
 
 A lot of the stuff I have done on the front end has been centered around troubleshooting, error handling and testing then mending any issues I have found. I used **React notify toast** to add toast responses where necessary to update the user with a visual response. I had a to-do list that I added to if I was in the middle of a specific task so that I could return to it later.
 
--------------------------
+-----------------------
 
 ## **Bugs.**
 
 At this point, after considerable amount of testing and trying to cause errors to measure the response, I haven't noticed any bugs in the deployed app. I am however aware of an issue of returning the state back to an empty string on submission of a private message.
 
--------------------------
+-----------------------
 
-## **Wins and Issues.**
+## **Wins and Hurdles.**
 
 #### Wins:
 
@@ -143,19 +149,29 @@ The biggest win overall was the successful collaboration in a team of big person
 
 Looking back over previous projects the hurdles now seem less daunting. Most of the hurdles I encountered were fiddly little bits which I resolved. There are no particular hurdles that standout.
 
-As a team we experienced several issues with *github*. We agreed at the beginning to come together every time we were due a push to the development branch to handle merge clashes as a team. 
+As a team we experienced several issues with *Github*. We agreed at the beginning to come together every time we were due a push to the development branch to handle merge clashes as a team. 
 
 Another hurdle we faced as a team was styling in **SCSS** with **Bulma** present. Bulma is a brilliant tool to aid structure, but it proved problematic to deviate from when you want to add some personalised style.
 
----------------------
+-----------------------
 
-## **Screenshots of project**
+## **Takeaways.**
+
+Overall this project was full of learning curves and firsts for myself and the team. 
+
+My first big takeaway from this project was working as a larger team on a full stack app. Our four member team was full of very big personalities and we pulled together fantastically to achieve our goal. Our decision to remain in constant contact using a mixture of *Zoom* and *Slack* was valuable.
+
+Another takeaway from this project was how adaptable Node.js is for creating backend functionality and the value of using *console logs* to work my way through issues, the use of console logs also applies to working on the front end. 
+
+During this project I feel like my understanding and confidence in using and reading **React** also grew dramatically. When I moved onto the front end there was a considerable amount already built so I gained real world experience of looking at code written by someone else and figuring out what was going on and what needed to be done to add or adapt the code.   
+
+-----------------------
+
+## **Screenshots of project.**
 ![Screenshot of user dashboard](images/Screenshot1.jpeg)
 ![Screenshot of clothes index](images/Screenshot2.jpeg)
 ![Screenshot of clothes show](images/Screenshot3.jpeg)
 ![Screenshot of other user show](images/Screenshot4.jpeg)
 ![Screenshot of posts index](images/Screenshot5.jpeg)
 
-
-
-
+-----------------------
