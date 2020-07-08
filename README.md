@@ -76,7 +76,7 @@ This app was deployed using **heroku**.
 
 ## Planning.
 
-We began by using a shared **Google Drive** document to plot ideas. Once we had come to a decision we used the **Miro Board** shown in the overview section to build a wireframe. When we had a good idea on our *MVP*. Then we used a Trello Board to divide each component into seperate tasks and draft which dependencies we required and what we will use them for. 
+We began by using a shared **Google Drive** document to plot ideas. Once we had come to a decision we used the **Miro Board** shown in the overview section to build a wireframe. Once we had a good idea on our core *MVP*, we then used a Trello Board to divide each component into seperate tasks and draft which dependencies we required and what we will use them for. 
 
 ![Image of Trello Board](images/Trello.jpeg)
 
